@@ -9,10 +9,10 @@ namespace Factory
             IEnemy enemy = null;
             switch (type)
             {
-                case EnemyType.哥布林:
+                case EnemyType.Goblin:
                     enemy =  JKFrame.ResSystem.LoadAsset<EnemyBase>("Resources/Prefabs/Enemy/哥布林");
                     break;
-                case EnemyType.野猪:
+                case EnemyType.Boar:
                     enemy = JKFrame.ResSystem.LoadAsset<EnemyBase>("Resources/Prefabs/Enemy/野猪");
                     break;
             }

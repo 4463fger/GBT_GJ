@@ -2,11 +2,11 @@
 {
     public enum EnemyType
     {
-        哥布林,
-        野猪,
+        Goblin,
+        Boar,
     }
     
-    public class 哥布林 : EnemyBase
+    public class Goblin : EnemyBase
     {
         public override void Hurt()
         {
