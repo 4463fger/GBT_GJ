@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c844fe019ae4241959a2333d66c709d, type: 3}
+  m_Name: Level1EnemyConfig
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  EnemyWaveGroups:
+  - Name: "\u5173\u53611"
+    Description: "\u8FD9\u91CC\u662FLevel\u5173\u5361\u55B5"
+    Waves:
+    - PreWaveDelay: 2
+      Name: "\u4E09\u89D2\u5F62\u654C\u4EBA"
+      GenerateDuration: 2
+      EnemyPrefab: {fileID: 3809410297522304920, guid: 3771264214efdfd4791b26370398092d, type: 3}
+      seconds: 10
+    - PreWaveDelay: 2
+      Name: "\u6B63\u65B9\u5F62\u654C\u4EBA"
+      GenerateDuration: 1
+      EnemyPrefab: {fileID: 6116996509410063895, guid: 25d30284694b65142a9787ce0d9e7204, type: 3}
+      seconds: 10
