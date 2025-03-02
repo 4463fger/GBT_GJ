@@ -22,16 +22,19 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   EnemyWaveGroups:
-  - Name: "\u5173\u53611"
+  - Name: "\u7B2C\u4E00\u6CE2"
     Description: "\u8FD9\u91CC\u662FLevel\u5173\u5361\u55B5"
     Waves:
-    - PreWaveDelay: 2
+    - PreWaveDelay: 0.1
       Name: "\u4E09\u89D2\u5F62\u654C\u4EBA"
       GenerateDuration: 2
-      EnemyPrefab: {fileID: 3809410297522304920, guid: 3771264214efdfd4791b26370398092d, type: 3}
+      EnemyType: 0
       seconds: 10
-    - PreWaveDelay: 2
+    - PreWaveDelay: 0.1
       Name: "\u6B63\u65B9\u5F62\u654C\u4EBA"
       GenerateDuration: 1
-      EnemyPrefab: {fileID: 6116996509410063895, guid: 25d30284694b65142a9787ce0d9e7204, type: 3}
+      EnemyType: 1
       seconds: 10
+  - Name: "\u7B2C\u4E00\u6CE2"
+    Description: 
+    Waves: []

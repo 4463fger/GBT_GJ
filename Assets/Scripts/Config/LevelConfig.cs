@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Game.Enemy;
 using JKFrame;
 using UnityEngine;
 
@@ -31,7 +32,7 @@ namespace Config
         
         public string Name;
         public float GenerateDuration = 1;
-        public GameObject EnemyPrefab;
+        public EnemyType EnemyType;
         public int seconds = 10; // 默认一波持续10s
     }
 #endregion

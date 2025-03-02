@@ -72,7 +72,7 @@ namespace Game.Enemy
                     m_CurrentGenerateSeconds = 0;
 
                     //TODO:生成怪物
-                    JKLog.Succeed($"生成{m_currentWave.EnemyPrefab.name}成功");
+                    IEnemy go = GameApp.Instance.FactoryManager.CreateEnemy(m_currentWave.EnemyType);
 
                     // 判断波次是否结束
                     if (m_CurrentWaveSeconds >= m_currentWave.seconds)
