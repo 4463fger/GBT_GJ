@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace Game.Enemy
+﻿namespace Game.Enemy
 {
     public enum EnemyType
     {
@@ -8,9 +6,9 @@ namespace Game.Enemy
         野猪,
     }
     
-    public class Enemy : MonoBehaviour,IEnemy
+    public class 哥布林 : EnemyBase
     {
-        public void Hurt()
+        public override void Hurt()
         {
             
         }
