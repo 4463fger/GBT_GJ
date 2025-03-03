@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName ="MapConfig",menuName ="Config/MapConfig")]
@@ -15,6 +17,14 @@ public class MapConfig : ScriptableObject
     public int Width;
     [Range (0, 1f)] public float normalGridProbability;
     [Range (0, 1f)] public float destinationGridProbability;
+    public List<MapTile> mapTileList;
+    public List<Vector2> Path;
     public Vector2 startPos;
     public Vector2 endPos;
+}
+[Serializable]
+public class MapTile
+{
+    public string tileName;
+    public Sprite spriteRenderer;
 }
