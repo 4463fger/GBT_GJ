@@ -1,16 +1,24 @@
 ﻿using UnityEngine;
-
-public class BulletTower:TowerBase
+/// <summary>
+/// 子弹塔
+/// </summary>
+public class BulletTower : TowerBase
 {
-    public GameObject Bullet;
-
-    private void Update()
-    {
-    }
+    
 
     private void Attack()
     {
-        attackTimer-= Time.deltaTime;
-        
+        GameObject bullet=Instantiate(Bullet);
+        bullet.transform.up = getEnemyCollider()[0].gameObject.transform.position;
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+        if(isTimeEnd()&&isHaveEnemy())
+        {
+            Attack();
+            return;
+        }
     }
 }
