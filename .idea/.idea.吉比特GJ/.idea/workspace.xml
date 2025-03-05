@@ -5,18 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5de7a06-7497-4cdd-98d4-c2ba087fc6cb" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIBackGroundPanel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIBackGroundPanel.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIGameSettingPanel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIGameSettingPanel.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIGameStartPanel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIGameStartPanel.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Manager.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/MapManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/MapManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Map.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Block.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Block.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.吉比特GJ/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.吉比特GJ/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.吉比特GJ/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.吉比特GJ/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameStart.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameStart.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test/TestEnemyScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test/TestEnemyScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/TileMap/Map/Map.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Arts/TileMap/Map/Map.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameApp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameApp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts_BACKUP_249.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts_LOCAL_249.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts_REMOTE_249.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +49,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f68865d630f84dbe83e4490ea2afd98a176800/6e/61a264a3/LoadSceneMode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Grid/PathGrid.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Grid/PlacedableGrid.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/Uinty projects/吉比特GJ/ProjectSettings/EditorBuildSettings.asset" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -135,7 +137,9 @@
       <workItem from="1740910897293" duration="8460000" />
       <workItem from="1741004648126" duration="1794000" />
       <workItem from="1741011923444" duration="561000" />
-      <workItem from="1741068268726" duration="3785000" />
+      <workItem from="1741068268726" duration="4272000" />
+      <workItem from="1741157837085" duration="901000" />
+      <workItem from="1741161051093" duration="3763000" />
     </task>
     <task id="LOCAL-00001" summary="导入Dowteen和基本素材">
       <option name="closed" value="true" />
@@ -177,7 +181,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740919314836</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="导入TMP，基本主界面UI">
+      <option name="closed" value="true" />
+      <created>1741072474969</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1741072474969</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,7 +244,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="4463" />
+                        <option value="origin/苗木" />
                       </list>
                     </value>
                   </entry>
@@ -251,7 +263,8 @@
     <MESSAGE value="波次系统基本架构实现,增加了怪物波次配置" />
     <MESSAGE value="简单实现怪物生成逻辑" />
     <MESSAGE value="怪物基本架构搭建完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="怪物基本架构搭建完成" />
+    <MESSAGE value="导入TMP，基本主界面UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="导入TMP，基本主界面UI" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
 </project>
