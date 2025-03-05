@@ -29,6 +29,8 @@ namespace UI
         {
             SceneSystem.LoadScene("LevelChoose");
             UISystem.Close<UIGameStartPanel>();
+            // 加载关卡选择面板
+            UISystem.Show<UILevelChoosePanel>();
         }
         
         private void OnOpenSettingsPanelClick()

@@ -28,8 +28,8 @@ namespace Game
         private void Start()
         {
             // 游戏开始
-            //UISystem.Show<UIBackGroundPanel>();
-           // UISystem.Show<UIGameStartPanel>();
+            UISystem.Show<UIBackGroundPanel>();
+            UISystem.Show<UIGameStartPanel>();
         }
 
         private void Update()
