@@ -4,17 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5de7a06-7497-4cdd-98d4-c2ba087fc6cb" name="更改" comment="简单实现怪物生成逻辑">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyBase.cs.meta" afterDir="false" />
+    <list default="true" id="a5de7a06-7497-4cdd-98d4-c2ba087fc6cb" name="更改" comment="地图Block的另一版实现">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Scene.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UILevelChoosePanel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UILevelChoosePanel.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.吉比特GJ/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.吉比特GJ/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemy/Enemy1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemy/Enemy1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemy/Enemy2.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemy/Enemy2.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/哥布林.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/Enemy.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/哥布林.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factory/EnemyFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factory/EnemyFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level 1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameApp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameApp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIGameStartPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIGameStartPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,8 +41,10 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f68865d630f84dbe83e4490ea2afd98a176800/3b/41755a5b/GameObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f68865d630f84dbe83e4490ea2afd98a176800/6e/61a264a3/LoadSceneMode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Grid/PathGrid.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Grid/PlacedableGrid.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/Uinty projects/吉比特GJ/ProjectSettings/EditorBuildSettings.asset" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -59,19 +59,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "4463",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;4463&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="附加到 Unity 编辑器.附加到 Unity 编辑器">
     <configuration name="启动 Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="D:\unity\2022.3.53f1c1\Editor\Unity.exe" />
@@ -129,7 +129,13 @@
       <workItem from="1740842762081" duration="933000" />
       <workItem from="1740844380748" duration="1882000" />
       <workItem from="1740909766257" duration="532000" />
-      <workItem from="1740910897293" duration="8313000" />
+      <workItem from="1740910897293" duration="8460000" />
+      <workItem from="1741004648126" duration="1794000" />
+      <workItem from="1741011923444" duration="561000" />
+      <workItem from="1741068268726" duration="4272000" />
+      <workItem from="1741157837085" duration="901000" />
+      <workItem from="1741161051093" duration="3763000" />
+      <workItem from="1741170979168" duration="2188000" />
     </task>
     <task id="LOCAL-00001" summary="导入Dowteen和基本素材">
       <option name="closed" value="true" />
@@ -163,7 +169,31 @@
       <option name="project" value="LOCAL" />
       <updated>1740918058676</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="怪物基本架构搭建完成">
+      <option name="closed" value="true" />
+      <created>1740919314836</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1740919314836</updated>
+    </task>
+    <task id="LOCAL-00006" summary="导入TMP，基本主界面UI">
+      <option name="closed" value="true" />
+      <created>1741072474969</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1741072474969</updated>
+    </task>
+    <task id="LOCAL-00007" summary="地图Block的另一版实现">
+      <option name="closed" value="true" />
+      <created>1741171308355</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1741171308355</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,7 +266,10 @@
     <MESSAGE value="完成敌人生成逻辑" />
     <MESSAGE value="波次系统基本架构实现,增加了怪物波次配置" />
     <MESSAGE value="简单实现怪物生成逻辑" />
-    <option name="LAST_COMMIT_MESSAGE" value="简单实现怪物生成逻辑" />
+    <MESSAGE value="怪物基本架构搭建完成" />
+    <MESSAGE value="导入TMP，基本主界面UI" />
+    <MESSAGE value="地图Block的另一版实现" />
+    <option name="LAST_COMMIT_MESSAGE" value="地图Block的另一版实现" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
 </project>
