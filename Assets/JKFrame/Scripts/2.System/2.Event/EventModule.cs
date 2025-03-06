@@ -10,7 +10,8 @@ namespace JKFrame
         private Dictionary<string, IEventInfo> eventInfoDic = new Dictionary<string, IEventInfo>();
         #region 内部接口、内部类
 
-        private interface IEventInfo { void Destory(); }
+        private interface IEventInfo 
+        { void Destory(); }
 
         /// <summary>
         /// 无参-事件信息
