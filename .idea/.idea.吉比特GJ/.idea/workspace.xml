@@ -5,18 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5de7a06-7497-4cdd-98d4-c2ba087fc6cb" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.吉比特GJ/.idea/shelf/___.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.吉比特GJ/.idea/shelf/___1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.吉比特GJ/.idea/shelf/在变基之前未提交的更改_[更改]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.吉比特GJ/.idea/shelf/在变基之前未提交的更改_[更改]1/shelved.patch" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIElement.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIElement/ScrollViewController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIElement/ScrollViewController.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.吉比特GJ/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.吉比特GJ/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Arts/Sprite/Level/Level1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Arts/Sprite/Level/Level1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/UIGameStartPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/UIGameStartPanel.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/UILevelChoosePanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/UILevelChoosePanel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameApp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameApp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIGameSettingPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIGameSettingPanel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIGameStartPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIGameStartPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test/UI/TestGameLevelChooseScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test/UI/TestGameLevelChooseScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +43,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f68865d630f84dbe83e4490ea2afd98a176800/6e/61a264a3/LoadSceneMode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Grid/PathGrid.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Grid/PlacedableGrid.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/UIElement/ScrollViewController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/UIGameSettingPanel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/UIGameStartPanel.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -146,7 +141,11 @@
       <workItem from="1741444893787" duration="431000" />
       <workItem from="1741446775049" duration="407000" />
       <workItem from="1741447683182" duration="2664000" />
-      <workItem from="1741484728698" duration="3655000" />
+      <workItem from="1741484728698" duration="4398000" />
+      <workItem from="1741500923489" duration="1978000" />
+      <workItem from="1741515339962" duration="6508000" />
+      <workItem from="1741521971300" duration="2073000" />
+      <workItem from="1741600594829" duration="4942000" />
     </task>
     <task id="LOCAL-00001" summary="导入Dowteen和基本素材">
       <option name="closed" value="true" />
@@ -212,7 +211,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741173281491</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="实现主界面的基本逻辑">
+      <option name="closed" value="true" />
+      <created>1741489167954</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1741489167954</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,7 +297,8 @@
     <MESSAGE value="地图Block的另一版实现" />
     <MESSAGE value="实现场景切换" />
     <MESSAGE value="关卡选择界面" />
-    <option name="LAST_COMMIT_MESSAGE" value="关卡选择界面" />
+    <MESSAGE value="实现主界面的基本逻辑" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现主界面的基本逻辑" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
 </project>
