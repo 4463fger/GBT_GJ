@@ -57,10 +57,16 @@ namespace Map
             // [3] : 按照坐标排序
            tempPos.Sort((a, b) =>
            {
-               if (a.y != b.y) return b.y - a.y; // 按行优先降序排列（假设y轴向上为正）
+               //if (a.y != b.y) return b.y - a.y; // 按行优先降序排列（假设y轴向上为正）
+               if (a.y != b.y) return a.y - b.y;
                return a.x - b.x; // 同一行按列升序排列
            });
             
+            for(int i=0; i<tempPos.Count; i++)
+            {
+                Debug.Log(tempPos[i]);
+            }    
+
             // [4] : 将临时数组位置信息转换为二维数组的Block进行存储
             Object prefabObj = JKFrame.ResSystem.LoadAsset<Object>("Prefabs/Model/block");
             for (int i = 0; i < tempPos.Count; i++)
@@ -78,7 +84,7 @@ namespace Map
                 // 根据Tilemap设置Block类型
                 if (m_TileMap.GetTile(tempPos[i]) != null)
                 {
-                    b.Type = BlockType.Null; // m_TileMap生成的格子是Null
+                    b.Type = BlockType.Placedable; // m_TileMap生成的格子是Null
                 }
                 else if (m_PathMap.GetTile(tempPos[i]) != null)
                 {

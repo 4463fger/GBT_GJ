@@ -174,6 +174,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: JKFrame
       objectReference: {fileID: 0}
+    - target: {fileID: 8593087385479084827, guid: 92a72c9a3d3131f498a24198d7029305, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593087385479084827, guid: 92a72c9a3d3131f498a24198d7029305, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -189,6 +197,7 @@ GameObject:
   m_Component:
   - component: {fileID: 882759279}
   - component: {fileID: 882759280}
+  - component: {fileID: 882759281}
   m_Layer: 0
   m_Name: GameRoot
   m_TagString: Untagged
@@ -223,6 +232,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0953ff300f0847f3a5fbbf25686e7a0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &882759281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882759278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2307dbe6971160b4db30f6e198653f4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitPos: {x: 0, y: 0}
+  GridLength: 16
+  Config: {fileID: 11400000, guid: 2933651eadb7ccc429df66ab7ea2fafe, type: 2}
 --- !u!1 &1262424203
 GameObject:
   m_ObjectHideFlags: 0
