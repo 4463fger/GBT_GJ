@@ -231,7 +231,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -299,6 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc01a243ab83ef04aa7a9f5aacac7ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelConfig: {fileID: 0}
 --- !u!1001 &2098587672
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -350,6 +351,10 @@ PrefabInstance:
     - target: {fileID: 6029324472053449207, guid: 92a72c9a3d3131f498a24198d7029305, type: 3}
       propertyPath: m_Name
       value: JKFrame
+      objectReference: {fileID: 0}
+    - target: {fileID: 6220994715086994164, guid: 92a72c9a3d3131f498a24198d7029305, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

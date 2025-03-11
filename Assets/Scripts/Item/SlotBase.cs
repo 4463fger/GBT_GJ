@@ -42,6 +42,7 @@ public class SlotBase : MonoBehaviour, IPointerClickHandler ,IPointerEnterHandle
         {
             this.towerConfig = towerConfig;
             CostText.text = towerConfig.Coin.ToString();
+            selectedImage.gameObject.SetActive(false);
             towerImage.sprite = towerConfig.towerSprite;
         }
         else if(towerConfig==null) 
