@@ -680,6 +680,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   localizationConfig: {fileID: 0}
+  Level1: {fileID: 1647954734690522611}
+  Level2: {fileID: 2960836367502712290}
+  Level3: {fileID: 673131262300108076}
+  Level4: {fileID: 7033823219796644096}
+  Level5: {fileID: 5070885828157524508}
 --- !u!1 &5112482695363122925
 GameObject:
   m_ObjectHideFlags: 0

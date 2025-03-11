@@ -1,5 +1,7 @@
-﻿using UnityEngine;
-
+﻿using System;
+using UnityEngine;
+[CreateAssetMenu(fileName = "TowerConfig", menuName = "Config/TowerConfig")]
+[Serializable]
 public class TowerConfig:ScriptableObject
 {
     public int Coin;//所需消耗的金币   

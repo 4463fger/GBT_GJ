@@ -38,3 +38,5 @@ MonoBehaviour:
   - Name: "\u7B2C\u4E00\u6CE2"
     Description: 
     Waves: []
+  towerConfigs:
+  - {fileID: 11400000, guid: 44600fa2fcca2ba44bb0932092ad8575, type: 2}

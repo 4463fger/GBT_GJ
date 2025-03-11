@@ -10,6 +10,7 @@ namespace Config
     public class LevelConfig : ConfigBase
     {
         [SerializeField]public List<EnemyWaveGroup> EnemyWaveGroups = new List<EnemyWaveGroup>();
+        [SerializeField] public List<TowerConfig> towerConfigs = new List<TowerConfig>();
     }
 
 #region  怪物生成配置(波次系统)

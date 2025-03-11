@@ -61,11 +61,7 @@ namespace Map
                if (a.y != b.y) return a.y - b.y;
                return a.x - b.x; // 同一行按列升序排列
            });
-            
-            for(int i=0; i<tempPos.Count; i++)
-            {
-                Debug.Log(tempPos[i]);
-            }    
+              
 
             // [4] : 将临时数组位置信息转换为二维数组的Block进行存储
             Object prefabObj = JKFrame.ResSystem.LoadAsset<Object>("Prefabs/Model/block");

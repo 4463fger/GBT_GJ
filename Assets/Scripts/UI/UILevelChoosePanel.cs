@@ -1,25 +1,39 @@
 ﻿using Game;
 using JKFrame;
 using UnityEngine.UI;
+using UnityEngine;
 
 namespace UI
 {
     [UIWindowData(typeof(UILevelChoosePanel),true,"Prefabs/UI/UILevelChoosePanel",2)]
     public class UILevelChoosePanel : UI_WindowBase
     {
+        [SerializeField] private Button Level1;
+        [SerializeField] private Button Level2;
+        [SerializeField] private Button Level3;
+        [SerializeField] private Button Level4;
+        [SerializeField] private Button Level5;
         public override void Init()
         {
-            transform.Find("Scroll View/Viewport/Content/Level1").GetComponent<Button>().onClick.AddListener(() =>
+            Level1.onClick.AddListener(()=>  onSceneCHangeclick("Level1"));
+            Level2.onClick.AddListener(() => onSceneCHangeclick("Level2"));
+            Level3.onClick.AddListener(() => onSceneCHangeclick("Level3"));
+            Level4.onClick.AddListener(() => onSceneCHangeclick("Level4"));
+            Level5.onClick.AddListener(() => onSceneCHangeclick("Level5"));
+        }
+
+        private void onSceneCHangeclick(string sceneName)
+        {
+            SceneSystem.LoadSceneAsync(sceneName, (op) =>
             {
-                SceneSystem.LoadSceneAsync("Level 1", (op) =>
+                if (op == 1.0f)
                 {
-                    if (op == 1.0f)
-                    {
-                        GameApp.Instance.MapManager.Init();
-                        UISystem.Close<UIBackGroundPanel>();
-                        UISystem.Close<UILevelChoosePanel>();
-                    }
-                });
+                    GameApp.Instance.MapManager.Init();
+                    UISystem.Close<UIBackGroundPanel>();
+                    UISystem.Close<UILevelChoosePanel>();
+                    UISystem.Show<FightUI>();
+                    FightManager.Instance.InitFightManager(sceneName);
+                }
             });
         }
     }
