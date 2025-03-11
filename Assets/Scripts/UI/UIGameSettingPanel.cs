@@ -9,38 +9,46 @@ namespace UI
     /// </summary>
     public class UIGameSettingPanel : MonoBehaviour
     {
-        private Image Bg;
-        private GameObject Btn_Options;
-        private GameObject Btn_ExitSetting;
-        
+        // 需要过渡的对象
+        private CanvasGroup m_CanvansGroup;
         private void Awake()
         {
-            Bg = transform.Find("Bg").GetComponent<Image>();
-            Btn_Options = transform.Find("Btn_Options").gameObject;
-            Btn_ExitSetting = transform.Find("Btn_ExitSetting").gameObject;
-            Btn_Options.GetComponent<Button>().onClick.AddListener(OnOptionsClick);
-            Btn_ExitSetting.GetComponent<Button>().onClick.AddListener(OnExitSettingClick);
+            m_CanvansGroup = GetComponent<CanvasGroup>();
+            // 总音量设置
+            transform.Find("GlobalAudio/Slider").GetComponent<Slider>().onValueChanged.AddListener((value) =>
+            {
+                JKFrame.AudioSystem.GlobalVolume = value;
+            });
+            
+            // BGM设置
+            transform.Find("MusicAudio/Slider").GetComponent<Slider>().onValueChanged.AddListener((value) =>
+            {
+                JKFrame.AudioSystem.BGVolume = value;
+            });
+            
+            // 音效设置
+            transform.Find("EffectAudio/Slider").GetComponent<Slider>().onValueChanged.AddListener((value) =>
+            {
+                JKFrame.AudioSystem.EffectVolume = value;
+            });
+            
+            // 返回按钮
+            transform.Find("Btn_ExitSetting").GetComponent<Button>().onClick.AddListener(Hide);
         }
 
         public void Show()
         {
+            m_CanvansGroup.DOFade(1f, 1f);
             gameObject.SetActive(true);
         }
         
         public void Hide()
         {
+            m_CanvansGroup.DOFade(0f, 1f);
             gameObject.SetActive(false);
-        }
-        
-        private void OnOptionsClick()
-        {
-            //TODO:打开选项设置面板
-            // 设置分辨率,声音,语言等
-        }
-
-        private void OnExitSettingClick()
-        {
-            Hide();
+            JKFrame.UISystem.GetWindow<UIGameStartPanel>().GameButton.transform
+                .DOLocalMoveX(0, 0.3f)
+                .SetEase(Ease.InQuad);
         }
     }
 }
