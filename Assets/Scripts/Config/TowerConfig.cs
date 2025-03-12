@@ -8,4 +8,6 @@ public class TowerConfig:ScriptableObject
     public string towerName;//塔的名字
     public string towerDescrption;//塔的描述
     public Sprite towerSprite;//塔的图标
+    public GameObject towerPreviewPrefab;//塔的预视图预制体
+    public GameObject towerPrefab;//塔的预制体
 }

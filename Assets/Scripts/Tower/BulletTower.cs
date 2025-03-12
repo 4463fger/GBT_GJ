@@ -4,7 +4,14 @@
 /// </summary>
 public class BulletTower : TowerBase
 {
-    
+    private int PosX;
+    private int PosY;
+
+    public BulletTower(int posX, int posY)
+    {
+        this.PosX = posX;
+        this.PosY = posY;
+    }
 
     private void Attack()
     {

@@ -13,7 +13,6 @@ public class SetTowerUI:UI_WindowBase
         {
             if(i<FightManager.Instance.towerConfigList.Count)
             {
-                print("现在是第"+i+"个笼子");
                 towerConfigs[i] = FightManager.Instance.towerConfigList[i];
                 GameObject Tower=Instantiate(emptySlot, SlotTransfrom);
                 Tower?.GetComponent<SlotBase>().Init(FightManager.Instance.towerConfigList[i]);

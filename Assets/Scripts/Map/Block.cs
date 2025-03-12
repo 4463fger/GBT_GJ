@@ -40,6 +40,7 @@ namespace Map
             if(Type==BlockType.Placedable)
             {
                 //TODO:打开背包界面UI
+                //输出参数
             }
         }
 

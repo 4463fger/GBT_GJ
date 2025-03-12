@@ -28,7 +28,7 @@ namespace UI
             {
                 if (op == 1.0f)
                 {
-                    GameApp.Instance.MapManager.Init();
+                    FightManager.Instance.InitBlock(10,18);
                     UISystem.Close<UIBackGroundPanel>();
                     UISystem.Close<UILevelChoosePanel>();
                     UISystem.Show<FightUI>();
