@@ -69,17 +69,20 @@ public class SlotBase : MonoBehaviour, IPointerClickHandler ,IPointerEnterHandle
         Vector2 worldPos = GetPreviewTowerWorldPosition();
 
         // 使用世界坐标进行射线检测
-        Block block = GetWorldPosition(worldPos);
-
-        if (block != null && block.Type == BlockType.Placedable)
+        Tools.UnityTools.ScreenPointToRay2D(Camera.main, Input.mousePosition, (collider2D) =>
         {
-            Destroy(previewTower);
-            Instantiate(towerConfig.towerPrefab, block.transform.position, Quaternion.identity);
-        }
-        else
-        {
-            Destroy(previewTower); // 无效位置销毁预览
-        }
+            Block block =collider2D.gameObject.GetComponent<Block>();
+            
+            if (block != null && block.Type == BlockType.Placedable)
+            {
+                Destroy(previewTower);
+                Instantiate(towerConfig.towerPrefab, block.transform.position, Quaternion.identity);
+            }
+            else
+            {
+                Destroy(previewTower); // 无效位置销毁预览
+            }
+        });
     }
     public void Init(TowerConfig towerConfig)
     {
@@ -142,15 +145,16 @@ public class SlotBase : MonoBehaviour, IPointerClickHandler ,IPointerEnterHandle
     }
     private Block GetWorldPosition(Vector2 worldPosition)
     {
-        Ray ray=Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 100, 6))
-        {
-            Block block=hit.collider.gameObject.GetComponent<Block>();
-            print(block.gameObject.transform.position);
-            return block;
-        }
+        //  Ray ray=Camera.main.ScreenPointToRay(Input.mousePosition);
+        //  RaycastHit hit;
+        //  if (Physics.Raycast(ray, out hit, 100, 6))
+        //  {
+        //      Block block=hit.collider.gameObject.GetComponent<Block>();
+        //      print(block.gameObject.transform.position);
+        //      return block;
+        //  }
         return null;
+        // //
     }
 
     private Block GetWorldPositionTest()
