@@ -26,16 +26,17 @@ MonoBehaviour:
       Data: 0|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
-      Data: TestConfig, Assembly-CSharp
+      Data: Sirenix.OdinInspector.Editor.Examples.TypeRegistryItemSettingsExample+InheritorC,
+        Sirenix.OdinInspector.Editor
     - Name: 
       Entry: 8
       Data: 
     - Name: conversionTye
-      Entry: 9
-      Data: 0
-  generateExcelTemplatePath: E:/Unity/JKFrame2.0/Assets/TestExcelConfig/Normal
-  fileName: TestConfig
-  useLableText: 1
+      Entry: 6
+      Data: 
+  generateExcelTemplatePath: "E:/Uinty projects/\u5409\u6BD4\u7279GJ/Assets"
+  fileName: testExcel
+  useLableText: 0
   useListFied: 0
   generateExcelTemplateFieldName: nums
   conversion: 0

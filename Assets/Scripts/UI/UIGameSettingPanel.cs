@@ -1,4 +1,6 @@
 ﻿using DG.Tweening;
+using Game;
+using Game.Data;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,25 +13,40 @@ namespace UI
     {
         // 需要过渡的对象
         private CanvasGroup m_CanvansGroup;
+        private SettingData _settingData = GameApp.Instance.DataManager.SettingData;
+        [SerializeField] private Slider GlobalAudioSlider;
+        [SerializeField] private Slider MusicAudioSlider;
+        [SerializeField] private Slider EffectAudioSlider;
+        
         private void Awake()
         {
             m_CanvansGroup = GetComponent<CanvasGroup>();
+
             // 总音量设置
-            transform.Find("GlobalAudio/Slider").GetComponent<Slider>().onValueChanged.AddListener((value) =>
+            GlobalAudioSlider.value = _settingData.GlobalVolume;
+            JKFrame.AudioSystem.GlobalVolume = _settingData.GlobalVolume;
+            GlobalAudioSlider.onValueChanged.AddListener((value) =>
             {
                 JKFrame.AudioSystem.GlobalVolume = value;
+                _settingData.SaveSettingDataWithGlobalVolume(value);
             });
-            
+
             // BGM设置
-            transform.Find("MusicAudio/Slider").GetComponent<Slider>().onValueChanged.AddListener((value) =>
+            MusicAudioSlider.value = _settingData.MusicVolume;
+            JKFrame.AudioSystem.BGVolume = _settingData.MusicVolume;
+            MusicAudioSlider.onValueChanged.AddListener((value) =>
             {
                 JKFrame.AudioSystem.BGVolume = value;
+                _settingData.SaveSettingDataWithBGVolume(value);
             });
             
             // 音效设置
-            transform.Find("EffectAudio/Slider").GetComponent<Slider>().onValueChanged.AddListener((value) =>
+            EffectAudioSlider.value = _settingData.SFXVolume;
+            JKFrame.AudioSystem.EffectVolume = _settingData.SFXVolume;
+            EffectAudioSlider.onValueChanged.AddListener((value) =>
             {
                 JKFrame.AudioSystem.EffectVolume = value;
+                _settingData.SaveSettingDataWithEffectVolume(value);
             });
             
             // 返回按钮

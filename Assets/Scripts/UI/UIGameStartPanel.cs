@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using Game;
 using JKFrame;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,8 +32,14 @@ namespace UI
 
         public override void OnShow()
         {
+            var _settingData = GameApp.Instance.DataManager.SettingData;
+            
             // 默认加载BGM
-            AudioSystem.PlayBGAudio(bgmClip,fadeOutTime:0.5f);
+            AudioSystem.PlayBGAudio(bgmClip,volume: 1,fadeOutTime:0.5f);
+            
+            // 同步设置当前音量参数
+            AudioSystem.BGVolume = _settingData.MusicVolume;
+            AudioSystem.GlobalVolume = _settingData.GlobalVolume;
         }
 
         public override void OnClose()

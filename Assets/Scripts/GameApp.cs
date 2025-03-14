@@ -1,12 +1,15 @@
 ﻿using Factory;
+using Game.Data;
 using JKFrame;
 using Map;
 using UI;
+
 namespace Game
 {
     // 不同于JKRoot,为游戏管理器初始化
     public class GameApp : SingletonMono<GameApp>
     {
+        public DataManager DataManager;
         public FactoryManager FactoryManager;
         public MapManager MapManager;
         
@@ -20,6 +23,7 @@ namespace Game
 
         void InitManager()
         {
+            DataManager = new();
             FactoryManager = new();
             MapManager = new();
         }
