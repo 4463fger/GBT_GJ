@@ -71,18 +71,16 @@ public class SlotBase : MonoBehaviour, IPointerClickHandler ,IPointerEnterHandle
         // 使用世界坐标进行射线检测
         Tools.UnityTools.ScreenPointToRay2D(Camera.main, Input.mousePosition, (collider2D) =>
         {
-            Block block =collider2D.gameObject.GetComponent<Block>();
-            
+            if (collider2D == null)
+                return;
+            Block block =collider2D.gameObject?.GetComponent<Block>();
             if (block != null && block.Type == BlockType.Placedable)
             {
-                Destroy(previewTower);
                 Instantiate(towerConfig.towerPrefab, block.transform.position, Quaternion.identity);
             }
-            else
-            {
-                Destroy(previewTower); // 无效位置销毁预览
-            }
         });
+        Destroy(previewTower);
+        previewTower = null;
     }
     public void Init(TowerConfig towerConfig)
     {
