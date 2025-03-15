@@ -5,7 +5,8 @@ namespace Game.Enemy
     // 怪物基类
     public abstract class EnemyBase : MonoBehaviour,IEnemy
     {
-        public float Hp;
+        public float maxHp;
+        public float curHp;
         public float Speed;
         public float Attack;
         
@@ -16,7 +17,7 @@ namespace Game.Enemy
 
         public virtual void Hurt()
         {
-            if (Hp <= 0)
+            if (maxHp <= 0)
             {
                 Destroy(this.gameObject);        
             }

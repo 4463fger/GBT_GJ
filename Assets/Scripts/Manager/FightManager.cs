@@ -11,6 +11,7 @@ public class FightManager : SingletonMono<FightManager>
     public LevelConfig levelConfig;
     public Vector2 InitPos = new Vector2(-8.5f, -3.5f);
     [SerializeField] private GameObject Grid;
+    public Dictionary<Vector3,Vector3> GridDic=new Dictionary<Vector3,Vector3>();
     public List<TowerConfig> towerConfigList
     {
         get;
@@ -46,6 +47,7 @@ public class FightManager : SingletonMono<FightManager>
                 Block block = grid.GetComponent<Block>();
                 block.RowIndex = i;
                 block.ColIndex = j;
+                GridDic.Add(grid.transform.position,new Vector3(i, j, 0));
                 x++;
             }
             y++;

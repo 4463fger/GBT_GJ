@@ -1,4 +1,5 @@
 ﻿using JKFrame;
+using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
 /// 子弹基类
@@ -10,7 +11,7 @@ public abstract class BulletBase : MonoBehaviour
     protected float destroyTimer;
     protected AudioClip hitClip;
     protected Collider2D bulletCollider;
-
+    protected HashSet<EnemyDamage> enemyDamages = new HashSet<EnemyDamage>();
     protected virtual void Awake()
     {
         destroyTimer = destroyTime;
@@ -32,6 +33,10 @@ public abstract class BulletBase : MonoBehaviour
         AudioSystem.PlayOneShot(hitClip);
     }
     protected virtual void DestroyBullet()
+    {
+        Destroy(gameObject);
+    }
+    protected virtual void OnDestroy()
     {
         Destroy(gameObject);
     }
