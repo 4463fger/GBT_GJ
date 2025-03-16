@@ -1,7 +1,7 @@
 ﻿/*
 * ┌──────────────────────────────────┐
-* │  描    述:                       
-* │  类    名: 管理游戏数据.cs       
+* │  描    述: 管理游戏数据                      
+* │  类    名: DataManager.cs       
 * │  创    建: By 4463fger                     
 * └──────────────────────────────────┘
 */
@@ -12,10 +12,12 @@ namespace Game.Data
     {
         // 游戏数据
         public SettingData SettingData;
+        public ConfigData ConfigData;
 
         public DataManager()
         {
             SettingData = new();
+            ConfigData = new();
         }
     }
 }

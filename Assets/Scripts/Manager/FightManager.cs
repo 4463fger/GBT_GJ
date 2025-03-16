@@ -1,17 +1,20 @@
 using Config;
 using JKFrame;
 using Map;
-using System.Collections;
 using System.Collections.Generic;
+using Game;
+using Game.Enemy;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 public class FightManager : SingletonMono<FightManager>
 {
-    public LevelConfig levelConfig;
     public Vector2 InitPos = new Vector2(-8.5f, -3.5f);
     [SerializeField] private GameObject Grid;
     public Dictionary<Vector3,Vector3> GridDic=new Dictionary<Vector3,Vector3>();
+
+    public Transform EnemySpawnRoot;
+    private EnemyGenerate EnemyGenerate;
+    private LevelConfig levelConfig;
     public List<TowerConfig> towerConfigList
     {
         get;
@@ -27,14 +30,24 @@ public class FightManager : SingletonMono<FightManager>
     {
         base.Awake();
         coin = 300;
+        
+        EnemyGenerate = new();
     }
 
-    public void InitFightManager(string level)
+    #region 初始化
+    
+    public void InitFightManager(int level)
     {
-        string configName = level +"EnemyConfig";
-        levelConfig = Instantiate<LevelConfig>(Resources.Load(configName) as LevelConfig);
+        // 加载level关的配置
+        levelConfig = GameApp.Instance.DataManager.ConfigData.LoadConfig(level);
+        
+        // 初始化地图
+        // 初始化网格
+        // 初始化防御塔
         towerConfigList = levelConfig.towerConfigs;
+        InitEnemyGenerate();
     }
+    
     public void InitBlock(int width,int height)
     {
         float x = InitPos.x;
@@ -54,6 +67,17 @@ public class FightManager : SingletonMono<FightManager>
             x = InitPos.x;
         }
     }
+    
+    private void InitEnemyGenerate()
+    {
+        EnemyGenerate.Init(levelConfig);
+        //TODO:处理怪物生成位置逻辑
+        EnemyGenerate.SetGeneratePos(gameObject.transform);
+        EnemyGenerate.StartFight(true);
+    }
+    
+    #endregion
+    
     public bool isCanBuyTower(int towerCoin)
     {
         return towerCoin > coin ? false : true;

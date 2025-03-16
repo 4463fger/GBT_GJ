@@ -2,8 +2,13 @@
 
 namespace Game.Enemy
 {
+    public enum EnemyType
+    {
+        Goblin,
+        Boar,
+    }
     // 怪物基类
-    public abstract class EnemyBase : MonoBehaviour,IEnemy
+    public abstract class EnemyBase<T> : MonoBehaviour,IEnemy where T : EnemyBase<T>
     {
         public float maxHp;
         public float curHp;
@@ -22,5 +27,8 @@ namespace Game.Enemy
                 Destroy(this.gameObject);        
             }
         }
+
+        // 死亡
+        protected abstract void Die();
     }
 }

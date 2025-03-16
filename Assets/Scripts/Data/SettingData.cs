@@ -32,7 +32,9 @@ namespace Game.Data
         {
             if (!Directory.Exists(Application.persistentDataPath + "/" + "setting"))
             {
+#if UNITY_EDITOR
                 JKLog.Warning($"依然不存在这个路径{Application.persistentDataPath + "/" + "setting"}");
+#endif
                 GlobalVolume = 1f;
                 MusicVolume = 1f;
                 SFXVolume = 1f;

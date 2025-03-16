@@ -32,7 +32,9 @@ namespace UI
                     UISystem.Close<UIBackGroundPanel>();
                     UISystem.Close<UILevelChoosePanel>();
                     UISystem.Show<FightUI>();
-                    FightManager.Instance.InitFightManager(sceneName);
+
+                    int level = int.Parse(sceneName.Replace("Level",""));
+                    FightManager.Instance.InitFightManager(level);
                 }
             });
         }
