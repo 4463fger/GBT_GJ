@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Config;
-using JKFrame;
 using UnityEngine;
 
 namespace Game.Enemy
 {
-    public class EnemyGenerate : MonoBehaviour
+    public class EnemyGenerate
     {
-        // 这里构想为每个场景都有一个EnemyGenerate,挂在不同的LevelConfig
-        [SerializeField] private LevelConfig m_currentLevelConfig;
+        private WaveConfig _mCurrentWaveConfig;
 
         private float m_CurrentGenerateSeconds = 0;
         private float m_CurrentWaveSeconds = 0;
@@ -26,9 +23,18 @@ namespace Game.Enemy
         private Queue<EnemyWave> m_EnemyWavesQueue = new();
         private EnemyWave m_currentWave; // 当前波次
 
-        private void Start()
+        private Transform spawnPos;
+        private bool isFight = false;
+
+        public void StartFight(bool isFight)
         {
-            foreach (var group in m_currentLevelConfig.EnemyWaveGroups)
+            this.isFight = isFight;
+        }
+
+        public void Init(WaveConfig waveConfig)
+        {
+            this._mCurrentWaveConfig = waveConfig;
+            foreach (var group in _mCurrentWaveConfig.EnemyWaveGroups)
             {
                 foreach (var wave in group.Waves)
                 {
@@ -36,10 +42,20 @@ namespace Game.Enemy
                     m_TotalCount++;
                 }
             }
+            
+            JKFrame.MonoSystem.AddUpdateListener(OnUpdate);
         }
 
-        private void Update()
+        public void UnInit()
         {
+            JKFrame.MonoSystem.RemoveUpdateListener(OnUpdate);
+        }
+
+        private void OnUpdate()
+        {
+            if (isFight == false)
+                return;
+            
             // 波次为null，并且还有怪,就切换到下一波
             if (m_currentWave == null)
             {
@@ -71,9 +87,19 @@ namespace Game.Enemy
                 {
                     m_CurrentGenerateSeconds = 0;
 
-                    //TODO:生成怪物
-                    IEnemy go = GameApp.Instance.FactoryManager.CreateEnemy(m_currentWave.EnemyType);
-
+                    //TODO:生成怪物的一个小bug未修复
+                    switch (m_currentWave.EnemyType)
+                    {
+                        case EnemyType.Goblin:
+                            Goblin goblin = GameApp.Instance.FactoryManager.CreateEnemy<Goblin>(m_currentWave.EnemyType);
+                            goblin.transform.position = spawnPos.position;
+                            break;
+                        case EnemyType.Boar:
+                            Boar boar = GameApp.Instance.FactoryManager.CreateEnemy<Boar>(m_currentWave.EnemyType);
+                            boar.transform.position = spawnPos.position;
+                            break;
+                    }
+                    
                     // 判断波次是否结束
                     if (m_CurrentWaveSeconds >= m_currentWave.seconds)
                     {
@@ -81,6 +107,15 @@ namespace Game.Enemy
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// 设置怪物出生点
+        /// </summary>
+        /// <param name="pos"></param>
+        public void SetGeneratePos(Transform transform)
+        {
+            this.spawnPos = transform;
         }
     }
 }

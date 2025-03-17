@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c844fe019ae4241959a2333d66c709d, type: 3}
+  m_Name: Level1
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  EnemyWaveGroups:
+  - Name: "\u7B2C\u4E00\u6CE2"
+    Description: "\u8FD9\u91CC\u662FLevel\u5173\u5361\u55B5"
+    Waves:
+    - PreWaveDelay: 0.1
+      Name: "\u4E09\u89D2\u5F62\u654C\u4EBA"
+      GenerateDuration: 2
+      EnemyType: 0
+      seconds: 10
+    - PreWaveDelay: 0.1
+      Name: "\u6B63\u65B9\u5F62\u654C\u4EBA"
+      GenerateDuration: 1
+      EnemyType: 1
+      seconds: 10
+  - Name: "\u7B2C\u4E00\u6CE2"
+    Description: 
+    Waves: []
+  towerConfigs:
+  - {fileID: 11400000, guid: 44600fa2fcca2ba44bb0932092ad8575, type: 2}

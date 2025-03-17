@@ -28,11 +28,12 @@ namespace UI
             {
                 if (op == 1.0f)
                 {
-                    FightManager.Instance.InitBlock(10,18);
                     UISystem.Close<UIBackGroundPanel>();
                     UISystem.Close<UILevelChoosePanel>();
                     UISystem.Show<FightUI>();
-                    FightManager.Instance.InitFightManager(sceneName);
+
+                    int level = int.Parse(sceneName.Replace("Level",""));
+                    FightManager.Instance.InitFightManager(level);
                 }
             });
         }

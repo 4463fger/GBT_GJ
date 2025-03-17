@@ -1,22 +1,34 @@
-﻿using Game.Enemy;
+﻿using System.Collections.Generic;
+using Game.Enemy;
+using UnityEngine;
 
 namespace Factory
 {
+    //TODO:没有跟对象池关联
     public class EnemyFactory : IFactory
     {
-        public IEnemy CreateEnemy(EnemyType type)
+        public EnemyFactory()
+        {
+            JKFrame.ResSystem.InitGameObjectPool("Prefabs/Enemy/哥布林",30,30);
+            JKFrame.ResSystem.InitGameObjectPool("Prefabs/Enemy/野猪",30,30);
+        }
+        
+        public T CreateEnemy<T>(EnemyType type) where T : MonoBehaviour, IEnemy
         {
             IEnemy enemy = null;
+
             switch (type)
             {
                 case EnemyType.Goblin:
-                    enemy =  JKFrame.ResSystem.LoadAsset<EnemyBase>("Resources/Prefabs/Enemy/哥布林");
+                    enemy = JKFrame.ResSystem.InstantiateGameObject<Goblin>
+                        ("Prefabs/Enemy/哥布林", FightManager.Instance.EnemySpawnRoot);
                     break;
                 case EnemyType.Boar:
-                    enemy = JKFrame.ResSystem.LoadAsset<EnemyBase>("Resources/Prefabs/Enemy/野猪");
+                    enemy = JKFrame.ResSystem.InstantiateGameObject<Boar>
+                        ("Prefabs/Enemy/野猪",FightManager.Instance.EnemySpawnRoot);
                     break;
             }
-            return enemy;
+            return enemy as T;
         }
     }
 }

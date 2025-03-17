@@ -1,5 +1,6 @@
 ﻿using Game.Enemy;
 using JKFrame;
+using UnityEngine;
 
 namespace Factory
 {
@@ -16,9 +17,9 @@ namespace Factory
         /// 获取敌人
         /// </summary>
         /// <param name="type">敌人枚举</param>
-        public IEnemy CreateEnemy(EnemyType type)
+        public T CreateEnemy<T>(EnemyType type) where T : MonoBehaviour, IEnemy
         {
-            return EnemyFactory.CreateEnemy(type);
+            return EnemyFactory.CreateEnemy<T>(type);
         }
     }
 }
