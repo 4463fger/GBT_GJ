@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Game;
+using JKFrame;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -9,6 +11,8 @@ namespace Map
     /// </summary>
     public class MapManager
     {
+        public MapConfig MapConfig;
+        private BlockMessage _blockMessage;
         private Tilemap m_TileMap; // 地图背景
         private Tilemap m_PathMap; // 地图路径
         
@@ -17,21 +21,19 @@ namespace Map
         public int RowCount; // 地图行
         public int ColCount; // 地图列
 
-        public MapManager()
-        {
-            // Test : Init();
-        }
         /// <summary>
         /// 进入关卡时对Map进行初始化
         /// </summary>
-        public void Init()
+        public void Init(int level)
         {
+            _blockMessage = GameApp.Instance.DataManager.ConfigData.LoadMapConfig(level);
+            
             m_TileMap = GameObject.Find("Grid/ground").GetComponent<Tilemap>();
             m_PathMap = GameObject.Find("Grid/road").GetComponent<Tilemap>();
             
             //地图大小 => 生成网格
-            RowCount = 10;
-            ColCount = 18;
+            RowCount = 13;
+            ColCount = 20;
             m_Blocks = new Block[RowCount, ColCount];
             
             // 存储Tile位置
@@ -64,7 +66,7 @@ namespace Map
               
 
             // [4] : 将临时数组位置信息转换为二维数组的Block进行存储
-            Object prefabObj = JKFrame.ResSystem.LoadAsset<Object>("Prefabs/Model/block");
+            Object prefabObj = JKFrame.ResSystem.LoadAsset<Object>("Prefabs/Model/TestBlock");
             for (int i = 0; i < tempPos.Count; i++)
             {
                 int row = i / ColCount;
@@ -88,11 +90,97 @@ namespace Map
                 }
                 m_Blocks[row, col] = b; // 将Block存储到二维数组中
             }
+            
+            SetRoadBlock();
+        }
+        
+        /// <summary>
+        /// 设置网格类型
+        /// </summary>
+        public void SetBlockType(Vector2 vector2,BlockType type)
+        {
+            // 3. 将Vector2坐标转换为整数行列索引
+            int col = (int)vector2.x; // x轴对应行
+            int row = (int)vector2.y; // y轴对应列
+                
+            // 4. 验证坐标是否在合法范围内
+            if (row >= 0 && row < RowCount && col >= 0 && col < ColCount)
+            {
+                // 5. 设置对应格子为Road类型
+                m_Blocks[row, col].Type = type;
+            }
+            else
+            {
+#if UNITY_EDITOR
+                Debug.LogWarning($"无效坐标: ({row},{col})");
+#endif
+            }
+        }
+
+        /// <summary>
+        /// 获取路径点
+        /// </summary>
+        /// <param name="road">哪条路</param>
+        public List<Vector2> LoadRoad(int road = 1)
+        {
+            return _blockMessage.Road[road];
         }
         
         public void Clear()
         {
             m_Blocks = null;
+        }
+        
+        // 暂定为每个地图都有两条路
+        private void SetRoadBlock()
+        {
+            // 1. 从配置中加载路径坐标列表
+            List<Vector2> roadPath = LoadRoad();
+
+            foreach (var roadCoord in roadPath)
+            {
+                // 3. 将Vector2坐标转换为整数行列索引
+                int col = (int)roadCoord.x; // x轴对应行
+                int row = (int)roadCoord.y; // y轴对应列
+                
+                // 4. 验证坐标是否在合法范围内
+                if (row >= 0 && row < RowCount && col >= 0 && col < ColCount)
+                {
+                    // 5. 设置对应格子为Road类型
+                    m_Blocks[row, col].Type = BlockType.Road;
+                    return;
+                }
+#if UNITY_EDITOR
+                Debug.LogWarning($"无效坐标: ({col},{row})");
+#endif
+            }
+            
+//             // 1. 从配置中加载路径坐标列表
+//             roadPath = LoadRoad(2);
+//
+//             foreach (var roadCoord in roadPath)
+//             {
+//                 // 3. 将Vector2坐标转换为整数行列索引
+//                 int col = (int)roadCoord.x; // x轴对应行
+//                 int row = (int)roadCoord.y; // y轴对应列
+//                 
+//                 // 4. 验证坐标是否在合法范围内
+//                 if (row >= 0 && row < RowCount && col >= 0 && col < ColCount)
+//                 {
+//                     // 5. 设置对应格子为Road类型
+//                     m_Blocks[row, col].Type = BlockType.Road;
+                        return;
+//                 }
+// #if UNITY_EDITOR
+//                 Debug.LogWarning($"无效坐标: ({row},{col})");
+// #endif
+//             }
+        }
+
+        // 设置地图的障碍物格子
+        private void SetObstacleBlockType()
+        {
+            
         }
     }
 }

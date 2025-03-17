@@ -12,9 +12,12 @@ public class FightManager : SingletonMono<FightManager>
     [SerializeField] private GameObject Grid;
     public Dictionary<Vector3,Vector3> GridDic=new Dictionary<Vector3,Vector3>();
 
+    // 怪物
     public Transform EnemySpawnRoot;
     private EnemyGenerate EnemyGenerate;
-    private LevelConfig levelConfig;
+    
+    // Config
+    private WaveConfig _waveConfig;
     public List<TowerConfig> towerConfigList
     {
         get;
@@ -39,40 +42,46 @@ public class FightManager : SingletonMono<FightManager>
     public void InitFightManager(int level)
     {
         // 加载level关的配置
-        levelConfig = GameApp.Instance.DataManager.ConfigData.LoadConfig(level);
+        _waveConfig = GameApp.Instance.DataManager.ConfigData.LoadConfig(level);
+        EnemySpawnRoot.position = GameApp.Instance.DataManager.ConfigData.LoadMapConfig(level).生成位置;
         
         // 初始化地图
+        InitMap(level);
         // 初始化网格
         // 初始化防御塔
-        towerConfigList = levelConfig.towerConfigs;
+        towerConfigList = _waveConfig.towerConfigs;
         InitEnemyGenerate();
     }
     
-    public void InitBlock(int width,int height)
+    // public void InitBlock(int width,int height)
+    // {
+    //     float x = InitPos.x;
+    //     float y = InitPos.y;
+    //     for(int i = 0;i<width;i++) 
+    //     {
+    //         for(int j = 0;j<height;j++)
+    //         {
+    //             GameObject grid = Instantiate(Grid, new Vector3(x, y, 0), Quaternion.identity);
+    //             Block block = grid.GetComponent<Block>();
+    //             block.RowIndex = i;
+    //             block.ColIndex = j;
+    //             GridDic.Add(grid.transform.position,new Vector3(i, j, 0));
+    //             x++;
+    //         }
+    //         y++;
+    //         x = InitPos.x;
+    //     }
+    // }
+
+    public void InitMap(int level)
     {
-        float x = InitPos.x;
-        float y = InitPos.y;
-        for(int i = 0;i<width;i++) 
-        {
-            for(int j = 0;j<height;j++)
-            {
-                GameObject grid = Instantiate(Grid, new Vector3(x, y, 0), Quaternion.identity);
-                Block block = grid.GetComponent<Block>();
-                block.RowIndex = i;
-                block.ColIndex = j;
-                GridDic.Add(grid.transform.position,new Vector3(i, j, 0));
-                x++;
-            }
-            y++;
-            x = InitPos.x;
-        }
+        GameApp.Instance.MapManager.Init(level);
     }
     
     private void InitEnemyGenerate()
     {
-        EnemyGenerate.Init(levelConfig);
-        //TODO:处理怪物生成位置逻辑
-        EnemyGenerate.SetGeneratePos(gameObject.transform);
+        EnemyGenerate.Init(_waveConfig);
+        EnemyGenerate.SetGeneratePos(EnemySpawnRoot);
         EnemyGenerate.StartFight(true);
     }
     

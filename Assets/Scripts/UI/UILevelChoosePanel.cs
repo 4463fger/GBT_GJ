@@ -28,7 +28,6 @@ namespace UI
             {
                 if (op == 1.0f)
                 {
-                    FightManager.Instance.InitBlock(10,18);
                     UISystem.Close<UIBackGroundPanel>();
                     UISystem.Close<UILevelChoosePanel>();
                     UISystem.Show<FightUI>();

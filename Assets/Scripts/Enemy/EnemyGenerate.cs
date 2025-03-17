@@ -6,7 +6,7 @@ namespace Game.Enemy
 {
     public class EnemyGenerate
     {
-        private LevelConfig m_currentLevelConfig;
+        private WaveConfig _mCurrentWaveConfig;
 
         private float m_CurrentGenerateSeconds = 0;
         private float m_CurrentWaveSeconds = 0;
@@ -31,10 +31,10 @@ namespace Game.Enemy
             this.isFight = isFight;
         }
 
-        public void Init(LevelConfig levelConfig)
+        public void Init(WaveConfig waveConfig)
         {
-            this.m_currentLevelConfig = levelConfig;
-            foreach (var group in m_currentLevelConfig.EnemyWaveGroups)
+            this._mCurrentWaveConfig = waveConfig;
+            foreach (var group in _mCurrentWaveConfig.EnemyWaveGroups)
             {
                 foreach (var wave in group.Waves)
                 {
@@ -87,7 +87,7 @@ namespace Game.Enemy
                 {
                     m_CurrentGenerateSeconds = 0;
 
-                    //TODO:生成怪物
+                    //TODO:生成怪物的一个小bug未修复
                     switch (m_currentWave.EnemyType)
                     {
                         case EnemyType.Goblin:
@@ -113,9 +113,9 @@ namespace Game.Enemy
         /// 设置怪物出生点
         /// </summary>
         /// <param name="pos"></param>
-        public void SetGeneratePos(Transform spawnPos)
+        public void SetGeneratePos(Transform transform)
         {
-            this.spawnPos = spawnPos;
+            this.spawnPos = transform;
         }
     }
 }
