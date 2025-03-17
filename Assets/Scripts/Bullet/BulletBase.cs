@@ -11,6 +11,7 @@ public abstract class BulletBase : MonoBehaviour
     protected float destroyTimer;
     protected AudioClip hitClip;
     protected Collider2D bulletCollider;
+
     protected HashSet<EnemyDamage> enemyDamages = new HashSet<EnemyDamage>();
     protected virtual void Awake()
     {

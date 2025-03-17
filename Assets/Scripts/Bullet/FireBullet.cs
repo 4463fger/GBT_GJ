@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class FireBullet:BulletBase
 {
     protected float bulletSpeed;
-    protected GameObject fireGrid;
+    protected Sprite fireGrid;
+    private bool isChanged;
     protected override void Shoot()
     {
         gameObject.transform.localPosition += Time.deltaTime * bulletSpeed * transform.up;
@@ -15,8 +17,25 @@ public class FireBullet:BulletBase
         {
             Hit();
             Vector3 currentGrid = collision.gameObject.transform.position;
-            Instantiate(fireGrid, currentGrid, Quaternion.identity);
-            Destroy(gameObject);
+            Vector3 newGridPos=FightManager.Instance.getCoordinates(currentGrid);
+            newGridPos=FightManager.Instance.getGridCoordinates(newGridPos);
+            Instantiate(fireGrid, newGridPos, Quaternion.identity);
+            ChangeSprite();
+            if(isChanged) 
+            {
+
+            }
         }
+    }
+
+    private void ChangeSprite()
+    {
+        Sprite currtSprite=GetComponent<SpriteRenderer>().sprite;
+        GetComponent<SpriteRenderer>().renderingLayerMask = 4;
+        isChanged = true;
+        GetComponent<SpriteRenderer>().sortingOrder = 100;
+        currtSprite = fireGrid;
+        bulletSpeed = 0;
+        destroyTimer = destroyTime;
     }
 }
