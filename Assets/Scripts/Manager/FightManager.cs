@@ -85,7 +85,7 @@ public class FightManager : SingletonMono<FightManager>
         Vector3 currentPos = (Vector3)pos;
         if (GridDic.TryGetValue(currentPos, out Vector3 grid))
             return (Vector2)grid;
-        return Vector2.zero;
+        return default;
     }
 
     public void InitMap(int level)
