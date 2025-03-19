@@ -16,7 +16,7 @@ namespace Game.Data
         /// </summary>
         /// <param name="level">哪关</param>
         /// <returns>LevelConfig</returns>
-        public WaveConfig LoadConfig(int level)
+        public WaveConfig LoadWaveConfig(int level)
         {
             return JKFrame.ResSystem.LoadAsset<WaveConfig>($"Config/WaveConfig/Level{level}");
         }

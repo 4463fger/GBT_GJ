@@ -6,11 +6,11 @@ namespace Game.Enemy
     {
         public override void Hurt()
         {
-            
-        }
-
-        private void Start()
-        {
+            // 死亡后调用Die
+            if (curHp <= 0)
+            {
+                Die();
+            }
         }
 
         // 死亡
