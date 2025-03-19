@@ -20,6 +20,7 @@ namespace Game.Enemy
         
         private void Update()
         {
+            MoveTowards(GameApp.Instance.MapManager.LoadRoad(0));
         }
 
         public virtual void Hurt()
@@ -33,6 +34,16 @@ namespace Game.Enemy
         // 死亡
         protected abstract void Die();
 
+
+
+
+
+
+
+        /// <summary>
+        /// 敌人的移动
+        /// </summary>
+        /// <param name="LoadList"></param>
         public void MoveTowards(List<Vector2> LoadList)
         {
             pathQueue.Clear();
