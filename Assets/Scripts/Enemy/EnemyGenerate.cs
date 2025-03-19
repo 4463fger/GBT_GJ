@@ -6,8 +6,10 @@ namespace Game.Enemy
 {
     public class EnemyGenerate
     {
+        // 波次配置用于生成怪物
         private WaveConfig _mCurrentWaveConfig;
-
+        private BlockMessage _blockMessage;
+        
         private float m_CurrentGenerateSeconds = 0;
         private float m_CurrentWaveSeconds = 0;
 
@@ -31,9 +33,16 @@ namespace Game.Enemy
             this.isFight = isFight;
         }
 
-        public void Init(WaveConfig waveConfig)
+        /// <summary>
+        /// 初始化
+        /// </summary>
+        /// <param name="waveConfig">波次配置</param>
+        /// <param name="mapConfig">地图的配置</param>
+        public void Init(WaveConfig waveConfig,BlockMessage _blockMessage)
         {
             this._mCurrentWaveConfig = waveConfig;
+            this._blockMessage = _blockMessage;
+            
             foreach (var group in _mCurrentWaveConfig.EnemyWaveGroups)
             {
                 foreach (var wave in group.Waves)
@@ -93,10 +102,12 @@ namespace Game.Enemy
                         case EnemyType.Goblin:
                             Goblin goblin = GameApp.Instance.FactoryManager.CreateEnemy<Goblin>(m_currentWave.EnemyType);
                             goblin.transform.position = spawnPos.position;
+                            goblin.Move(_blockMessage.Road[1]);
                             break;
                         case EnemyType.Boar:
                             Boar boar = GameApp.Instance.FactoryManager.CreateEnemy<Boar>(m_currentWave.EnemyType);
                             boar.transform.position = spawnPos.position;
+                            boar.Move(_blockMessage.Road[2]);
                             break;
                     }
                     

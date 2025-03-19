@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using Map;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,10 +18,14 @@ namespace Game.Enemy
         public float curHp;
         public float Speed;
         public float Attack;
-        
-        private void Update()
+
+        private void Awake()
         {
+<<<<<<< HEAD
             MoveTowards(GameApp.Instance.MapManager.LoadRoad(0));
+=======
+            pathQueue = new();
+>>>>>>> b80dbf9396424941ebc546484561d360b0f6cce6
         }
 
         public virtual void Hurt()
@@ -34,6 +39,7 @@ namespace Game.Enemy
         // 死亡
         protected abstract void Die();
 
+<<<<<<< HEAD
 
 
 
@@ -45,6 +51,9 @@ namespace Game.Enemy
         /// </summary>
         /// <param name="LoadList"></param>
         public void MoveTowards(List<Vector2> LoadList)
+=======
+        public void Move(List<Vector2> LoadList)
+>>>>>>> b80dbf9396424941ebc546484561d360b0f6cce6
         {
             pathQueue.Clear();
             pathQueue.AddRange(LoadList);
@@ -53,6 +62,7 @@ namespace Game.Enemy
                 StartNextMove();
             }
         }
+        
         private List<Vector2> pathQueue;
         private bool isMoving;
         private void StartNextMove()

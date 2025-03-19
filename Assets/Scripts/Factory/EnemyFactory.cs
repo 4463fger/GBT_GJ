@@ -9,8 +9,6 @@ namespace Factory
     {
         public EnemyFactory()
         {
-            JKFrame.ResSystem.InitGameObjectPool("Prefabs/Enemy/哥布林",30,30);
-            JKFrame.ResSystem.InitGameObjectPool("Prefabs/Enemy/野猪",30,30);
         }
         
         public T CreateEnemy<T>(EnemyType type) where T : MonoBehaviour, IEnemy
