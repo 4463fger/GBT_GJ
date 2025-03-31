@@ -19,15 +19,34 @@ namespace Game.Data
     [Serializable]
     public class SettingData
     {
+        // 音量
         public float GlobalVolume = 1f;
         public float MusicVolume = 1f;
         public float SFXVolume = 1f;
+        
+        // 分辨率
+        public int resolutionIndex = 0;        // 默认选第一个分辨率
+        public bool isFullscreen = true;       // 默认全屏
+        // 游戏支持的分辨率(这里给写死)
+        public readonly Resolution[] PresetResolutions = 
+        {
+            new Resolution { width = 1920, height = 1080 },
+            new Resolution { width = 1600, height = 900 },
+            new Resolution { width = 1366, height = 768 },
+            new Resolution { width = 1280, height = 720 }
+        };
 
         public SettingData()
         {
             LoadSettingData();
         }
-
+        
+        // 获取当前分辨率
+        public Resolution LoadResolution()
+        {
+            return PresetResolutions[resolutionIndex];
+        }
+        
         public void LoadSettingData()
         {
             if (!Directory.Exists(Application.persistentDataPath + "/" + "setting"))
@@ -71,6 +90,14 @@ namespace Game.Data
         {
             this.SFXVolume = EffectVolume;
             JKFrame.AudioSystem.EffectVolume = SFXVolume;
+            JKFrame.SaveSystem.SaveSetting(this);
+        }
+        
+        // 保存分辨率设置
+        public void SaveResolutionSettings(int index, bool fullscreen)
+        {
+            resolutionIndex = Mathf.Clamp(index, 0, PresetResolutions.Length - 1);
+            isFullscreen = fullscreen;
             JKFrame.SaveSystem.SaveSetting(this);
         }
     }

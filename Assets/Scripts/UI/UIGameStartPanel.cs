@@ -40,6 +40,11 @@ namespace UI
             // 同步设置当前音量参数
             AudioSystem.BGVolume = _settingData.MusicVolume;
             AudioSystem.GlobalVolume = _settingData.GlobalVolume;
+            
+            // 应用分辨率设置
+            var resolution = GameApp.Instance.DataManager.SettingData.LoadResolution();
+            Screen.SetResolution(resolution.width, resolution.height, 
+                GameApp.Instance.DataManager.SettingData.isFullscreen);
         }
 
         public override void OnClose()

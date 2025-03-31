@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System.Linq;
+using DG.Tweening;
 using Game;
 using Game.Data;
 using UnityEngine;
@@ -17,6 +18,8 @@ namespace UI
         [SerializeField] private Slider GlobalAudioSlider;
         [SerializeField] private Slider MusicAudioSlider;
         [SerializeField] private Slider EffectAudioSlider;
+        [SerializeField] private Dropdown resolutionDropdown; // 分辨率下拉菜单
+        [SerializeField] private Toggle fullScreenToggle; // 是否全屏
         
         private void Awake()
         {
@@ -51,8 +54,20 @@ namespace UI
             
             // 返回按钮
             transform.Find("Btn_ExitSetting").GetComponent<Button>().onClick.AddListener(Hide);
+            
+            // 分辨率选项设置
+            resolutionDropdown.ClearOptions();
+            resolutionDropdown.AddOptions(_settingData.PresetResolutions
+                .Select(r => $"{r.width}x{r.height}")
+                .ToList());
+            
+            // 加载设置
+            resolutionDropdown.value = _settingData.resolutionIndex;
+            fullScreenToggle.isOn = _settingData.isFullscreen;
+            resolutionDropdown.onValueChanged.AddListener(OnResolutionChanged);
+            fullScreenToggle.onValueChanged.AddListener(OnFullscreenChanged);
         }
-
+        
         public void Show()
         {
             m_CanvansGroup.DOFade(1f, 1f);
@@ -66,6 +81,25 @@ namespace UI
             JKFrame.UISystem.GetWindow<UIGameStartPanel>().GameButton.transform
                 .DOLocalMoveX(0, 0.3f)
                 .SetEase(Ease.InQuad);
+        }
+        
+        private void OnResolutionChanged(int index)
+        {
+            ApplyResolution(index, fullScreenToggle.isOn);
+            _settingData.SaveResolutionSettings(index, fullScreenToggle.isOn);
+        }
+        
+        private void OnFullscreenChanged(bool isFullscreen)
+        {
+            ApplyResolution(resolutionDropdown.value, isFullscreen);
+            _settingData.SaveResolutionSettings(resolutionDropdown.value, isFullscreen);
+        }
+        
+        // 设置分辨率
+        private void ApplyResolution(int index, bool fullscreen)
+        {
+            Resolution resolution = _settingData.PresetResolutions[index];
+            Screen.SetResolution(resolution.width, resolution.height, fullscreen);
         }
     }
 }

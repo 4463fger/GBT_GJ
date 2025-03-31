@@ -12,13 +12,13 @@ public class FightManager : SingletonMono<FightManager>
     [SerializeField] private GameObject Grid;
     public Dictionary<Vector3, Vector3> GridDic = new Dictionary<Vector3, Vector3>();
 
-    // 怪物
+    // ????
     public Transform EnemySpawnRoot;
     private EnemyGenerate EnemyGenerate;
 
     // Config
     private WaveConfig _waveConfig;
-    // 战斗开始后需要加载地图信息
+    // 地图网格信息
     private BlockMessage _blockMessage;
     public List<TowerConfig> towerConfigList
     {
@@ -39,20 +39,20 @@ public class FightManager : SingletonMono<FightManager>
         EnemyGenerate = new();
     }
 
-    #region 初始化
+    #region ?????
 
     public void InitFightManager(int level)
     {
-        // 加载level关的配置
+        
         _waveConfig = GameApp.Instance.DataManager.ConfigData.LoadWaveConfig(level);
         _blockMessage = GameApp.Instance.DataManager.ConfigData.LoadMapConfig(level);
-        
+
         EnemySpawnRoot.position = GameApp.Instance.DataManager.ConfigData.LoadMapConfig(level).生成位置;
 
-        // 初始化地图
+        // ????????
         InitMap(level);
-        // 初始化网格
-        // 初始化防御塔
+        // ?????????
+        // ???????????
         towerConfigList = _waveConfig.towerConfigs;
         InitEnemyGenerate();
     }
