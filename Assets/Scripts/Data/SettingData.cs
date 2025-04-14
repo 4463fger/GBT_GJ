@@ -13,9 +13,6 @@ using UnityEngine.Windows;
 
 namespace GameData
 {
-    /// <summary>
-    /// 游戏的全局设置: 音量音效
-    /// </summary>
     [Serializable]
     public class SettingData
     {
@@ -27,6 +24,14 @@ namespace GameData
         // 分辨率
         public int resolutionIndex = 0;        // 默认选第一个分辨率
         public bool isFullscreen = true;       // 默认全屏
+    }
+    /// <summary>
+    /// 游戏的全局设置: 音量音效
+    /// </summary>
+    public class SettingDataCenter
+    {
+        public SettingData _settingData { get; private set; }
+
         // 游戏支持的分辨率(这里给写死)
         public readonly Resolution[] PresetResolutions = 
         {
@@ -36,16 +41,16 @@ namespace GameData
             new Resolution { width = 1280, height = 720 }
         };
 
-        public SettingData()
+        public SettingDataCenter()
         {
             LoadSettingData();
         }
         
         // 获取当前分辨率
-        public Resolution LoadResolution()
-        {
-            return PresetResolutions[resolutionIndex];
-        }
+        // public Resolution LoadResolution()
+        // {
+        //     return PresetResolutions[resolutionIndex];
+        // }
         
         public void LoadSettingData()
         {
@@ -54,51 +59,46 @@ namespace GameData
 #if UNITY_EDITOR
                 JKLog.Warning($"依然不存在这个路径{Application.persistentDataPath + "/" + "setting"}");
 #endif
-                GlobalVolume = 1f;
-                MusicVolume = 1f;
-                SFXVolume = 1f;
+                _settingData = new();
             }
             else
             {
                 SettingData data = JKFrame.SaveSystem.LoadSetting<SettingData>("SettingData");
-                if (data is null)
+                if (data == null)
                 {
-                    JKFrame.SaveSystem.SaveSetting(this);
-                    data = this;
+                    JKFrame.SaveSystem.SaveSetting(_settingData);
                 }
-                GlobalVolume = data.GlobalVolume;
-                MusicVolume = data.MusicVolume;
-                SFXVolume = data.SFXVolume;
+                _settingData = data;
             }
         }
 
         public void SaveSettingDataWithGlobalVolume(float GlobalVolume)
         {
-            this.GlobalVolume = GlobalVolume;
+            _settingData.GlobalVolume = GlobalVolume;
             JKFrame.AudioSystem.GlobalVolume = GlobalVolume;
             JKFrame.SaveSystem.SaveSetting(this);
         }
         
         public void SaveSettingDataWithBGVolume(float BGVolume)
         {
-            this.MusicVolume = BGVolume;
-            JKFrame.AudioSystem.BGVolume = MusicVolume;
+            _settingData.MusicVolume = BGVolume;
+            JKFrame.AudioSystem.BGVolume = _settingData.MusicVolume;
             JKFrame.SaveSystem.SaveSetting(this);
         }
         
         public void SaveSettingDataWithEffectVolume(float EffectVolume)
         {
-            this.SFXVolume = EffectVolume;
-            JKFrame.AudioSystem.EffectVolume = SFXVolume;
+            _settingData.SFXVolume = EffectVolume;
+            JKFrame.AudioSystem.EffectVolume = _settingData.SFXVolume;
             JKFrame.SaveSystem.SaveSetting(this);
         }
         
-        // 保存分辨率设置
-        public void SaveResolutionSettings(int index, bool fullscreen)
-        {
-            resolutionIndex = Mathf.Clamp(index, 0, PresetResolutions.Length - 1);
-            isFullscreen = fullscreen;
-            JKFrame.SaveSystem.SaveSetting(this);
-        }
+        // // 保存分辨率设置
+        // public void SaveResolutionSettings(int index, bool fullscreen)
+        // {
+        //     _settingData.resolutionIndex = Mathf.Clamp(index, 0, PresetResolutions.Length - 1);
+        //     isFullscreen = fullscreen;
+        //     JKFrame.SaveSystem.SaveSetting(this);
+        // }
     }
 }
