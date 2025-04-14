@@ -52,45 +52,38 @@ namespace GameData
         //     return PresetResolutions[resolutionIndex];
         // }
         
-        public void LoadSettingData()
+        private void LoadSettingData()
         {
-            if (!Directory.Exists(Application.persistentDataPath + "/" + "setting"))
+            SettingData data = JKFrame.SaveSystem.LoadSetting<SettingData>("SettingData");
+            if (data == null)
             {
-#if UNITY_EDITOR
-                JKLog.Warning($"依然不存在这个路径{Application.persistentDataPath + "/" + "setting"}");
-#endif
-                _settingData = new();
+                // 设置数据不存在 ，那就初始化一个然后存起来
+                _settingData = new(); 
+                JKFrame.SaveSystem.SaveSetting(_settingData);
             }
-            else
-            {
-                SettingData data = JKFrame.SaveSystem.LoadSetting<SettingData>("SettingData");
-                if (data == null)
-                {
-                    JKFrame.SaveSystem.SaveSetting(_settingData);
-                }
-                _settingData = data;
-            }
+            _settingData = data;
+            
         }
 
         public void SaveSettingDataWithGlobalVolume(float GlobalVolume)
         {
             _settingData.GlobalVolume = GlobalVolume;
             JKFrame.AudioSystem.GlobalVolume = GlobalVolume;
-            JKFrame.SaveSystem.SaveSetting(this);
+            JKFrame.SaveSystem.SaveSetting(_settingData);
         }
         
         public void SaveSettingDataWithBGVolume(float BGVolume)
         {
             _settingData.MusicVolume = BGVolume;
             JKFrame.AudioSystem.BGVolume = _settingData.MusicVolume;
-            JKFrame.SaveSystem.SaveSetting(this);
+            JKFrame.SaveSystem.SaveSetting(_settingData);
         }
         
         public void SaveSettingDataWithEffectVolume(float EffectVolume)
         {
             _settingData.SFXVolume = EffectVolume;
             JKFrame.AudioSystem.EffectVolume = _settingData.SFXVolume;
-            JKFrame.SaveSystem.SaveSetting(this);
+            JKFrame.SaveSystem.SaveSetting(_settingData);
         }
         
         // // 保存分辨率设置
