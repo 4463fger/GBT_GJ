@@ -38,7 +38,7 @@ namespace Enemy
         /// 初始化
         /// </summary>
         /// <param name="waveConfig">波次配置</param>
-        /// <param name="mapConfig">地图的配置</param>
+        /// <param name="_blockMessage">地图的配置</param>
         public void Init(WaveConfig waveConfig,BlockMessage _blockMessage)
         {
             this._mCurrentWaveConfig = waveConfig;

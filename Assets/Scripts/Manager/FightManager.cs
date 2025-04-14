@@ -14,15 +14,12 @@ namespace Managers
         [SerializeField] private GameObject Grid;
         public Dictionary<Vector3, Vector3> GridDic = new Dictionary<Vector3, Vector3>();
 
-        // 敌人生成根节点
+        // 怪物
         public Transform EnemySpawnRoot;
         private EnemyGenerate EnemyGenerate;
 
         // Config
         private WaveConfig _waveConfig;
-
-        // 地图网格信息
-        private BlockMessage _blockMessage;
         public List<TowerConfig> towerConfigList { get; private set; }
         public int coin { get; private set; }
 
@@ -34,20 +31,18 @@ namespace Managers
             EnemyGenerate = new();
         }
 
-        #region ?????
+        #region 初始化
 
         public void InitFightManager(int level)
         {
-
+            // 加载level关的配置
             _waveConfig = GameApp.Instance.DataManager.ConfigData.LoadWaveConfig(level);
-            _blockMessage = GameApp.Instance.DataManager.ConfigData.LoadMapConfig(level);
-
             EnemySpawnRoot.position = GameApp.Instance.DataManager.ConfigData.LoadMapConfig(level).生成位置;
 
             // 初始化地图
             InitMap(level);
-            // ?????????
-            // ???????????
+            // 初始化网格
+            // 初始化防御塔
             towerConfigList = _waveConfig.towerConfigs;
             InitEnemyGenerate();
         }
@@ -72,6 +67,7 @@ namespace Managers
         //     }
         // }
 
+
         public Vector2 getCoordinates(Vector2 pos)
         {
             int x = (int)Mathf.Round(pos.x - InitPos.x);
@@ -94,7 +90,8 @@ namespace Managers
 
         private void InitEnemyGenerate()
         {
-            EnemyGenerate.Init(_waveConfig, _blockMessage);
+            //TODO:未初始化敌人
+            EnemyGenerate.Init(_waveConfig,GameApp.Instance.DataManager.ConfigData.LoadMapConfig(1));
             EnemyGenerate.SetGeneratePos(EnemySpawnRoot);
             EnemyGenerate.StartFight(true);
         }
