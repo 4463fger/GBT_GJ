@@ -1,6 +1,6 @@
 ﻿using Config;
 
-namespace Game.Data
+namespace GameData
 {
     /// <summary>
     /// 读取配置,方便使用

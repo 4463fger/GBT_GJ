@@ -6,6 +6,8 @@
 * └──────────────────────────────────┘
 */
 
+using GameData;
+
 namespace Game.Data
 {
     public class DataManager

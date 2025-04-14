@@ -1,26 +1,29 @@
-using Game.Enemy;
+using Enemy;
 using UnityEngine;
 
-public class NormalBullet : BulletBase
+namespace Item.Bullet
 {
-    protected float bulletSpeed;
+    public class NormalBullet : BulletBase
+    {
+        protected float bulletSpeed;
 
-    protected override void Shoot()
-    {
-        gameObject.transform.localPosition += Time.deltaTime * bulletSpeed * transform.up;
-        
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.layer==6&&!enemyDamages.Contains(collision.gameObject.GetComponent<EnemyDamage>()))
+        protected override void Shoot()
         {
-            Hit();
-            EnemyDamage damage = collision.gameObject.GetComponent<EnemyDamage>();
-            damage.Hurt(bulletDamage);
-            enemyDamages.Add(collision.gameObject.GetComponent<EnemyDamage>());
-            Destroy(gameObject);
+            gameObject.transform.localPosition += Time.deltaTime * bulletSpeed * transform.up;
+
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.layer == 6 &&
+                !enemyDamages.Contains(collision.gameObject.GetComponent<IHurt>()))
+            {
+                Hit();
+                IHurt damage = collision.gameObject.GetComponent<IHurt>();
+                damage.Hurt(bulletDamage);
+                enemyDamages.Add(collision.gameObject.GetComponent<IHurt>());
+                Destroy(gameObject);
+            }
         }
     }
-
-
 }

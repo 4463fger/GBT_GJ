@@ -1,8 +1,11 @@
 ﻿using Config;
 using JKFrame;
 
-public class GameManager:SingletonMono<GameManager>
+namespace Managers
 {
-    public WaveConfig[] levelConfigs;
-    public MapConfig mapConfig;
+    public class GameManager : SingletonMono<GameManager>
+    {
+        public WaveConfig[] levelConfigs;
+        public MapConfig mapConfig;
+    }
 }

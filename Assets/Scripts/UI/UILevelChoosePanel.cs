@@ -1,9 +1,10 @@
-﻿using Game;
-using JKFrame;
+﻿using JKFrame;
+using Managers;
 using UnityEngine.UI;
 using UnityEngine;
+using UI.Fight;
 
-namespace UI
+namespace UI.Main
 {
     [UIWindowData(typeof(UILevelChoosePanel),true,"Prefabs/UI/UILevelChoosePanel",2)]
     public class UILevelChoosePanel : UI_WindowBase

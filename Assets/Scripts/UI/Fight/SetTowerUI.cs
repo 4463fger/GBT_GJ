@@ -1,35 +1,41 @@
-﻿using JKFrame;
+﻿using Config;
+using Item;
+using JKFrame;
+using Managers;
 using TMPro;
 using UnityEngine;
-public class SetTowerUI:UI_WindowBase
+
+namespace UI.Fight
 {
-    [SerializeField] private Transform SlotTransfrom;
-    [SerializeField] private TextMeshProUGUI CoinText;
-    [SerializeField] private GameObject emptySlot;
-    private TowerConfig[] towerConfigs = new TowerConfig[6];
-    public void InitTowerConfigs()
+    public class SetTowerUI : UI_WindowBase
     {
-        for(int i = 0;i<6;i++)
+        [SerializeField] private Transform SlotTransfrom;
+        [SerializeField] private TextMeshProUGUI CoinText;
+        [SerializeField] private GameObject emptySlot;
+        private TowerConfig[] towerConfigs = new TowerConfig[6];
+
+        public void InitTowerConfigs()
         {
-            if(i<FightManager.Instance.towerConfigList.Count)
+            for (int i = 0; i < 6; i++)
             {
-                towerConfigs[i] = FightManager.Instance.towerConfigList[i];
-                GameObject Tower=Instantiate(emptySlot, SlotTransfrom);
-                Tower?.GetComponent<SlotBase>().Init(FightManager.Instance.towerConfigList[i]);
-            }
-            else
-            {
-                towerConfigs[i] = null;
-                GameObject Tower = Instantiate(emptySlot, SlotTransfrom);
-                Tower?.GetComponent<SlotBase>().Init(null);
+                if (i < FightManager.Instance.towerConfigList.Count)
+                {
+                    towerConfigs[i] = FightManager.Instance.towerConfigList[i];
+                    GameObject Tower = Instantiate(emptySlot, SlotTransfrom);
+                    Tower?.GetComponent<SlotBase>().Init(FightManager.Instance.towerConfigList[i]);
+                }
+                else
+                {
+                    towerConfigs[i] = null;
+                    GameObject Tower = Instantiate(emptySlot, SlotTransfrom);
+                    Tower?.GetComponent<SlotBase>().Init(null);
+                }
             }
         }
+
+        private void Start()
+        {
+            InitTowerConfigs();
+        }
     }
-    private void Start()
-    {
-        InitTowerConfigs();
-    }
-
-
-
 }

@@ -1,35 +1,41 @@
 ﻿using System.Collections.Generic;
+using Enemy;
 using UnityEngine;
 
-public class FireBlock:MonoBehaviour
+namespace Item.Map
 {
-    private float Damage;
-    private float destroyTime;
-    private float destroyTimer;
-    private int destroyCount;
-    private Dictionary<EnemyDamage, int> damages;
-    public void InitBlock(float Damage,float destroyTime,int destroyCount)
-    { 
-        this.Damage = Damage;
-        this.destroyTime = destroyTime;
-        destroyTimer = destroyTime;
-        this.destroyCount = destroyCount;
-    }
-    private void Update()
+    public class FireBlock : MonoBehaviour
     {
-        destroyTimer -= Time.deltaTime;
-        if (destroyTimer <= 0)
+        private float Damage;
+        private float destroyTime;
+        private float destroyTimer;
+        private int destroyCount;
+        private Dictionary<IHurt, int> damages;
+
+        public void InitBlock(float Damage, float destroyTime, int destroyCount)
         {
-            Destroy(gameObject);
-            return;
+            this.Damage = Damage;
+            this.destroyTime = destroyTime;
+            destroyTimer = destroyTime;
+            this.destroyCount = destroyCount;
         }
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.layer == 6)
+
+        private void Update()
         {
-            EnemyDamage enemyDamage = collision.gameObject.GetComponent<EnemyDamage>();
-            
+            destroyTimer -= Time.deltaTime;
+            if (destroyTimer <= 0)
+            {
+                Destroy(gameObject);
+                return;
+            }
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.layer == 6)
+            {
+                IHurt enemyDamage = collision.gameObject.GetComponent<IHurt>();
+            }
         }
     }
 }

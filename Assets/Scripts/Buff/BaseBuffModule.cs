@@ -1,7 +1,9 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
-public abstract class BaseBuffModule:ScriptableObject
+namespace Buff
 {
-    public abstract void Apply(BuffInfo buffInfo,DamageInfo damageInfo=null);
+    public abstract class BaseBuffModule : ScriptableObject
+    {
+        public abstract void Apply(BuffInfo buffInfo, DamageInfo damageInfo = null);
+    }
 }

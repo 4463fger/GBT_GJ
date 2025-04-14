@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Map
+namespace Item.Map
 {
     /// <summary>
     /// 单元格子

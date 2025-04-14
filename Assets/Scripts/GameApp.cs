@@ -1,9 +1,8 @@
 ﻿using Factory;
 using Game.Data;
 using JKFrame;
-using Map;
-using UI;
-using UnityEngine;
+using Managers.Map;
+using UI.Main;
 
 namespace Game
 {
@@ -34,11 +33,6 @@ namespace Game
             // 游戏开始
             UISystem.Show<UIBackGroundPanel>();
             UISystem.Show<UIGameStartPanel>();
-        }
-
-        private void Update()
-        {
-            
         }
     }
 }

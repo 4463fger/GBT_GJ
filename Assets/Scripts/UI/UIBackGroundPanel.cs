@@ -1,6 +1,6 @@
 ﻿using JKFrame;
 
-namespace UI
+namespace UI.Main
 {
     [UIWindowData(typeof(UIBackGroundPanel),true,"Prefabs/UI/UIBackGroundPanel",0)]
     public class UIBackGroundPanel : UI_WindowBase

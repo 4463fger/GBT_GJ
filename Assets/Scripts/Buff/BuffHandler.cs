@@ -1,144 +1,127 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-public class BuffHandler:MonoBehaviour
+
+namespace Buff
 {
-    public LinkedList<BuffInfo> buffList= new LinkedList<BuffInfo>();
-    
-    public void AddBuff(BuffInfo buffInfo)
+    public class BuffHandler : MonoBehaviour
     {
-        BuffInfo findBuffInfo = FindBuff(buffInfo.buffData.id);
-        if (findBuffInfo != null) 
+        public LinkedList<BuffInfo> buffList = new();
+
+        public void AddBuff(BuffInfo buffInfo)
         {
-            //buff存在
-            if(findBuffInfo.curStack<findBuffInfo.buffData.maxStack)
+            var findBuffInfo = FindBuff(buffInfo.buffData.id);
+            if (findBuffInfo != null)
             {
-                findBuffInfo.curStack++;
-                switch(findBuffInfo.buffData.buffUpdateTime)
+                //buff存在
+                if (findBuffInfo.curStack < findBuffInfo.buffData.maxStack)
                 {
-                    case BuffUpdateTimeEnum.Add:
-                        findBuffInfo.durationTimer += findBuffInfo.buffData.duration;
-                        break;
-                    case BuffUpdateTimeEnum.Replace:
-                        findBuffInfo.durationTimer = findBuffInfo.buffData.duration;
-                        break;
+                    findBuffInfo.curStack++;
+                    switch (findBuffInfo.buffData.buffUpdateTime)
+                    {
+                        case BuffUpdateTimeEnum.Add:
+                            findBuffInfo.durationTimer += findBuffInfo.buffData.duration;
+                            break;
+                        case BuffUpdateTimeEnum.Replace:
+                            findBuffInfo.durationTimer = findBuffInfo.buffData.duration;
+                            break;
+                    }
+
+                    findBuffInfo.buffData.OnCreate.Apply(findBuffInfo);
                 }
-                findBuffInfo.buffData.OnCreate.Apply(findBuffInfo);
-            }
-            else
-            {
-                buffInfo.durationTimer = findBuffInfo.buffData.duration;
-                buffInfo.buffData.OnCreate.Apply(buffInfo);
-                buffList.AddLast(buffInfo);
-                InsertionSortLinkedList(buffList);
+                else
+                {
+                    buffInfo.durationTimer = findBuffInfo.buffData.duration;
+                    buffInfo.buffData.OnCreate.Apply(buffInfo);
+                    buffList.AddLast(buffInfo);
+                    InsertionSortLinkedList(buffList);
+                }
             }
         }
-    }
 
-    public void RemoveBuff(BuffInfo buffInfo) 
-    {
-        switch(buffInfo.buffData.buffRemoveStackUpdate)
+        public void RemoveBuff(BuffInfo buffInfo)
         {
-            case BuffRemoveStackUpdateEnum.Clear:
-                buffInfo.buffData.OnRemove.Apply(buffInfo);
-                buffList.Remove(buffInfo);
-                break;
-            case BuffRemoveStackUpdateEnum.Reduce:
-                buffInfo.curStack--;
-                buffInfo.buffData.OnRemove.Apply(buffInfo);
-                if (buffInfo.curStack == 0)
-                {
-                    
+            switch (buffInfo.buffData.buffRemoveStackUpdate)
+            {
+                case BuffRemoveStackUpdateEnum.Clear:
+                    buffInfo.buffData.OnRemove.Apply(buffInfo);
                     buffList.Remove(buffInfo);
+                    break;
+                case BuffRemoveStackUpdateEnum.Reduce:
+                    buffInfo.curStack--;
+                    buffInfo.buffData.OnRemove.Apply(buffInfo);
+                    if (buffInfo.curStack == 0)
+                        buffList.Remove(buffInfo);
+                    else
+                        buffInfo.durationTimer = buffInfo.buffData.duration;
+                    break;
+            }
+        }
+
+        private void InsertionSortLinkedList(LinkedList<BuffInfo> list)
+        {
+            if (list == null || list.First == null) return;
+            var current = list.First.Next;
+            while (current != null)
+            {
+                var next = current.Next;
+                var prev = current.Previous;
+                while (prev != null && prev.Value.buffData.priority > current.Value.buffData.priority)
+                    prev = prev.Previous;
+                if (prev == null)
+                {
+                    list.Remove(current);
+                    list.AddFirst(current);
                 }
                 else
                 {
-                    buffInfo.durationTimer = buffInfo.buffData.duration;
+                    list.Remove(current);
+                    list.AddAfter(prev, current);
                 }
-                break;
-        }
-    }
 
-    private void InsertionSortLinkedList(LinkedList<BuffInfo> list)
-    {
-        if(list == null||list.First==null)
-        {
-            return;
-        }
-        LinkedListNode<BuffInfo> current = list.First.Next;
-        while(current!=null)
-        {
-            LinkedListNode<BuffInfo> next = current.Next;
-            LinkedListNode<BuffInfo> prev = current.Previous;
-            while (prev != null&&prev.Value.buffData.priority>current.Value.buffData.priority)
-            {
-                prev = prev.Previous;
-            }
-            if(prev==null)
-            {
-                list.Remove(current);
-                list.AddFirst(current);
-            }
-            else
-            {
-                list.Remove(current);
-                list.AddAfter(prev, current);
-            }
-            current = current.Next;
-        }
-        
-    }
-
-    private BuffInfo FindBuff(int buffDataID)
-    {
-        foreach (var buffInfo in buffList) 
-        {
-            if(buffInfo.buffData.id == buffDataID)
-            {
-                return buffInfo;
+                current = current.Next;
             }
         }
-        return default;
-    }
 
-
-
-    private void BuffTickAndRemove()
-    {
-        List<BuffInfo> deleteBuffList=new List<BuffInfo>();
-        foreach(var buffInfo in buffList)
+        private BuffInfo FindBuff(int buffDataID)
         {
-            if(buffInfo.buffData.OnTick!=null)
+            foreach (var buffInfo in buffList)
+                if (buffInfo.buffData.id == buffDataID)
+                    return buffInfo;
+
+            return default;
+        }
+
+
+        private void BuffTickAndRemove()
+        {
+            var deleteBuffList = new List<BuffInfo>();
+            foreach (var buffInfo in buffList)
             {
-                if(buffInfo.tickTimer<0)
+                if (buffInfo.buffData.OnTick != null)
                 {
-                    buffInfo.buffData.OnTick.Apply(buffInfo);
-                    buffInfo.tickTimer = buffInfo.buffData.tickTime;
+                    if (buffInfo.tickTimer < 0)
+                    {
+                        buffInfo.buffData.OnTick.Apply(buffInfo);
+                        buffInfo.tickTimer = buffInfo.buffData.tickTime;
+                    }
+                    else
+                    {
+                        buffInfo.tickTimer -= Time.deltaTime;
+                    }
                 }
+
+                if (buffInfo.durationTimer < 0)
+                    deleteBuffList.Add(buffInfo);
                 else
-                {
-                    buffInfo.tickTimer-=Time.deltaTime;
-                }
+                    buffInfo.durationTimer -= Time.deltaTime;
             }
-            if (buffInfo.durationTimer < 0)
-            {
-                deleteBuffList.Add(buffInfo);
-            }
-            else
-            {
-                buffInfo.durationTimer -= Time.deltaTime;
-            }
+
+            foreach (var buffInfo in deleteBuffList) RemoveBuff(buffInfo);
         }
-        foreach(var buffInfo in deleteBuffList)
+
+        private void Update()
         {
-            RemoveBuff(buffInfo);
-        }    
+            BuffTickAndRemove();
+        }
     }
-    private void Update()
-    {
-        BuffTickAndRemove();
-    }
-
-
 }

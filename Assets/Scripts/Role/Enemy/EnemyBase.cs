@@ -1,10 +1,9 @@
-﻿using System;
-using DG.Tweening;
-using Map;
+﻿using DG.Tweening;
 using System.Collections.Generic;
+using Managers;
 using UnityEngine;
 
-namespace Game.Enemy
+namespace Enemy
 {
     public enum EnemyType
     {
@@ -12,7 +11,7 @@ namespace Game.Enemy
         Boar,
     }
     // 怪物基类
-    public abstract class EnemyBase<T> : MonoBehaviour,IEnemy where T : EnemyBase<T>
+    public abstract class EnemyBase<T> : MonoBehaviour,IHurt where T : EnemyBase<T>
     {
         public float maxHp;
         public float curHp;
@@ -22,14 +21,6 @@ namespace Game.Enemy
         private void Awake()
         {
             pathQueue = new();
-        }
-
-        public virtual void Hurt()
-        {
-            if (maxHp <= 0)
-            {
-                Destroy(this.gameObject);        
-            }
         }
 
         // 死亡
@@ -60,6 +51,16 @@ namespace Game.Enemy
                 isMoving = false;
                 StartNextMove(); // 移动下一个点
             });
+        }
+
+        public virtual void Hurt(float damage)
+        {
+            curHp -= damage;
+            
+            if (curHp <= 0)
+            {
+                Die();
+            }
         }
     }
 }

@@ -11,7 +11,7 @@ using JK.Log;
 using UnityEngine;
 using UnityEngine.Windows;
 
-namespace Game.Data
+namespace GameData
 {
     /// <summary>
     /// 游戏的全局设置: 音量音效

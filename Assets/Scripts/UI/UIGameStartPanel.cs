@@ -4,7 +4,7 @@ using JKFrame;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace UI.Main
 {
     [UIWindowData(typeof(UIGameStartPanel),true,"Prefabs/UI/UIGameStartPanel",2)]
     public class UIGameStartPanel : UI_WindowBase

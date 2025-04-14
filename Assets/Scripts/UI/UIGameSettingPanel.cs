@@ -1,11 +1,11 @@
 ﻿using System.Linq;
 using DG.Tweening;
 using Game;
-using Game.Data;
+using GameData;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace UI.Main
 {
     /// <summary>
     /// 设置面板 => 为主面板下的子物体

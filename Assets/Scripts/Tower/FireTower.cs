@@ -1,3 +1,6 @@
-﻿public class FireTower:TowerBase
+﻿namespace Tower
 {
+    public class FireTower : TowerBase
+    {
+    }
 }

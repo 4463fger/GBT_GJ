@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using Config;
+using Game;
 using UnityEngine;
 
-namespace Game.Enemy
+namespace Enemy
 {
     public class EnemyGenerate
     {
