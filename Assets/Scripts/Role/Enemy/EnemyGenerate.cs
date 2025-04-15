@@ -52,7 +52,6 @@ namespace Enemy
                     m_TotalCount++;
                 }
             }
-            
             JKFrame.MonoSystem.AddUpdateListener(OnUpdate);
         }
 
@@ -103,12 +102,12 @@ namespace Enemy
                         case EnemyType.Goblin:
                             Goblin goblin = GameApp.Instance.FactoryManager.CreateEnemy<Goblin>(m_currentWave.EnemyType);
                             goblin.transform.position = spawnPos.position;
-                            goblin.Move(_blockMessage.Road[1]);
+                            goblin.Init(_blockMessage.Road[1]);
                             break;
                         case EnemyType.Boar:
                             Boar boar = GameApp.Instance.FactoryManager.CreateEnemy<Boar>(m_currentWave.EnemyType);
                             boar.transform.position = spawnPos.position;
-                            boar.Move(_blockMessage.Road[2]);
+                            boar.Init(_blockMessage.Road[1]);
                             break;
                     }
                     

@@ -19,7 +19,7 @@ namespace UI.Fight
         {
             if (isCanBuy)
             {
-                CoinText.text = FightManager.Instance.coin.ToString();
+                //TODO:更新金币UI
             }
             else
             {

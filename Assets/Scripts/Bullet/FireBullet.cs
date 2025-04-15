@@ -22,8 +22,11 @@ namespace Item.Bullet
             {
                 Hit();
                 Vector3 currentGrid = collision.gameObject.transform.position;
-                Vector3 newGridPos = FightManager.Instance.getCoordinates(currentGrid);
-                newGridPos = FightManager.Instance.getGridCoordinates(newGridPos);
+                Vector3 newGridPos = new Vector3(0, 0, 0);
+                //TODO:射击怪物造成伤害
+                // 不用获取格子坐标，格子是用来生成地图用的，跟战斗没任何关系，这里需要改
+                //Vector3 newGridPos = FightManager.Instance.getCoordinates(currentGrid);
+                //newGridPos = FightManager.Instance.getGridCoordinates(newGridPos);
                 Instantiate(fireGrid, newGridPos, Quaternion.identity);
                 ChangeSprite();
                 if (isChanged)

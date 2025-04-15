@@ -1,4 +1,5 @@
 ﻿using Config;
+using UnityEngine;
 
 namespace GameData
 {
@@ -30,7 +31,7 @@ namespace GameData
         /// <returns>地图网格信息</returns>
         public BlockMessage LoadMapBlockMessage(int level)
         {
-            MapConfig mapConfig = JKFrame.ResSystem.LoadAsset<MapConfig>($"Config/MapConfig/MapConfig");
+            MapConfig mapConfig = JKFrame.ResSystem.LoadAsset<MapConfig>("Config/MapConfig/MapConfig");
             return mapConfig.Mapmessage[level];
         }
         

@@ -7,7 +7,6 @@ using UnityEngine.Tilemaps;
 
 namespace Managers
 {
-
     namespace Map
     {
         /// <summary>
@@ -79,8 +78,8 @@ namespace Managers
 
                     Block b = (Object.Instantiate(prefabObj) as GameObject).AddComponent<Block>();
 
-                    b.RowIndex = row;
-                    b.ColIndex = col;
+                    b.ColIndex = row;
+                    b.RowIndex = col;
                     // 将瓦片地图坐标转换为世界坐标
                     b.transform.position = m_TileMap.CellToWorld(tempPos[i]) + new Vector3(0.5f, 0.5f, 0);
 
@@ -127,7 +126,7 @@ namespace Managers
             /// 获取路径点
             /// </summary>
             /// <param name="road">哪条路</param>
-            public List<Vector2> LoadRoad(int road = 1)
+            private List<Vector2> LoadRoad(int road = 1)
             {
                 return _blockMessage.Road[road];
             }
@@ -160,33 +159,17 @@ namespace Managers
                     Debug.LogWarning($"无效坐标: ({col},{row})");
 #endif
                 }
-
-//             // 1. 从配置中加载路径坐标列表
-//             roadPath = LoadRoad(2);
-//
-//             foreach (var roadCoord in roadPath)
-//             {
-//                 // 3. 将Vector2坐标转换为整数行列索引
-//                 int col = (int)roadCoord.x; // x轴对应行
-//                 int row = (int)roadCoord.y; // y轴对应列
-//                 
-//                 // 4. 验证坐标是否在合法范围内
-//                 if (row >= 0 && row < RowCount && col >= 0 && col < ColCount)
-//                 {
-//                     // 5. 设置对应格子为Road类型
-//                     m_Blocks[row, col].Type = BlockType.Road;
-                return;
-//                 }
-// #if UNITY_EDITOR
-//                 Debug.LogWarning($"无效坐标: ({row},{col})");
-// #endif
-//             }
             }
-
-            // 设置地图的障碍物格子
-            private void SetObstacleBlockType()
+            
+            /// <summary>
+            /// 根据格子坐标获取世界坐标
+            /// </summary>
+            /// <param name="row">行</param>
+            /// <param name="col">列</param>
+            /// <returns></returns>
+            public Vector3 GetWorldPosition(int row, int col)
             {
-
+                return new Vector3(row - 9.5f, col - 6.5f, 0f);
             }
         }
     }

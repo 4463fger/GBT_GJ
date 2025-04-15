@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using System.Collections.Generic;
 using Managers;
 using UnityEngine;
@@ -13,46 +14,62 @@ namespace Enemy
     // 怪物基类
     public abstract class EnemyBase<T> : MonoBehaviour,IHurt where T : EnemyBase<T>
     {
-        public float maxHp;
-        public float curHp;
-        public float Speed;
-        public float Attack;
+        [SerializeField] protected float maxHp;
+        [SerializeField] protected float curHp;
+        [SerializeField] protected float Speed;
+        [SerializeField] protected float Attack;
 
-        private void Awake()
+        // 怪物的路径坐标
+        protected List<Vector2> pathQueue;
+        protected bool isMoving; // 是否正在移动
+
+        protected virtual void Awake()
         {
             pathQueue = new();
         }
 
-        // 死亡
-        protected abstract void Die();
-
-        public void Move(List<Vector2> LoadList)
+        /// <summary>
+        /// 敌人的初始化
+        /// </summary>
+        /// <param name="LoadList">路径点</param>
+        public void Init(List<Vector2> LoadList)
         {
             pathQueue.Clear();
-            pathQueue.AddRange(LoadList);
-            if(!isMoving)
+            // 将配置中的格子坐标转化为世界坐标并存为路径
+            for (int i = 0; i < LoadList.Count; i++)
             {
-                StartNextMove();
+                Vector3 roadPoint = FightManager.Instance.MapManager.GetWorldPosition((int)LoadList[i].x,(int)LoadList[i].y);
+                pathQueue.Add(roadPoint);
+            }
+        }
+
+        protected virtual void Update()
+        {
+            Move();
+        }
+
+        private void Move()
+        {
+            if(isMoving == false)
+            {
+                if (pathQueue.Count == 0)
+                {
+                    isMoving = false;
+                    return;
+                }
+                
+                isMoving = true;
+                Vector2 targetPos = pathQueue[0];
+                pathQueue.RemoveAt(0);
+                
+                transform.DOMove(targetPos, 0.5f)
+                    .SetEase(Ease.Linear)
+                    .OnComplete(() => {
+                        isMoving = false;
+                    });
             }
         }
         
-        private List<Vector2> pathQueue;
-        private bool isMoving;
-        private void StartNextMove()
-        {
-            isMoving = true;
-            Vector2 targetGrid = pathQueue[0];
-            pathQueue.RemoveAt(0);
-
-            Vector2 targetWorld = FightManager.Instance.getGridCoordinates(targetGrid);
-            transform.DOMove(targetWorld, 0.5f)
-            .SetEase(Ease.Linear)
-            .OnComplete(() => {
-                isMoving = false;
-                StartNextMove(); // 移动下一个点
-            });
-        }
-
         public virtual void Hurt(float damage)
         {
             curHp -= damage;
@@ -62,5 +79,8 @@ namespace Enemy
                 Die();
             }
         }
+        
+        // 死亡
+        protected abstract void Die();
     }
 }
