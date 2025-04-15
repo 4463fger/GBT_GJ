@@ -28,7 +28,7 @@ namespace GameData
         /// </summary>
         /// <param name="level">地图关卡数</param>
         /// <returns>地图网格信息</returns>
-        public BlockMessage LoadMapConfig(int level)
+        public BlockMessage LoadMapBlockMessage(int level)
         {
             MapConfig mapConfig = JKFrame.ResSystem.LoadAsset<MapConfig>($"Config/MapConfig/MapConfig");
             return mapConfig.Mapmessage[level];

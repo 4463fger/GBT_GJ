@@ -30,7 +30,7 @@ namespace Managers
             /// </summary>
             public void Init(int level)
             {
-                _blockMessage = GameApp.Instance.DataManager.ConfigData.LoadMapConfig(level);
+                _blockMessage = GameApp.Instance.DataManager.ConfigData.LoadMapBlockMessage(level);
 
                 m_TileMap = GameObject.Find("Grid/ground").GetComponent<Tilemap>();
                 m_PathMap = GameObject.Find("Grid/road").GetComponent<Tilemap>();

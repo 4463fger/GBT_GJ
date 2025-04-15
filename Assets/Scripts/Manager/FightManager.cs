@@ -7,7 +7,6 @@ using UnityEngine;
 
 namespace Managers
 {
-
     public class FightManager : SingletonMono<FightManager>
     {
         public Vector2 InitPos = new Vector2(-8.5f, -3.5f);
@@ -37,7 +36,7 @@ namespace Managers
         {
             // 加载level关的配置
             _waveConfig = GameApp.Instance.DataManager.ConfigData.LoadWaveConfig(level);
-            EnemySpawnRoot.position = GameApp.Instance.DataManager.ConfigData.LoadMapConfig(level).生成位置;
+            EnemySpawnRoot.position = GameApp.Instance.DataManager.ConfigData.LoadMapBlockMessage(level).生成位置;
 
             // 初始化地图
             InitMap(level);
@@ -91,7 +90,7 @@ namespace Managers
         private void InitEnemyGenerate()
         {
             //TODO:未初始化敌人
-            EnemyGenerate.Init(_waveConfig,GameApp.Instance.DataManager.ConfigData.LoadMapConfig(1));
+            EnemyGenerate.Init(_waveConfig,GameApp.Instance.DataManager.ConfigData.LoadMapBlockMessage(1));
             EnemyGenerate.SetGeneratePos(EnemySpawnRoot);
             EnemyGenerate.StartFight(true);
         }

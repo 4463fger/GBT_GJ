@@ -16,14 +16,14 @@ namespace UI.Main
         [SerializeField] private Button Level5;
         public override void Init()
         {
-            Level1.onClick.AddListener(()=>  onSceneCHangeclick("Level1"));
-            Level2.onClick.AddListener(() => onSceneCHangeclick("Level2"));
-            Level3.onClick.AddListener(() => onSceneCHangeclick("Level3"));
-            Level4.onClick.AddListener(() => onSceneCHangeclick("Level4"));
-            Level5.onClick.AddListener(() => onSceneCHangeclick("Level5"));
+            Level1.onClick.AddListener(()=>  OnSceneCHandeClick("Level1"));
+            Level2.onClick.AddListener(() => OnSceneCHandeClick("Level2"));
+            Level3.onClick.AddListener(() => OnSceneCHandeClick("Level3"));
+            Level4.onClick.AddListener(() => OnSceneCHandeClick("Level4"));
+            Level5.onClick.AddListener(() => OnSceneCHandeClick("Level5"));
         }
 
-        private void onSceneCHangeclick(string sceneName)
+        private void OnSceneCHandeClick(string sceneName)
         {
             SceneSystem.LoadSceneAsync(sceneName, (op) =>
             {
