@@ -1,6 +1,7 @@
 ﻿using Config;
+using UnityEngine;
 
-namespace Game.Data
+namespace GameData
 {
     /// <summary>
     /// 读取配置,方便使用
@@ -28,9 +29,9 @@ namespace Game.Data
         /// </summary>
         /// <param name="level">地图关卡数</param>
         /// <returns>地图网格信息</returns>
-        public BlockMessage LoadMapConfig(int level)
+        public BlockMessage LoadMapBlockMessage(int level)
         {
-            MapConfig mapConfig = JKFrame.ResSystem.LoadAsset<MapConfig>($"Config/MapConfig/MapConfig");
+            MapConfig mapConfig = JKFrame.ResSystem.LoadAsset<MapConfig>("Config/MapConfig/MapConfig");
             return mapConfig.Mapmessage[level];
         }
         

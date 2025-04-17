@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
-namespace Map
+namespace Item.Map
 {
     /// <summary>
     /// 单元格子

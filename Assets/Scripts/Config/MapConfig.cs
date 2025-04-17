@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="MapConfig",menuName ="Config/MapConfig")]
-public class MapConfig : SerializedScriptableObject
+namespace Config
 {
-    [DictionaryDrawerSettings (KeyLabel = "¹Ø¿¨",ValueLabel = "Íø¸ñĞÅÏ¢")]
-    public Dictionary<int, BlockMessage> Mapmessage;
-}
+    [CreateAssetMenu(fileName = "MapConfig", menuName = "Config/MapConfig")]
+    public class MapConfig : SerializedScriptableObject
+    {
+        [DictionaryDrawerSettings(KeyLabel = "å…³å¡", ValueLabel = "ç½‘æ ¼ä¿¡æ¯")]
+        public Dictionary<int, BlockMessage> Mapmessage;
+    }
 
-[Serializable]
-public class BlockMessage
-{
-    [DictionaryDrawerSettings (KeyLabel = "ÄÄÌõÂ·",ValueLabel = "Â·ĞÅÏ¢")]
-    public Dictionary<int,List<Vector2>> Road;
-    public List<Vector2> ÕÏ°­Îï;
-    public Vector2 Éú³ÉÎ»ÖÃ;
+    [Serializable]
+    public class BlockMessage
+    {
+        [DictionaryDrawerSettings(KeyLabel = "å“ªæ¡è·¯", ValueLabel = "è·¯ä¿¡æ¯")]
+        public Dictionary<int, List<Vector2>> Road;
+
+        public List<Vector2> éšœç¢ç‰©;
+        public Vector2 ç”Ÿæˆä½ç½®;
+    }
 }

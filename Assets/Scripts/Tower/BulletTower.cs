@@ -1,31 +1,35 @@
 ﻿using UnityEngine;
-/// <summary>
-/// 子弹塔
-/// </summary>
-public class BulletTower : TowerBase
+
+namespace Tower
 {
-    private int PosX;
-    private int PosY;
-
-    public BulletTower(int posX, int posY)
+    /// <summary>
+    /// 子弹塔
+    /// </summary>
+    public class BulletTower : TowerBase
     {
-        this.PosX = posX;
-        this.PosY = posY;
-    }
+        private int PosX;
+        private int PosY;
 
-    private void Attack()
-    {
-        GameObject bullet=Instantiate(Bullet);
-        bullet.transform.up = getEnemyCollider()[0].gameObject.transform.position;
-    }
-
-    protected override void Update()
-    {
-        base.Update();
-        if(isTimeEnd()&&isHaveEnemy())
+        public BulletTower(int posX, int posY)
         {
-            Attack();
-            return;
+            this.PosX = posX;
+            this.PosY = posY;
+        }
+
+        private void Attack()
+        {
+            GameObject bullet = Instantiate(Bullet);
+            bullet.transform.up = getEnemyCollider()[0].gameObject.transform.position;
+        }
+
+        protected override void Update()
+        {
+            base.Update();
+            if (isTimeEnd() && isHaveEnemy())
+            {
+                Attack();
+                return;
+            }
         }
     }
 }

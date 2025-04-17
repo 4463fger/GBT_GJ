@@ -1,9 +1,10 @@
-﻿using Game;
-using JKFrame;
+﻿using JKFrame;
+using Managers;
 using UnityEngine.UI;
 using UnityEngine;
+using UI.Fight;
 
-namespace UI
+namespace UI.Main
 {
     [UIWindowData(typeof(UILevelChoosePanel),true,"Prefabs/UI/UILevelChoosePanel",2)]
     public class UILevelChoosePanel : UI_WindowBase
@@ -15,14 +16,14 @@ namespace UI
         [SerializeField] private Button Level5;
         public override void Init()
         {
-            Level1.onClick.AddListener(()=>  onSceneCHangeclick("Level1"));
-            Level2.onClick.AddListener(() => onSceneCHangeclick("Level2"));
-            Level3.onClick.AddListener(() => onSceneCHangeclick("Level3"));
-            Level4.onClick.AddListener(() => onSceneCHangeclick("Level4"));
-            Level5.onClick.AddListener(() => onSceneCHangeclick("Level5"));
+            Level1.onClick.AddListener(()=>  OnSceneCHandeClick("Level1"));
+            Level2.onClick.AddListener(() => OnSceneCHandeClick("Level2"));
+            Level3.onClick.AddListener(() => OnSceneCHandeClick("Level3"));
+            Level4.onClick.AddListener(() => OnSceneCHandeClick("Level4"));
+            Level5.onClick.AddListener(() => OnSceneCHandeClick("Level5"));
         }
 
-        private void onSceneCHangeclick(string sceneName)
+        private void OnSceneCHandeClick(string sceneName)
         {
             SceneSystem.LoadSceneAsync(sceneName, (op) =>
             {

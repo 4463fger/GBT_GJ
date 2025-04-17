@@ -1,31 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName ="BuffData",menuName ="Config/BuffData")]
-public class BuffData : ScriptableObject
+
+namespace Buff
 {
-    [Header("»ù±¾ĞÅÏ¢")]
-    public int id;
-    public string buffName;
-    public string description;
-    public Sprite icon;
-    public int priority;
-    public int maxStack;
-    public string[] tags;
-    [Header("Ê±¼äĞÅÏ¢")]
-    public bool isForever;
-    public float duration;
-    public float tickTime;
-    [Header("¸üĞÂ·½Ê½")]
-    public BuffUpdateTimeEnum buffUpdateTime;
-    public BuffRemoveStackUpdateEnum buffRemoveStackUpdate;
-    [Header("»ù´¡»Øµ÷µã")]
-    public BaseBuffModule OnCreate;
-    public BaseBuffModule OnRemove;
-    public BaseBuffModule OnTick;
-    [Header("ÉËº¦»Øµ÷µã")]
-    public BaseBuffModule OnHit;
-    public BaseBuffModule OnBehurt;
-    public BaseBuffModule OnKill;
-    public BaseBuffModule OnBeKill;
+    [CreateAssetMenu(fileName = "BuffData", menuName = "Config/BuffData")]
+    public class BuffData : ScriptableObject
+    {
+        [Header("åŸºæœ¬ä¿¡æ¯")] public int id;
+        public string buffName;
+        public string description;
+        public Sprite icon;
+        public int priority;
+        public int maxStack;
+        public string[] tags;
+        [Header("æ—¶é—´ä¿¡æ¯")] public bool isForever;
+        public float duration;
+        public float tickTime;
+        [Header("æ›´æ–°æ–¹å¼")] public BuffUpdateTimeEnum buffUpdateTime;
+        public BuffRemoveStackUpdateEnum buffRemoveStackUpdate;
+        [Header("åŸºç¡€å›è°ƒç‚¹")] public BaseBuffModule OnCreate;
+        public BaseBuffModule OnRemove;
+        public BaseBuffModule OnTick;
+        [Header("ä¼¤å®³å›è°ƒç‚¹")] public BaseBuffModule OnHit;
+        public BaseBuffModule OnBehurt;
+        public BaseBuffModule OnKill;
+        public BaseBuffModule OnBeKill;
+    }
 }

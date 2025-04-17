@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace UI
+namespace UI.UIElement
 {
     public class ScrollViewController : MonoBehaviour,IBeginDragHandler,IEndDragHandler
     {

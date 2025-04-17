@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Game.Enemy;
+using Enemy;
 using JKFrame;
 using UnityEngine;
 

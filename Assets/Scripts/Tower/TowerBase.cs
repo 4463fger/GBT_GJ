@@ -1,47 +1,51 @@
 using UnityEngine;
-/// <summary>
-/// ËşµÄ»ùÀà
-/// </summary>
-public class TowerBase : MonoBehaviour
+
+namespace Tower
 {
-    protected float gridLength;//×©¿éµÄ´óĞ¡£¬ÓÃÓÚ¼ÆËã¹¥»÷¾àÀë
-
-    [SerializeField]protected LayerMask enemyLayer;//µĞÈË²ã
-
-    [Header("ËşµÄÊı¾İ")]
-    protected float attackRadius;//¹¥»÷°ë¾¶
-
-    protected float attackInterval;//¹¥»÷¼ä¸ô
-
-    protected float attackDamage;//¹¥»÷ÉËº¦
-
-    protected float attackTimer;//¹¥»÷¼ÆÊ±Æ÷
-
-    protected GameObject Bullet;//ËşµÄ×Óµ¯
-
-
-    protected virtual void Awake()
+    /// <summary>
+    /// å¡”çš„åŸºç±»
+    /// </summary>
+    public class TowerBase : MonoBehaviour
     {
-        attackTimer = attackInterval;
-    }
+        protected float gridLength; //ç –å—çš„å¤§å°ï¼Œç”¨äºè®¡ç®—æ”»å‡»è·ç¦»
 
-    protected virtual void Update()
-    {
-        if(isHaveEnemy())
-        attackTimer -= Time.deltaTime;
-    }
-    protected bool isTimeEnd()
-    {
-        return attackTimer == attackInterval;
-    }
+        [SerializeField] protected LayerMask enemyLayer; //æ•Œäººå±‚
 
-    protected Collider2D[] getEnemyCollider()
-    {
-        return Physics2D.OverlapCircleAll(gameObject.transform.position, attackRadius * gridLength, enemyLayer);
-    }
+        [Header("å¡”çš„æ•°æ®")] protected float attackRadius; //æ”»å‡»åŠå¾„
 
-    protected bool isHaveEnemy()
-    {
-        return getEnemyCollider().Length > 0;
+        protected float attackInterval; //æ”»å‡»é—´éš”
+
+        protected float attackDamage; //æ”»å‡»ä¼¤å®³
+
+        protected float attackTimer; //æ”»å‡»è®¡æ—¶å™¨
+
+        protected GameObject Bullet; //å¡”çš„å­å¼¹
+
+
+        protected virtual void Awake()
+        {
+            attackTimer = attackInterval;
+        }
+
+        protected virtual void Update()
+        {
+            if (isHaveEnemy())
+                attackTimer -= Time.deltaTime;
+        }
+
+        protected bool isTimeEnd()
+        {
+            return attackTimer == attackInterval;
+        }
+
+        protected Collider2D[] getEnemyCollider()
+        {
+            return Physics2D.OverlapCircleAll(gameObject.transform.position, attackRadius * gridLength, enemyLayer);
+        }
+
+        protected bool isHaveEnemy()
+        {
+            return getEnemyCollider().Length > 0;
+        }
     }
 }

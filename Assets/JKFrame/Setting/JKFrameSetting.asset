@@ -38,7 +38,7 @@ MonoBehaviour:
       Data: false
     - Name: writeTrace
       Entry: 5
-      Data: true
+      Data: false
     - Name: enableSave
       Entry: 5
       Data: false
@@ -183,4 +183,4 @@ MonoBehaviour:
       Entry: 8
       Data: 
   ResourcesSystemType: 0
-  SaveSystemType: 0
+  SaveSystemType: 1

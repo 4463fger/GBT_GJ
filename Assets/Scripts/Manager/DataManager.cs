@@ -6,17 +6,19 @@
 * └──────────────────────────────────┘
 */
 
+using GameData;
+
 namespace Game.Data
 {
     public class DataManager
     {
         // 游戏数据
-        public SettingData SettingData;
+        public SettingDataCenter SettingDataCenter;
         public ConfigData ConfigData;
 
         public DataManager()
         {
-            SettingData = new();
+            SettingDataCenter = new();
             ConfigData = new();
         }
     }

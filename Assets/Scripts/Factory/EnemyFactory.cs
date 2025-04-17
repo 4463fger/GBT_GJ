@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using Game.Enemy;
+﻿using Enemy;
+using Managers;
 using UnityEngine;
 
 namespace Factory
@@ -11,9 +11,9 @@ namespace Factory
         {
         }
         
-        public T CreateEnemy<T>(EnemyType type) where T : MonoBehaviour, IEnemy
+        public T CreateEnemy<T>(EnemyType type) where T : MonoBehaviour, IHurt
         {
-            IEnemy enemy = null;
+            IHurt enemy = null;
 
             switch (type)
             {
