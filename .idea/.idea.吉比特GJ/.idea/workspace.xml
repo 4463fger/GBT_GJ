@@ -7,26 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5de7a06-7497-4cdd-98d4-c2ba087fc6cb" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.吉比特GJ/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.吉比特GJ/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Infinity Code/Ultimate Editor Enhancer Settings/LocalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Infinity Code/Ultimate Editor Enhancer Settings/LocalSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Infinity Code/Ultimate Editor Enhancer Settings/References.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Infinity Code/Ultimate Editor Enhancer Settings/References.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Config/MapConfig/MapConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Config/MapConfig/MapConfig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameStart.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameStart.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bullet/FireBullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bullet/FireBullet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/ConfigData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/ConfigData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameApp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameApp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/FightManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/FightManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/MapManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/MapManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Map/Block.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Map/Block.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Role/Enemy/EnemyBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Role/Enemy/EnemyBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Role/Enemy/EnemyGenerate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Role/Enemy/EnemyGenerate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Fight/FightUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Fight/FightUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-    </list>
+    <list default="true" id="a5de7a06-7497-4cdd-98d4-c2ba087fc6cb" name="更改" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -211,6 +192,7 @@
       <workItem from="1744620474487" duration="2823000" />
       <workItem from="1744719505564" duration="7638000" />
       <workItem from="1744727198966" duration="47000" />
+      <workItem from="1745041402818" duration="124000" />
     </task>
     <task id="LOCAL-00001" summary="导入Dowteen和基本素材">
       <option name="closed" value="true" />
