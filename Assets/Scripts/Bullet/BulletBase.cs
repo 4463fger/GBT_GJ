@@ -37,7 +37,10 @@ namespace Item.Bullet
 
         protected virtual void Hit()
         {
-            AudioSystem.PlayOneShot(hitClip);
+            if (gameObject.GetComponent<AudioSource>())
+            {
+                AudioSystem.PlayOneShot(hitClip);
+            }
         }
 
         protected virtual void DestroyBullet()

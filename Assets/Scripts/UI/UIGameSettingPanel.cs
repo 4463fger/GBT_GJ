@@ -14,7 +14,7 @@ namespace UI.Main
     {
         // 需要过渡的对象
         private CanvasGroup m_CanvansGroup;
-        private SettingDataCenter _settingDataCenter = GameApp.Instance.DataManager.SettingDataCenter;
+        private SettingDataCenter _settingDataCenter;
         [SerializeField] private Slider GlobalAudioSlider;
         [SerializeField] private Slider MusicAudioSlider;
         [SerializeField] private Slider EffectAudioSlider;
@@ -23,6 +23,7 @@ namespace UI.Main
         
         private void Awake()
         {
+            _settingDataCenter = GameApp.Instance.DataManager.SettingDataCenter;
             m_CanvansGroup = GetComponent<CanvasGroup>();
 
             // 总音量设置

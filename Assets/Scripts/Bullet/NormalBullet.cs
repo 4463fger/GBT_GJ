@@ -9,17 +9,17 @@ namespace Item.Bullet
         private float rotateSpeed=200f;
         protected override void Shoot()
         {
-            // ¼ÆËã³¯ÏòÄ¿±êµÄ·½Ïò
+            // ï¿½ï¿½ï¿½ã³¯ï¿½ï¿½Ä¿ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
             Vector2 direction = (Vector2)enemyTarget.transform.position - (Vector2)gameObject.transform.position;
             direction.Normalize();
 
-            // Æ½»¬Ðý×ª³¯ÏòÄ¿±ê
+            // Æ½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½
             float rotateStep = rotateSpeed * Time.deltaTime;
             Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, direction);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotateStep);
 
-            // ÏòÇ°ÒÆ¶¯£¨»ùÓÚµ±Ç°³¯Ïò£©
-            transform.Translate(Vector3.up * bulletSpeed * Time.deltaTime, Space.Self);
+            // ï¿½ï¿½Ç°ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½Ç°ï¿½ï¿½ï¿½ï¿½
+            transform.Translate(Vector3.up * (bulletSpeed * Time.deltaTime), Space.Self);
 
         }
         protected override void Update() 
@@ -28,14 +28,14 @@ namespace Item.Bullet
         }
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.layer == 128)  
+            if (collision.CompareTag("Enemy")) 
             {
-                Hit();
-                IHurt damage = collision.gameObject.GetComponent<IHurt>();
+                // Hit();
+                IHurt damage = collision.gameObject.GetComponentInParent<IHurt>();
                 damage.Hurt(bulletDamage);
-                print("¿ÛÑª");
-                enemyDamages.Add(collision.gameObject.GetComponent<IHurt>());
-                Destroy(gameObject);
+                Debug.Log("ç¢°åˆ°äº†");
+                enemyDamages.Add(collision.gameObject.GetComponentInParent<IHurt>());
+                Destroy(this.gameObject);
             }
         }
     }
