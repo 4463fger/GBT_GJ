@@ -13,5 +13,8 @@ namespace Config
         public Sprite towerSprite; //塔的图标
         public GameObject towerPreviewPrefab; //塔的预视图预制体
         public GameObject towerPrefab; //塔的预制体
+        public float attackRadius; //攻击半径
+        public float attackInterval; //攻击间隔
+        public float attackDamage; //攻击伤害
     }
 }

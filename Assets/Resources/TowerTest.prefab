@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2681343697218351952}
   - component: {fileID: 2304516801125687509}
   - component: {fileID: 826500608345806816}
+  - component: {fileID: 8338031804639846754}
   m_Layer: 5
   m_Name: TowerTest
   m_TagString: Untagged
@@ -75,3 +76,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8338031804639846754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7674869488346330220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b8a818f0dfcb543943fe6b2427b4ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  Bullet: {fileID: 7688329701417175731, guid: 62cfcb63cc39a8f40a829a09d3cbb1c9, type: 3}

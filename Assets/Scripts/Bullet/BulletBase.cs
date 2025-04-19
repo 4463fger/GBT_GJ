@@ -11,13 +11,17 @@ namespace Item.Bullet
     public abstract class BulletBase : MonoBehaviour
     {
         protected float bulletDamage;
-        protected float destroyTime;
+        [SerializeField] protected float destroyTime;
         protected float destroyTimer;
         protected AudioClip hitClip;
         protected Collider2D bulletCollider;
-
-        protected HashSet<IHurt> enemyDamages = new();
-
+        protected GameObject enemyTarget;
+        protected HashSet<IHurt> enemyDamages = new HashSet<IHurt>();
+        
+        public void SetTarget(GameObject gameObject)
+        {
+            enemyTarget = gameObject;
+        }
         protected virtual void Awake()
         {
             destroyTimer = destroyTime;
@@ -26,9 +30,9 @@ namespace Item.Bullet
         protected virtual void Update()
         {
             destroyTimer -= Time.deltaTime;
+            Shoot();
             if (destroyTimer <= 0) DestroyBullet();
         }
-
         protected abstract void Shoot();
 
         protected virtual void Hit()

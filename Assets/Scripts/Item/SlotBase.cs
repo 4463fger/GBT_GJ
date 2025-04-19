@@ -5,6 +5,7 @@ using JKFrame;
 using UnityEngine.UI;
 using TMPro;
 using Item.Map;
+using Tower;
 
 namespace Item
 {
@@ -83,7 +84,7 @@ namespace Item
                 Block block = collider2D.gameObject?.GetComponent<Block>();
                 if (block != null && block.Type == BlockType.Placedable)
                 {
-                    Instantiate(towerConfig.towerPrefab, block.transform.position, Quaternion.identity);
+                    TowerManager.Instance.CreateTower(towerConfig, block);
                 }
             });
             Destroy(previewTower);

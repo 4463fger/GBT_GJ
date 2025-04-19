@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Item.Bullet;
+using UnityEngine;
 
 namespace Tower
 {
@@ -7,29 +8,18 @@ namespace Tower
     /// </summary>
     public class BulletTower : TowerBase
     {
-        private int PosX;
-        private int PosY;
-
-        public BulletTower(int posX, int posY)
+        protected override void Attack()
         {
-            this.PosX = posX;
-            this.PosY = posY;
-        }
-
-        private void Attack()
-        {
-            GameObject bullet = Instantiate(Bullet);
-            bullet.transform.up = getEnemyCollider()[0].gameObject.transform.position;
+            GameObject bullet = Instantiate(Bullet,transform.position,Quaternion.identity);
+            bullet.GetComponent<BulletBase>().SetTarget(getEnemyCollider()[collider2Ds.Length - 1].gameObject);
+            Vector3 dir= getEnemyCollider()[collider2Ds.Length - 1].gameObject.transform.position-bullet.transform.position;
+            dir.Normalize();
+            bullet.transform.up = dir;
         }
 
         protected override void Update()
         {
             base.Update();
-            if (isTimeEnd() && isHaveEnemy())
-            {
-                Attack();
-                return;
-            }
         }
     }
 }

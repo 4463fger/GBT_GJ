@@ -18,3 +18,6 @@ MonoBehaviour:
   towerSprite: {fileID: -605618512, guid: 7942bc09efadadc458c2d4ee682c474a, type: 3}
   towerPreviewPrefab: {fileID: 7674869488346330220, guid: 60b56722d0419a848bc9ad63c81aaa35, type: 3}
   towerPrefab: {fileID: 9027906482071773192, guid: 794022aea7e4d2b4ea4e82fcd4dbf18f, type: 3}
+  attackRadius: 3
+  attackInterval: 1
+  attackDamage: 10

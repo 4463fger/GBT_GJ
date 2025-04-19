@@ -171,6 +171,12 @@ namespace Managers
             {
                 return new Vector3(row - 9.5f, col - 6.5f, 0f);
             }
+
+
+            public void CreateTower(TowerConfig towerConfig,Vector2 pos)
+            {
+                
+            }
         }
     }
 }

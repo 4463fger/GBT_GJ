@@ -15,21 +15,21 @@ namespace Tower
             Vector3 Pos = new Vector3(posX, posY, 0);
 
         }
-
-        public void TrySetTower()
+        public void Init()
         {
-            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mouseWorldPos.z = 0; // 确保 Z 轴为 0（2D 环境）
-            Collider2D hitCollider = Physics2D.OverlapPoint(mouseWorldPos);
-            Block block = hitCollider.gameObject.GetComponent<Block>();
-            if (block.Type == BlockType.Placedable && block.isCanUsed == true)
-            {
 
-            }
-            else if (block.Type != BlockType.Placedable)
-            {
-
-            }
+        }
+        public void CreateTower(TowerConfig towerConfig,Block block)
+        {
+            Vector2 pos=block.transform.position;
+            GameObject tower=Instantiate(towerConfig.towerPrefab,pos,Quaternion.identity);
+            block.Type = BlockType.Placedable;
+            int x = block.RowIndex;
+            int y = block.ColIndex;
+            TowerBase towerBase = tower.GetComponent<TowerBase>();
+            towerBase.SetPos(x,y);
+            towerBase.InitTower(towerConfig);
+            
         }
     }
 }

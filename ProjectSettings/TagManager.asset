@@ -14,8 +14,8 @@ TagManager:
   - Water
   - UI
   - Grid
-  - 
-  - 
+  - Enemy
+  - Bullet
   - 
   - 
   - 
@@ -45,4 +45,7 @@ TagManager:
     locked: 0
   - name: Instance
     uniqueID: 65738345
+    locked: 0
+  - name: Enemy
+    uniqueID: 2707947341
     locked: 0
