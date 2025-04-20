@@ -31,7 +31,15 @@ namespace Item.Bullet
         {
             destroyTimer -= Time.deltaTime;
             Shoot();
-            if (destroyTimer <= 0) DestroyBullet();
+            if (destroyTimer <= 0||enemyTarget==null) DestroyBullet();
+            if (!enemyTarget.activeSelf)
+            {
+                DestroyBullet();
+            }
+        }
+        protected virtual void LateUpdate()
+        {
+            
         }
         protected abstract void Shoot();
 
