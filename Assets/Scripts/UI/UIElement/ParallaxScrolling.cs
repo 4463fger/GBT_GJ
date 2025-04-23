@@ -25,7 +25,6 @@ namespace UI.UIElement
         {
             rectTransform = GetComponent<RectTransform>();
             originalX = rectTransform.anchoredPosition.x;
-            Debug.Log(originalX);
         }
         
         private void Update()

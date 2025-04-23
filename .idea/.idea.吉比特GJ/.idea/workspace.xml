@@ -8,10 +8,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5de7a06-7497-4cdd-98d4-c2ba087fc6cb" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIElement/ParallaxScrolling.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIElement/ParallaxScrolling.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.吉比特GJ/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.吉比特GJ/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/UIBackGroundPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/UIBackGroundPanel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/PastelUIFree.png/__MACOSX.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/PastelUIFree.png/__MACOSX/._PastelUIFree.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/Sprout Lands - UI Pack - Basic pack/Sprite sheets/UI Settings Buttons.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Arts/UI/Sprout Lands - UI Pack - Basic pack/Sprite sheets/UI Settings Buttons.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/Sprout Lands - UI Pack - Basic pack/read_me.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/Sprout Lands - UI Pack - Basic pack/read_me.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Infinity Code/Ultimate Editor Enhancer Settings/References.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Infinity Code/Ultimate Editor Enhancer Settings/References.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/UIGameStartPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/UIGameStartPanel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/GameStart/UIGameSettingPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/GameStart/UIGameSettingPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIElement/ParallaxScrolling.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIElement/ParallaxScrolling.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +48,11 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/1dc2bc9d43d64a44a2f77cc9fc11305a10000/36/dfd85738/02000012pdb4.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/1dc2bc9d43d64a44a2f77cc9fc11305a10000/90/b176a496/0200002Epdb46.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/d60637af8ea54d998fcbf5dbb2baf46010400/40/6e8ae6aa/02000013pdb4.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/d60637af8ea54d998fcbf5dbb2baf46010400/5f/eadffc4e/0200002Fpdb47.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/d60637af8ea54d998fcbf5dbb2baf46010400/ca/e96d6526/0200000Bpdb33.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3e5e592845a64ef9b1bfaf307d55636a3600/c1/64d45986/JsonUtility.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/80bea25354d94dc4aa1a171e9f8849d695d600/f9/6c550c69/Lightmapping.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9227a5b2de2a4ae492b88950ee42b3bd23000/bb/8fa32a32/Ease.cs" root0="FORCE_HIGHLIGHTING" />
@@ -69,6 +80,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/GameStart/UIGameSettingPanel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/GameStart/UIGameStartPanel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/UIElement/ScrollViewController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.7/Scripts/Runtime/TMP_Text.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -200,7 +212,7 @@
       <workItem from="1744727198966" duration="47000" />
       <workItem from="1745067684473" duration="1567000" />
       <workItem from="1745406196022" duration="7977000" />
-      <workItem from="1745417857600" duration="2253000" />
+      <workItem from="1745417857600" duration="9643000" />
     </task>
     <task id="LOCAL-00001" summary="导入Dowteen和基本素材">
       <option name="closed" value="true" />
