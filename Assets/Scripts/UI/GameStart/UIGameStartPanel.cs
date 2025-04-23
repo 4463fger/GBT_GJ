@@ -1,0 +1,145 @@
+﻿using DG.Tweening;
+using Game;
+using JKFrame;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace UI.Main
+{
+    [UIWindowData(typeof(UIGameStartPanel),true,"Prefabs/UI/UIGameStartPanel",2)]
+    public class UIGameStartPanel : UI_WindowBase
+    {
+        // 子物体
+        [SerializeField] private UIGameSettingPanel m_GameSettingPanel;
+        [SerializeField] private UIHelpPanel m_HelpPanel;
+
+        [Header("左侧按钮")]
+        [SerializeField] private Button Btn_图鉴;
+        [SerializeField] private Button Btn_Shop;
+        [SerializeField] private Button Btn_Achievement;
+        
+        [Header("中间按钮")] 
+        [SerializeField] private Button Btn_StartGame;
+        [SerializeField] private Button Btn_LoadGame;
+        
+        [Header("右侧按钮")]
+        [SerializeField] private Button Btn_Options;
+        [SerializeField] private Button Btn_Help;
+        [SerializeField] private Button Btn_ExitGame;
+
+        // 主界面BGM
+        private AudioClip bgmClip;
+
+        public override void Init()
+        {
+            // 加载Bgm
+            bgmClip = ResSystem.LoadAsset<AudioClip>("Audio/LoginBgm");
+            
+            // 左侧按钮
+            //Btn_图鉴.GetComponent<Button>().onClick.AddListener(OnOpen图鉴Click);
+            //Btn_Shop.GetComponent<Button>().onClick.AddListener(OnOpenShopPanelClick);
+            //Btn_Achievement.GetComponent<Button>().onClick.AddListener(OnOpenAchievementPanelClick);
+
+            // 中间按钮: 开始游戏 加载 
+            Btn_StartGame.GetComponent<Button>().onClick.AddListener(OnStartGameClick);
+            Btn_LoadGame.GetComponent<Button>().onClick.AddListener(OnLoadClick);
+            
+            // 右侧按钮
+            Btn_Options.GetComponent<Button>().onClick.AddListener(OnOpenSettingsPanelClick);
+            Btn_Help.GetComponent<Button>().onClick.AddListener(onOpenHelpPanelClick);
+            Btn_ExitGame.GetComponent<Button>().onClick.AddListener(OnQuitGameClick);
+
+            m_GameSettingPanel.Init();
+            m_HelpPanel.Init();
+        }
+
+        public override void OnShow()
+        {
+            var _settingDataCenter = GameApp.Instance.DataManager.SettingDataCenter;
+            
+            // 默认加载BGM
+            AudioSystem.PlayBGAudio(bgmClip,volume: 1,fadeOutTime:0.5f);
+            
+            // 同步设置当前音量参数
+            AudioSystem.BGVolume = _settingDataCenter._settingData.MusicVolume;
+            AudioSystem.GlobalVolume = _settingDataCenter._settingData.GlobalVolume;
+            
+            //TODO:添加分辨率
+            //
+            // // 应用分辨率设置
+            // var resolution = GameApp.Instance.DataManager.SettingData.LoadResolution();
+            // Screen.SetResolution(resolution.width, resolution.height, 
+            //     GameApp.Instance.DataManager.SettingData.isFullscreen);
+        }
+
+        public override void OnClose()
+        {
+            m_GameSettingPanel.OnHide();
+            m_HelpPanel.OnHide();
+            AudioSystem.StopBGAudio();
+        }
+
+        #region 左侧按钮
+
+        private void OnOpen图鉴Click()
+        {
+            //TODO:打开图鉴面板
+        }
+        
+        private void OnOpenShopPanelClick()
+        {
+            //TODO:打开商店面板
+        }
+        
+        private void OnOpenAchievementPanelClick()
+        {
+            //TODO:打开成就面板
+        }
+
+        #endregion
+        
+        #region 中间按钮
+        
+        // 开始游戏 => 跳转到选择关卡
+        private void OnStartGameClick()
+        {
+            SceneSystem.LoadScene("LevelChoose");
+            UISystem.Close<UIGameStartPanel>();
+            // 加载关卡选择面板
+            UISystem.Show<UILevelChoosePanel>();
+        }
+        
+        private void OnLoadClick()
+        {
+            //TODO:加载存档界面
+            Debug.Log("打开存档界面");
+        }
+
+        #endregion
+        
+        #region 右侧按钮
+
+        // 打开选项
+        private void OnOpenSettingsPanelClick()
+        {
+            m_GameSettingPanel.OnShow();
+        }
+        
+        // 打开帮助面板
+        private void onOpenHelpPanelClick()
+        {
+            m_HelpPanel.OnShow();
+        }
+        
+        // 退出游戏
+        private void OnQuitGameClick()
+        {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
+            Application.Quit();
+        }
+        
+        #endregion
+    }
+}
