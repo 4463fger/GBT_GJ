@@ -1,5 +1,4 @@
-﻿using DG.Tweening;
-using Game;
+﻿using Game;
 using JKFrame;
 using UnityEngine;
 using UnityEngine.UI;
@@ -29,11 +28,13 @@ namespace UI.Main
 
         // 主界面BGM
         private AudioClip bgmClip;
+        private AudioClip confirmClip;
 
         public override void Init()
         {
             // 加载Bgm
             bgmClip = ResSystem.LoadAsset<AudioClip>("LoginBgm");
+            confirmClip = ResSystem.LoadAsset<AudioClip>("Confirm");    
             
             // 左侧按钮
             //Btn_图鉴.GetComponent<Button>().onClick.AddListener(OnOpen图鉴Click);
@@ -80,20 +81,23 @@ namespace UI.Main
         }
 
         #region 左侧按钮
-
-        private void OnOpen图鉴Click()
-        {
-            //TODO:打开图鉴面板
-        }
         
         private void OnOpenShopPanelClick()
         {
             //TODO:打开商店面板
+            AudioSystem.PlayOneShot(confirmClip);
+        }
+        
+        private void OnOpen图鉴Click()
+        {
+            //TODO:打开天赋树面板
+            AudioSystem.PlayOneShot(confirmClip);
         }
         
         private void OnOpenAchievementPanelClick()
         {
             //TODO:打开成就面板
+            AudioSystem.PlayOneShot(confirmClip);
         }
 
         #endregion
@@ -103,6 +107,7 @@ namespace UI.Main
         // 开始游戏 => 跳转到选择关卡
         private void OnStartGameClick()
         {
+            AudioSystem.PlayOneShot(confirmClip);
             SceneSystem.LoadScene("LevelChoose");
             UISystem.Close<UIGameStartPanel>();
             // 加载关卡选择面板
@@ -111,6 +116,7 @@ namespace UI.Main
         
         private void OnLoadClick()
         {
+            AudioSystem.PlayOneShot(confirmClip);
             //TODO:加载存档界面
             Debug.Log("打开存档界面");
         }
@@ -122,18 +128,21 @@ namespace UI.Main
         // 打开选项
         private void OnOpenSettingsPanelClick()
         {
+            AudioSystem.PlayOneShot(confirmClip);
             m_GameSettingPanel.OnShow();
         }
         
         // 打开帮助面板
         private void onOpenHelpPanelClick()
         {
+            AudioSystem.PlayOneShot(confirmClip);
             m_HelpPanel.OnShow();
         }
         
         // 退出游戏
         private void OnQuitGameClick()
         {
+            AudioSystem.PlayOneShot(confirmClip);
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
 #endif

@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 4a03561fca2972948b55d1f26e254fad
   m_currentHash:
     serializedVersion: 2
-    Hash: 00000000000000000000000000000000
+    Hash: 4978c793c402df96f48ce1b18bf16b69
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -98,6 +98,11 @@ MonoBehaviour:
     - Enemy
     - MapElement
     - Bullet
+    - Tower
+    - MapConfig
+    - LevelConfig
+    - TowerConfig
+    - EffectMusic
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: be3925a06026b74449dbccc45d76e723, type: 2}

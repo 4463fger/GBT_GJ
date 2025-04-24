@@ -12,35 +12,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
   m_Name: Config
   m_EditorClassIdentifier: 
-  m_GroupName: Tower
+  m_GroupName: Config
   m_Data:
     m_SerializedData: []
   m_GUID: 72aa76e7cef34fe4cbcbe928f615d690
   m_SerializeEntries:
   - m_GUID: 2933651eadb7ccc429df66ab7ea2fafe
-    m_Address: Config/MapConfig/MapConfig
+    m_Address: MapConfig
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - MapConfig
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 38866d9e167a1574db320fe970f42c31
-    m_Address: Config/WaveConfig/Level1
+    m_Address: Level1
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - LevelConfig
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 44600fa2fcca2ba44bb0932092ad8575
-    m_Address: "Config/TowerConfig/\u5B50\u5F39\u5854"
+    m_Address: "\u5B50\u5F39\u5854"
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - TowerConfig
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 750638cfee58356468ab9704bbded779
-    m_Address: "Config/TowerConfig/\u71C3\u70E7\u5854"
+    m_Address: "\u71C3\u70E7\u5854"
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - TowerConfig
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cf96556279f7c964a8e7130e93a3890d
-    m_Address: Config/WaveConfig/Level2
+    m_Address: Level2
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - LevelConfig
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 5f4281ac54c74754eb71e4d6c568bbed, type: 2}

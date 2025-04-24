@@ -1,6 +1,7 @@
 ﻿using DG.Tweening;
 using Game;
 using GameData;
+using JKFrame;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,11 +25,15 @@ namespace UI.Main
         private int _globalVolumeLevel = 5; // 初始值50%
         private int _musicVolumeLevel = 5;
         private int _effectVolumeLevel = 5;
+
+        private AudioClip cancelAudioClip;
         public void Init()
         {
             _settingDataCenter = GameApp.Instance.DataManager.SettingDataCenter;
             m_CanvansGroup = GetComponent<CanvasGroup>();
             m_CanvansGroup.alpha = 0;
+
+            cancelAudioClip = ResSystem.LoadAsset<AudioClip>("Cancel");
 
             // 总音量设置
             _globalVolumeLevel = (int)(_settingDataCenter._settingData.GlobalVolume * 10);
@@ -73,6 +78,7 @@ namespace UI.Main
         
         public void OnHide()
         {
+            AudioSystem.PlayOneShot(cancelAudioClip);
             m_CanvansGroup
                 .DOFade(0f, 0.5f)
                 .SetEase(Ease.InQuad)

@@ -17,6 +17,12 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: afe8f43b97d61e84da2cdf2590ee9dbb
   m_SerializeEntries:
+  - m_GUID: 0b67136fef0f22d48a1af392ed8bd4a5
+    m_Address: Confirm
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - EffectMusic
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4e5e89387b07ffa47b949545d7586752
     m_Address: LoginBgm
     m_ReadOnly: 0
@@ -26,6 +32,12 @@ MonoBehaviour:
     m_Address: hit
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f0681149d8f21184cb272df75a78fda6
+    m_Address: Cancel
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - EffectMusic
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 5f4281ac54c74754eb71e4d6c568bbed, type: 2}

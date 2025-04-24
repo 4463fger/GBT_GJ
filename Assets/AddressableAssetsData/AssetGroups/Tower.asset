@@ -12,11 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
   m_Name: Tower
   m_EditorClassIdentifier: 
-  m_GroupName: Packed Assets
+  m_GroupName: Tower
   m_Data:
     m_SerializedData: []
   m_GUID: 5b854fa786e972447b9d09eaf5ab0e01
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 60b56722d0419a848bc9ad63c81aaa35
+    m_Address: TowerTest
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tower
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 5f4281ac54c74754eb71e4d6c568bbed, type: 2}
   m_SchemaSet:
