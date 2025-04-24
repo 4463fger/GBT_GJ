@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace UI.Main
 {
-    [UIWindowData(typeof(UIGameStartPanel),true,"Prefabs/UI/UIGameStartPanel",2)]
+    [UIWindowData(typeof(UIGameStartPanel),true,"UIGameStartPanel",2)]
     public class UIGameStartPanel : UI_WindowBase
     {
         // 子物体
@@ -33,7 +33,7 @@ namespace UI.Main
         public override void Init()
         {
             // 加载Bgm
-            bgmClip = ResSystem.LoadAsset<AudioClip>("Audio/LoginBgm");
+            bgmClip = ResSystem.LoadAsset<AudioClip>("LoginBgm");
             
             // 左侧按钮
             //Btn_图鉴.GetComponent<Button>().onClick.AddListener(OnOpen图鉴Click);

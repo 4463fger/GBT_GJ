@@ -6,7 +6,7 @@ using UI.Fight;
 
 namespace UI.Main
 {
-    [UIWindowData(typeof(UILevelChoosePanel),true,"Prefabs/UI/UILevelChoosePanel",2)]
+    [UIWindowData(typeof(UILevelChoosePanel),true,"UILevelChoosePanel",2)]
     public class UILevelChoosePanel : UI_WindowBase
     {
         [SerializeField] private Button Level1;

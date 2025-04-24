@@ -2,7 +2,7 @@
 
 namespace UI.Main
 {
-    [UIWindowData(typeof(UIBackGroundPanel),true,"Prefabs/UI/UIBackGroundPanel",0)]
+    [UIWindowData(typeof(UIBackGroundPanel),true,"UIBackGroundPanel",0)]
     public class UIBackGroundPanel : UI_WindowBase
     {
         public override void Init()

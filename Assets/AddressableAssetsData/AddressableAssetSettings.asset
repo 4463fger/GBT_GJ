@@ -44,8 +44,15 @@ MonoBehaviour:
   m_BuildAddressablesWithPlayerBuild: 0
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
+  - {fileID: 11400000, guid: 70eae03f4d0e02040a364246db52682b, type: 2}
   - {fileID: 11400000, guid: 81254bebccf613e4497704de5d58fdb1, type: 2}
+  - {fileID: 11400000, guid: 546dc01cb57840945b86f27c0cccfcd9, type: 2}
+  - {fileID: 11400000, guid: 647301a514ea7a64bb428696fcc644ca, type: 2}
   - {fileID: 11400000, guid: f47bfc04a4f159f439fc2f69cab6f87f, type: 2}
+  - {fileID: 11400000, guid: 18378626dd1e4b347b580ebc54c79f3b, type: 2}
+  - {fileID: 11400000, guid: b2bba187c7ead9b4aa4ab5d0507fba24, type: 2}
+  - {fileID: 11400000, guid: 0073268cc9ebabd4593411ac2bdc8bb2, type: 2}
+  - {fileID: 11400000, guid: 2c8e0de5851a3ee488a4935f36678b4b, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -87,6 +94,10 @@ MonoBehaviour:
   m_LabelTable:
     m_LabelNames:
     - default
+    - UI
+    - Enemy
+    - MapElement
+    - Bullet
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: be3925a06026b74449dbccc45d76e723, type: 2}

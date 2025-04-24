@@ -6,7 +6,7 @@ using TMPro;
 
 namespace UI.Fight
 {
-    [UIWindowData(typeof(FightUI), true, "Prefabs/UI/FightUI", 2)]
+    [UIWindowData(typeof(FightUI), true, "FightUI", 2)]
     public class FightUI : UI_WindowBase
     {
         [SerializeField] private TextMeshProUGUI CoinText;

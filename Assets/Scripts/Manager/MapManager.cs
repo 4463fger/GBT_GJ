@@ -70,7 +70,7 @@ namespace Managers
 
 
                 // [4] : 将临时数组位置信息转换为二维数组的Block进行存储
-                Object prefabObj = JKFrame.ResSystem.LoadAsset<Object>("Prefabs/Model/TestBlock");
+                Object prefabObj = JKFrame.ResSystem.LoadAsset<Object>("block");
                 for (int i = 0; i < tempPos.Count; i++)
                 {
                     int row = i / ColCount;

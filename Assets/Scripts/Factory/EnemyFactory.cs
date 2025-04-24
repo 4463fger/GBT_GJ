@@ -19,11 +19,11 @@ namespace Factory
             {
                 case EnemyType.Goblin:
                     enemy = JKFrame.ResSystem.InstantiateGameObject<Goblin>
-                        ("Prefabs/Enemy/哥布林", FightManager.Instance.EnemySpawnRoot);
+                        ("哥布林", FightManager.Instance.EnemySpawnRoot);
                     break;
                 case EnemyType.Boar:
                     enemy = JKFrame.ResSystem.InstantiateGameObject<Boar>
-                        ("Prefabs/Enemy/野猪",FightManager.Instance.EnemySpawnRoot);
+                        ("野猪",FightManager.Instance.EnemySpawnRoot);
                     break;
             }
             return enemy as T;

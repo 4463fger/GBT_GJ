@@ -7,6 +7,7 @@ using UnityEngine;
 
 namespace UI.Fight
 {
+    [UIWindowData(typeof(SetTowerUI), true, "Slot", 2)]
     public class SetTowerUI : UI_WindowBase
     {
         [SerializeField] private Transform SlotTransfrom;
