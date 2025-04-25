@@ -9,15 +9,13 @@
   <component name="ChangeListManager">
     <list default="true" id="a5de7a06-7497-4cdd-98d4-c2ba087fc6cb" name="更改" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.吉比特GJ/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.吉比特GJ/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Audio.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Audio.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Config.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Config.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Tower.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Tower.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Prefabs/UI/UIGameStartPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources_moved/Prefabs/UI/UIGameStartPanel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameApp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameApp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/GameStart/UIGameSettingPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/GameStart/UIGameSettingPanel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/GameStart/UIGameStartPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/GameStart/UIGameStartPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/PastelUIFree.png/PastelUIFree.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Arts/UI/PastelUIFree.png/PastelUIFree.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/Sprout Lands - UI Pack - Basic pack/emojis-free/emoji style ui/Inventory_Spritesheet.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Arts/UI/Sprout Lands - UI Pack - Basic pack/emojis-free/emoji style ui/Inventory_Spritesheet.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/Sprout Lands - UI Pack - Basic pack/fonts/pixelFont-7-8x14-sproutLands SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Arts/UI/Sprout Lands - UI Pack - Basic pack/fonts/pixelFont-7-8x14-sproutLands SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Prefabs/UI/FightUI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources_moved/Prefabs/UI/FightUI.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bullet/NormalBullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bullet/NormalBullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Fight/FightUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Fight/FightUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +212,8 @@
       <workItem from="1745406196022" duration="7977000" />
       <workItem from="1745417857600" duration="9802000" />
       <workItem from="1745428235027" duration="81000" />
-      <workItem from="1745502342189" duration="5305000" />
+      <workItem from="1745502342189" duration="5621000" />
+      <workItem from="1745567491270" duration="1484000" />
     </task>
     <task id="LOCAL-00001" summary="导入Dowteen和基本素材">
       <option name="closed" value="true" />
