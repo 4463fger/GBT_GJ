@@ -351,6 +351,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: JKFrame
       objectReference: {fileID: 0}
+    - target: {fileID: 6087791291824049245, guid: 92a72c9a3d3131f498a24198d7029305, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 7491465063636272187, guid: 92a72c9a3d3131f498a24198d7029305, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25

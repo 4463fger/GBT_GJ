@@ -17,6 +17,12 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: cc4c99ec79f40cf40b580fba3cac9ab3
   m_SerializeEntries:
+  - m_GUID: 11a01bfedff92ec4091da67378e85e64
+    m_Address: Assets/Resources_moved/Prefabs/UI/FightUI.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1dba16d93ad42d642b5ac2080aa92f35
     m_Address: UI_SetTower
     m_ReadOnly: 0
@@ -40,11 +46,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - UI
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6ffd4ce7860582848bd210e79258acd2
-    m_Address: FightUI
-    m_ReadOnly: 0
-    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 77ceea673297ed047a7054f572888129
     m_Address: Slot
