@@ -14,7 +14,6 @@ namespace Item
     {
         [SerializeField] private TextMeshProUGUI CostText;
         [SerializeField] private Image towerImage;
-        [SerializeField] private Image selectedImage;
         [SerializeField] private Image nullImage;
         [SerializeField] private TowerConfig towerConfig;
         private bool isDragging;
@@ -32,7 +31,6 @@ namespace Item
         {
             if (isInteractable)
             {
-                selectedImage.gameObject.SetActive(true);
 
             }
 
@@ -42,7 +40,6 @@ namespace Item
         {
             if (isInteractable)
             {
-                selectedImage.gameObject.SetActive(false);
             }
 
         }
@@ -97,14 +94,12 @@ namespace Item
             {
                 this.towerConfig = towerConfig;
                 CostText.text = towerConfig.Coin.ToString();
-                selectedImage.gameObject.SetActive(false);
                 towerImage.sprite = towerConfig.towerSprite;
             }
             else if (towerConfig == null)
             {
                 nullImage.gameObject.SetActive(true);
                 towerImage.gameObject.SetActive(false);
-                selectedImage.gameObject.SetActive(false);
                 CostText.gameObject.SetActive(false);
                 isInteractable = false;
             }

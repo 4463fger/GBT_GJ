@@ -23,8 +23,20 @@ MonoBehaviour:
     m_SerializedLabels:
     - UI
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1dba16d93ad42d642b5ac2080aa92f35
+    m_Address: UI_SetTower
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2661dc388dd64214ba966ced3b8e40be
     m_Address: UIGameStartPanel
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4b3dbbc7c19ed064ea0aa0b06f4b6ba9
+    m_Address: TowerSlot
     m_ReadOnly: 0
     m_SerializedLabels:
     - UI
