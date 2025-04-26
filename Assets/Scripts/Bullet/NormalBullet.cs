@@ -34,8 +34,8 @@ namespace Item.Bullet
                 // Hit();
                 IHurt damage = collision.gameObject.GetComponentInParent<IHurt>();
                 damage.Hurt(bulletDamage);
-                Debug.Log("碰到了");
-                enemyDamages.Add(collision.gameObject.GetComponentInParent<IHurt>());
+                enemyDamages.Add(damage);
+                //TODO:把子弹放入对象池
                 Destroy(this.gameObject);
             }
         }
