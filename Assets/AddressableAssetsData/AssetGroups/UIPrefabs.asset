@@ -18,7 +18,7 @@ MonoBehaviour:
   m_GUID: cc4c99ec79f40cf40b580fba3cac9ab3
   m_SerializeEntries:
   - m_GUID: 11a01bfedff92ec4091da67378e85e64
-    m_Address: FightUI
+    m_Address: Assets/Resources_moved/Prefabs/UI/FightUI.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - UI
