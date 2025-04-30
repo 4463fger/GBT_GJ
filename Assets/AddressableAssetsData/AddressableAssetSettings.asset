@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 4a03561fca2972948b55d1f26e254fad
   m_currentHash:
     serializedVersion: 2
-    Hash: 348f26b3b17bc6632c6fafb5795378ec
+    Hash: 5315f35b5e468b9a22721c6285f29d02
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -103,6 +103,8 @@ MonoBehaviour:
     - LevelConfig
     - TowerConfig
     - EffectMusic
+    - TalentDataConfig
+    - TalentConfig
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: be3925a06026b74449dbccc45d76e723, type: 2}

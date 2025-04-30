@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52aa97a9f6a10f044af894f7a3e24985, type: 3}
+  m_Name: "\u589E\u52A0\u8840\u91CF"
+  m_EditorClassIdentifier: 
+  talentPos: {x: 1, y: 1}
+  talentName: "\u589E\u52A0\u8840\u91CF"
+  talentDescription: "\u589E\u52A0\u4E94\u70B9\u8840\u91CF"
+  talentType: 0
+  talentSprite: {fileID: -573795246, guid: 5ded7a6019b48e742a57d671db828985, type: 3}
+  value: 0
+  preData:
+  - {fileID: 11400000, guid: ae6e31e45d6c47c4d93c2da0f4c0fceb, type: 2}
+  getTalentConfig: {fileID: 0}
+  currentLevelMaxIndex: 3

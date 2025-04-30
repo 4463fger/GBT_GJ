@@ -13,5 +13,6 @@ namespace Game
         // UI
         // [1]:游戏设置事件
         public const string UpdateSettingTextEvent = "UpdateSettingTextEvent";
+        public const string SetDescription = "SetDescription";
     }
 }
