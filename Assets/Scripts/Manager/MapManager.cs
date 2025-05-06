@@ -139,28 +139,46 @@ namespace Managers
             // 暂定为每个地图都有两条路
             private void SetRoadBlock()
             {
-                // 1. 从配置中加载路径坐标列表
                 List<Vector2> roadPath = LoadRoad();
 
-                foreach (var roadCoord in roadPath)
+                if (roadPath.Count == 0)
                 {
-                    // 3. 将Vector2坐标转换为整数行列索引
-                    int col = (int)roadCoord.x; // x轴对应行
-                    int row = (int)roadCoord.y; // y轴对应列
+#if UNITY_EDITOR
+                    Debug.LogWarning("路径坐标列表为空！");
+#endif
+                    return;
+                }
 
-                    // 4. 验证坐标是否在合法范围内
+                // 遍历所有坐标
+                for (int i = 0; i < roadPath.Count; i++)
+                {
+                    Vector2 roadCoord = roadPath[i];
+                    int col = (int)roadCoord.x;
+                    int row = (int)roadCoord.y;
+
+                    // 检查是否合法
                     if (row >= 0 && row < RowCount && col >= 0 && col < ColCount)
                     {
-                        // 5. 设置对应格子为Road类型
-                        m_Blocks[row, col].Type = BlockType.Road;
-                        return;
+                        // 如果是最后一个坐标，进行特殊处理
+                        if (i == roadPath.Count - 1)
+                        {
+                            m_Blocks[row, col].Type = BlockType.Destination;
+                            FightManager.Instance.Destination = m_Blocks[row, col].gameObject.transform.position;
+                        }
+                        else
+                        {
+                            m_Blocks[row, col].Type = BlockType.Road; // 普通逻辑
+                        }
                     }
 #if UNITY_EDITOR
-                    Debug.LogWarning($"无效坐标: ({col},{row})");
+                    else
+                    {
+                        Debug.LogWarning($"无效坐标: ({col},{row})");
+                    }
 #endif
                 }
             }
-            
+
             /// <summary>
             /// 根据格子坐标获取世界坐标
             /// </summary>

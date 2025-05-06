@@ -10,9 +10,8 @@ namespace Managers
 {
     public class FightManager : SingletonMono<FightManager>
     {
-        // 初始坐标
-        public Vector2 InitPos = new Vector2(-8.5f, -3.5f);
-        
+        public Vector2 Destination;//该关卡的终点是哪 如果打算写双点位可以改成数组
+        public int playerHp;
         // 地图
         public MapManager MapManager { get; private set; }
         [SerializeField] private GameObject Grid;
@@ -28,7 +27,6 @@ namespace Managers
         protected override void Awake()
         {
             base.Awake();
-            
             MapManager = new();
             EnemyGenerate = new();
         }

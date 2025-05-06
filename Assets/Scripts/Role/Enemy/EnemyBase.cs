@@ -46,6 +46,10 @@ namespace Enemy
         protected virtual void Update()
         {
             Move();
+            if((Vector2)gameObject.transform.position==FightManager.Instance.Destination)
+            {
+                print("怪到了");
+            }
         }
 
         private void Move()
