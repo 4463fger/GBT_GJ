@@ -29,6 +29,7 @@ namespace Config
         [Range(0, 60)]public float PreWaveDelay = 5f;
         
         public string Name;
+        [Tooltip("走哪条路")]public int road = 1;
         public float GenerateDuration = 1;
         public EnemyType EnemyType;
         public int seconds = 10; // 默认一波持续10s

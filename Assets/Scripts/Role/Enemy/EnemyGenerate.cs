@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Config;
 using Game;
+using JKFrame;
 using UnityEngine;
 
 namespace Enemy
@@ -72,6 +73,8 @@ namespace Enemy
                 {
                     // 波次数+1
                     WaveCount++;
+                    // 更新UI ： 
+                    EventSystem.EventTrigger<float,float>(Defines.WaveCountChange,WaveCount,m_TotalCount);
                     m_currentWave = m_EnemyWavesQueue.Dequeue();
                     m_CurrentGenerateSeconds = 0;
                     m_CurrentWaveSeconds = 0;
@@ -102,12 +105,17 @@ namespace Enemy
                         case EnemyType.Goblin:
                             Goblin goblin = GameApp.Instance.FactoryManager.CreateEnemy<Goblin>(m_currentWave.EnemyType);
                             goblin.transform.position = spawnPos.position;
-                            goblin.Init(_blockMessage.Road[1]);
+                            goblin.Init(_blockMessage.Road[m_currentWave.road]);
                             break;
                         case EnemyType.Boar:
                             Boar boar = GameApp.Instance.FactoryManager.CreateEnemy<Boar>(m_currentWave.EnemyType);
                             boar.transform.position = spawnPos.position;
-                            boar.Init(_blockMessage.Road[1]);
+                            boar.Init(_blockMessage.Road[m_currentWave.road]);
+                            break;
+                        case EnemyType.Slime:
+                            Slime slime = GameApp.Instance.FactoryManager.CreateEnemy<Slime>(m_currentWave.EnemyType);
+                            slime.transform.position = spawnPos.position;
+                            slime.Init(_blockMessage.Road[m_currentWave.road]);
                             break;
                     }
                     

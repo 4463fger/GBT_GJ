@@ -25,6 +25,10 @@ namespace Factory
                     enemy = JKFrame.ResSystem.InstantiateGameObject<Boar>
                         ("野猪",FightManager.Instance.EnemySpawnRoot);
                     break;
+                case EnemyType.Slime:
+                    enemy = JKFrame.ResSystem.InstantiateGameObject<Slime>
+                        ("史莱姆",FightManager.Instance.EnemySpawnRoot);
+                    break;
             }
             return enemy as T;
         }

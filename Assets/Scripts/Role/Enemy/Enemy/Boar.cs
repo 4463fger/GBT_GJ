@@ -7,7 +7,9 @@ namespace Enemy
         // 死亡
         protected override void Die()
         {
-            ResSystem.PushGameObjectInPool(this.gameObject);
+            isDie = true;
+            isInit = false;
+            this.GameObjectPushPool();
         }
     }
 }
