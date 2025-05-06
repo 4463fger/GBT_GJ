@@ -59,6 +59,10 @@ namespace Enemy
             if (isDie)
                 return;
             Move();
+            if((Vector2)gameObject.transform.position==FightManager.Instance.Destination)
+            {
+                print("怪到了");
+            }
         }
 
         private void Move()

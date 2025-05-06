@@ -314,7 +314,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   talentConfig: {fileID: 11400000, guid: 97d11fe88f1e96745a456eaa9c5ef657, type: 2}
   talentDataConfigs: []
-  talentsPointIcon: {fileID: 0}
 --- !u!1001 &2098587672
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -323,10 +322,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 429598126826601728, guid: 92a72c9a3d3131f498a24198d7029305, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 6029324472053449205, guid: 92a72c9a3d3131f498a24198d7029305, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -371,7 +366,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: JKFrame
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 6029324472053449207, guid: 92a72c9a3d3131f498a24198d7029305, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -384,8 +378,6 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
-=======
->>>>>>> 2d44014dd7bd9626c2712c81a6378f26c69aa174
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

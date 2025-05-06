@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
-
 namespace Item.Map
 {
     /// <summary>
@@ -48,6 +46,13 @@ namespace Item.Map
         private void OnMouseExit()
         {
             selectSp.enabled = false;
+        }
+        protected void CollisionEnter2D(Collision2D collision)
+        {
+            if(collision.gameObject.layer==7)
+            {
+
+            }
         }
     }
 }
