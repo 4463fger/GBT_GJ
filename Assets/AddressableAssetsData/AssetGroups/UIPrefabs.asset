@@ -59,6 +59,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - UI
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b177ba7ffc3ecab459a45b5bacf30d3f
+    m_Address: Assets/Resources_moved/Prefabs/UI/TalentPrefab.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 5f4281ac54c74754eb71e4d6c568bbed, type: 2}
   m_SchemaSet:

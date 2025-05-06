@@ -13,8 +13,10 @@ namespace Game
         // UI事件
         // [1]: GameStartPanel
         public const string UpdateSettingTextEvent = "UpdateSettingTextEvent";
+
         // [2]: FightUI
         public const string WaveCountChange = "WaveCountChange";
         public const string CoinTextChange = "CoinTextChange";
+        public const string SetDescription = "SetDescription";
     }
 }

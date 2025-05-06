@@ -17,6 +17,12 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 72aa76e7cef34fe4cbcbe928f615d690
   m_SerializeEntries:
+  - m_GUID: 128c47316064c454b9d24eb4eb8cd330
+    m_Address: "\u589E\u52A0\u8840\u91CF"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TalentDataConfig
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2933651eadb7ccc429df66ab7ea2fafe
     m_Address: MapConfig
     m_ReadOnly: 0
@@ -40,6 +46,24 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - TowerConfig
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 97d11fe88f1e96745a456eaa9c5ef657
+    m_Address: Assets/Resources_moved/Config/TalentConfig.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TalentConfig
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9be6d710830ca74409b818433ff07190
+    m_Address: "\u589E\u52A0\u9632\u5FA1"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TalentDataConfig
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae6e31e45d6c47c4d93c2da0f4c0fceb
+    m_Address: "\u589E\u52A0\u653B\u51FB"
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TalentDataConfig
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cf96556279f7c964a8e7130e93a3890d
     m_Address: Level2
