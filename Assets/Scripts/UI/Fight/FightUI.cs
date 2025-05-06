@@ -1,4 +1,5 @@
 using System.Collections;
+using Game;
 using UnityEngine;
 using JKFrame;
 using Managers;
@@ -22,8 +23,8 @@ namespace UI.Fight
 
         public override void Init()
         {
-            EventSystem.AddEventListener<bool>("CoinTextChange", CoinTextChange);
-            EventSystem.AddEventListener("EnemyWaveCountChange", EnemyWaveCountChange);
+            EventSystem.AddEventListener<bool>(Defines.CoinTextChange, CoinTextChange);
+            EventSystem.AddEventListener<float,float>(Defines.WaveCountChange, EnemyWaveCountChange);
             
             Btn_Home.onClick.AddListener(OnReturnHomeClick);
             Btn_Paused.onClick.AddListener(OnContinueGame);
@@ -39,13 +40,13 @@ namespace UI.Fight
         private void OnContinueGame()
         {
             Time.timeScale = 1;
-            Btn_Paused.gameObject.SetActive(true);
+            Btn_Paused.gameObject.SetActive(false);
         }
         
         private void OnPauseGame()
         {
             Time.timeScale = 0;
-            Btn_Paused.gameObject.SetActive(false);
+            Btn_Paused.gameObject.SetActive(true);
         }
 
         private void CoinTextChange(bool isCanBuy)
@@ -73,15 +74,16 @@ namespace UI.Fight
             }
         }
 
-        private void EnemyWaveCountChange()
+        private void EnemyWaveCountChange(float waveCount,float waveTotalCount)
         {
-
+            EnemyWaveCountText.text = $"{waveCount}/{waveTotalCount}";
+            EnemyWaveCountText.fontStyle = FontStyles.Bold;
         }
         
         private void OnDestroy()
         {
-            EventSystem.RemoveEventListener<bool>("CoinTextChange", CoinTextChange);
-            EventSystem.RemoveEventListener("EnemyWaveCountChange", EnemyWaveCountChange);
+            EventSystem.RemoveEventListener<bool>(Defines.CoinTextChange, CoinTextChange);
+            EventSystem.RemoveEventListener<float,float>(Defines.WaveCountChange, EnemyWaveCountChange);
         }
     }
 }

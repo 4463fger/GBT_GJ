@@ -1,6 +1,7 @@
 ﻿using System;
 using DG.Tweening;
 using System.Collections.Generic;
+using Game;
 using Managers;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace Enemy
 {
     public enum EnemyType
     {
+        Slime,
         Goblin,
         Boar,
     }
@@ -23,17 +25,28 @@ namespace Enemy
         protected List<Vector2> pathQueue;
         protected bool isMoving; // 是否正在移动
 
+        protected bool isInit;
+
+        public bool isDie { get; protected set; }
+
         protected virtual void Awake()
         {
             pathQueue = new();
         }
-
+        
         /// <summary>
         /// 敌人的初始化
         /// </summary>
         /// <param name="LoadList">路径点</param>
         public void Init(List<Vector2> LoadList)
         {
+            Debug.Log("怪物创建时的初始化");
+            if (isInit == false)
+            {
+                isDie = false;
+                isInit = true;
+                transform.position = FightManager.Instance.EnemySpawnRoot.position;
+            }
             pathQueue.Clear();
             // 将配置中的格子坐标转化为世界坐标并存为路径
             for (int i = 0; i < LoadList.Count; i++)
@@ -45,6 +58,8 @@ namespace Enemy
 
         protected virtual void Update()
         {
+            if (isDie)
+                return;
             Move();
             if((Vector2)gameObject.transform.position==FightManager.Instance.Destination)
             {
