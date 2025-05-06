@@ -64,13 +64,6 @@ namespace UI.Main
             // 同步设置当前音量参数
             AudioSystem.BGVolume = _settingDataCenter._settingData.MusicVolume;
             AudioSystem.GlobalVolume = _settingDataCenter._settingData.GlobalVolume;
-            
-            //TODO:添加分辨率
-            //
-            // // 应用分辨率设置
-            // var resolution = GameApp.Instance.DataManager.SettingData.LoadResolution();
-            // Screen.SetResolution(resolution.width, resolution.height, 
-            //     GameApp.Instance.DataManager.SettingData.isFullscreen);
         }
 
         public override void OnClose()
@@ -104,14 +97,11 @@ namespace UI.Main
         
         #region 中间按钮
         
-        // 开始游戏 => 跳转到选择关卡
+        // 开始游戏 => 跳转场景
         private void OnStartGameClick()
         {
             AudioSystem.PlayOneShot(confirmClip);
             SceneSystem.LoadScene("LevelChoose");
-            UISystem.Close<UIGameStartPanel>();
-            // 加载关卡选择面板
-            UISystem.Show<UILevelChoosePanel>();
         }
         
         private void OnLoadClick()

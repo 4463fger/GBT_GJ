@@ -1,7 +1,6 @@
 ﻿using Factory;
 using Game.Data;
 using JKFrame;
-using UI.Main;
 
 // 游戏的主入口,需要跨场景的管理器在这里进行初始化
 namespace Game
@@ -15,6 +14,12 @@ namespace Game
         
         protected override void Awake()
         {
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
             base.Awake();
             DontDestroyOnLoad(gameObject);
             
@@ -25,13 +30,6 @@ namespace Game
         {
             DataManager = new();
             FactoryManager = new();
-        }
-
-        private void Start()
-        {
-            // 游戏开始
-            UISystem.Show<UIBackGroundPanel>();
-            UISystem.Show<UIGameStartPanel>();
         }
     }
 }

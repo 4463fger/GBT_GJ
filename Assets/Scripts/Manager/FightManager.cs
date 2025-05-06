@@ -65,5 +65,19 @@ namespace Managers
         }
 
         #endregion
+
+        #region 反初始化
+
+        public void UnInitFightManager()
+        {
+            _waveConfig = null;
+            EnemySpawnRoot.position = Vector3.zero;
+            MapManager.Clear();
+            EnemyGenerate.StartFight(false);
+            
+            // TODO:清空现有的怪物、道具
+        }
+
+        #endregion
     }
 }
