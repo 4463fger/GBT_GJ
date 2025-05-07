@@ -1,4 +1,5 @@
 ﻿using JKFrame;
+using TalentTree;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

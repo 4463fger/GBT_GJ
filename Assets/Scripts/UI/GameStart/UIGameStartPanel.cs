@@ -1,5 +1,6 @@
 ﻿using Game;
 using JKFrame;
+using UI.TalentTree;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -37,9 +38,9 @@ namespace UI.Main
             confirmClip = ResSystem.LoadAsset<AudioClip>("Confirm");    
             
             // 左侧按钮
-            //Btn_图鉴.GetComponent<Button>().onClick.AddListener(OnOpen图鉴Click);
-            //Btn_Shop.GetComponent<Button>().onClick.AddListener(OnOpenShopPanelClick);
-            //Btn_Achievement.GetComponent<Button>().onClick.AddListener(OnOpenAchievementPanelClick);
+            Btn_图鉴.GetComponent<Button>().onClick.AddListener(OnOpenTreeClick);
+            Btn_Shop.GetComponent<Button>().onClick.AddListener(OnOpenShopPanelClick);
+            Btn_Achievement.GetComponent<Button>().onClick.AddListener(OnOpenAchievementPanelClick);
 
             // 中间按钮: 开始游戏 加载 
             Btn_StartGame.GetComponent<Button>().onClick.AddListener(OnStartGameClick);
@@ -81,10 +82,10 @@ namespace UI.Main
             AudioSystem.PlayOneShot(confirmClip);
         }
         
-        private void OnOpen图鉴Click()
+        private void OnOpenTreeClick()
         {
-            //TODO:打开天赋树面板
             AudioSystem.PlayOneShot(confirmClip);
+            UISystem.Show<UI_TalentTree>();
         }
         
         private void OnOpenAchievementPanelClick()

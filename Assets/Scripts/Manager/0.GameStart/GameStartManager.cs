@@ -1,4 +1,6 @@
 ﻿using System;
+using Achievement;
+using Game;
 using JKFrame;
 using UI.Main;
 using UnityEngine;
@@ -14,6 +16,8 @@ namespace ManagerScene
         {
             UISystem.Show<UIBackGroundPanel>();
             UISystem.Show<UIGameStartPanel>();
+            
+            // 触发成就 : 进入游戏
         }
 
         private void OnDestroy()

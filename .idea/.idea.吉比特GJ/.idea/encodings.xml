@@ -9,5 +9,6 @@
     <file url="file://$PROJECT_DIR$/Assets/Scripts/Item/SlotBase.cs" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Assets/Scripts/Manager/FightManager.cs" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Assets/Scripts/Tower/TowerBase.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/UI/UI_TalentTree.cs" charset="UTF-8" />
   </component>
 </project>

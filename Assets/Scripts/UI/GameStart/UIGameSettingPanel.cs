@@ -87,7 +87,6 @@ namespace UI.Main
                         gameObject.SetActive(false);
                     }
                 );
-            
         }
 
         #region 更新音量

@@ -60,7 +60,13 @@ MonoBehaviour:
     - UI
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b177ba7ffc3ecab459a45b5bacf30d3f
-    m_Address: Assets/Resources_moved/Prefabs/UI/TalentPrefab.prefab
+    m_Address: TalentPrefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c85915d04d98b374ab5d48dce30555ad
+    m_Address: UI_TalentTree
     m_ReadOnly: 0
     m_SerializedLabels:
     - UI

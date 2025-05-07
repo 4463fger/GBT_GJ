@@ -1,4 +1,6 @@
-﻿using Config;
+﻿
+using Achievement;
+using Config;
 using UnityEngine;
 
 namespace GameData
@@ -8,10 +10,6 @@ namespace GameData
     /// </summary>
     public class ConfigData
     {
-        // 关卡波次设置
-        private WaveConfig _waveConfig;
-        private MapConfig MapConfig;
-
         /// <summary>
         /// 读取关卡配置
         /// </summary>
@@ -36,5 +34,10 @@ namespace GameData
         }
         
         #endregion
+
+        public AchievementConfig LoadAchievementConfig()
+        {
+            return JKFrame.ResSystem.LoadAsset<AchievementConfig>("AchievementConfig");
+        }
     }
 }

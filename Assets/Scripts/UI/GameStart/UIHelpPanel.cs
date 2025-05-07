@@ -8,6 +8,7 @@
 
 using System;
 using DG.Tweening;
+using JKFrame;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,8 +19,11 @@ namespace UI.Main
         private CanvasGroup m_CanvansGroup;
         [SerializeField] private Button Btn_Close;
 
+        private AudioClip cancelAudioClip;
         public void Init()
         {
+            cancelAudioClip = ResSystem.LoadAsset<AudioClip>("Cancel");
+
             m_CanvansGroup = GetComponent<CanvasGroup>();
             m_CanvansGroup.alpha = 0;
             Btn_Close.onClick.AddListener(OnHide);
@@ -35,10 +39,25 @@ namespace UI.Main
 
         public void OnHide()
         {
+            AudioSystem.PlayOneShot(cancelAudioClip);
+            
             m_CanvansGroup
                 .DOFade(0f, 0.5f)
-                .SetEase(Ease.InQuad);;
-            gameObject.SetActive(false);
+                .SetEase(Ease.InQuad)
+                .OnComplete(() =>
+                    {
+                        gameObject.SetActive(false);
+                    }
+                );
+            
+            m_CanvansGroup
+                .DOFade(0f, 0.5f)
+                .SetEase(Ease.InQuad)
+                .OnComplete(() =>
+                    {
+                        gameObject.SetActive(false);
+                    }
+                );
         }
     }
 }

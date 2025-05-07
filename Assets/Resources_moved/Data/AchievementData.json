@@ -1,0 +1,7 @@
+[
+  {
+    "typeName": "AchievementConfig",
+    "assetPath": "Assets/Resources_moved/Config/AchievementConfig/AchievementConfig.asset",
+    "dataJson": "{\r\n  \"achievements\": [\r\n    {\r\n      \"id\": \"0\",\r\n      \"displayName\": \"窥探乐园\",\r\n      \"description\": \"首次进入游戏\",\r\n      \"icon\": \"Assets/Arts/UI/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png\",\r\n      \"UnLocked\": false\r\n    },\r\n    {\r\n      \"id\": \"1\",\r\n      \"displayName\": \"123\",\r\n      \"description\": \"444\",\r\n      \"icon\": \"Assets/Arts/UI/BackGround/free-sky-with-clouds-background-pixel-art-set/Clouds/Clouds 7/1.png\",\r\n      \"UnLocked\": false\r\n    }\r\n  ]\r\n}"
+  }
+]
