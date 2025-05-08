@@ -28,4 +28,12 @@ namespace Achievement
         [PreviewField(50)]
         public Sprite icon;
     }
+
+    [Serializable]
+    public class AchievementRuntimeData
+    {
+        public string achievementID;
+        public bool isUnLocked;
+        public DateTime unLockTime;
+    }
 }

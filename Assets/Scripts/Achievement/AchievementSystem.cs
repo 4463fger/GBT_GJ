@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using Game;
+using UnityEngine;
 
 namespace Achievement
 {
@@ -9,22 +11,36 @@ namespace Achievement
     public class AchievementSystem
     {
         private AchievementConfig _config;
-        private List<AchievementData> m_achievementDatas;
-        private int m_UnLockedAchievementCount; //已经解锁的成就数量 
-
+        private Dictionary<string, AchievementData> _achievementDict = new();
+        private List<AchievementRuntimeData> _runtimeData = new();
+        
+        private string SavePath => Path.Combine(Application.persistentDataPath, "achievement_save.json");
+        
         public void Init()
         {
-            m_achievementDatas = new();
+            _achievementDict = new();
             LoadAchievement();
+            // 加载成就进度
+            LoadProgress();
         }
+
         private void LoadAchievement()
         {
             // 加载成就配置
             _config = GameApp.Instance.DataManager.ConfigData.LoadAchievementConfig();
             // config映射到AchievementData中
-            foreach (var item in _config.achievements)
+            foreach (var data in _config.achievements)
             {
-                m_achievementDatas.Add(item);
+                _achievementDict.Add(data.id,data);
+            }
+        }
+        
+        private void LoadProgress()
+        {
+            if (File.Exists(SavePath))
+            {
+                string json = File.ReadAllText(SavePath);
+                var wrapper = JsonUtility.FromJson<>()
             }
         }
     }
