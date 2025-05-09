@@ -466,6 +466,7 @@ MonoBehaviour:
   talentNameText: {fileID: 4113374744080991929}
   descriptionText: {fileID: 5230334188070786097}
   isCanLockedText: {fileID: 2267732525603860924}
+  buyButton: {fileID: 3715116700810068107}
 --- !u!1 &2613309156872509410
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,7 +617,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5359869628609836343
 RectTransform:
   m_ObjectHideFlags: 0

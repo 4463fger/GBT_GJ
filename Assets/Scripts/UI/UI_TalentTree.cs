@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using Game;
 using TalentTree;
+using UnityEngine.UI;
 
 namespace UI.TalentTree
 {
@@ -18,6 +19,7 @@ namespace UI.TalentTree
         [SerializeField] private TextMeshProUGUI talentNameText;
         [SerializeField] private TextMeshProUGUI descriptionText;
         [SerializeField] private TextMeshProUGUI isCanLockedText;
+        [SerializeField] private Button buyButton;
         private Dictionary<string, GameObject> currentTalent = new Dictionary<string, GameObject>();
         private float border = 250;
         private float minY = -340;
@@ -25,7 +27,10 @@ namespace UI.TalentTree
         private float gap = 400;
         private float lineGap = 15;
         private float outlineHeight = 50;
-
+        private void Start()
+        {
+            buyButton.onClick.AddListener(onBuyButtonClick);
+        }
         public override void Init()
         {
             TalentDataConfigList = TalentTreeManager.Instance.TalentConfig.talantDatas;
@@ -36,7 +41,7 @@ namespace UI.TalentTree
 
         private void OnDestroy()
         {
-            EventSystem.AddEventListener<TalentDataConfig>(Defines.SetDescription, SetDescription);
+            EventSystem.RemoveEventListener<TalentDataConfig>(Defines.SetDescription, SetDescription);
         }
 
         private List<TalentDataConfig> TalentDataConfigList;
@@ -141,23 +146,52 @@ namespace UI.TalentTree
                 }
             }
         }
-
+        private TalentDataConfig currentTalentConfig;
         private void SetDescription(TalentDataConfig talentDataConfig)
         {
+            currentTalentConfig = talentDataConfig;
             DescriptionTf.gameObject.SetActive(true);
             talentNameText.text = talentDataConfig.talentName;
             descriptionText.text = talentDataConfig.talentDescription;
             bool isCanActive = true;
             for (int i = 0; i < talentDataConfig.preData.Count; i++)
             {
-                if (!TalentTreeManager.Instance.TalentConfig.talantDatas.Contains(talentDataConfig.preData[i]))
+                if (!TalentTreeManager.Instance.IsUnLock(talentDataConfig.preData[i].talentName))
                 {
                     isCanActive = false;
                     return;
                 }
             }
+            bool isUnLocked = TalentTreeManager.Instance.IsUnLock(currentTalentConfig.talentName);
+            if(isCanActive)
+            {
+                if(isUnLocked)
+                {
+                    isCanLockedText.text = "已解锁";
+                }
+                else
+                isCanLockedText.text = "可解锁";
+            }
+            else 
+            {
+                isCanLockedText.text = "不可解锁";
+            }
+            buyButton.enabled = isCanActive&&isUnLocked;
+            buyButton.image.color=isCanActive&&isUnLocked?new Color(1,1,1,1):new Color(1,1,1,0.5f);
+        }
+        public void onBuyButtonClick()
+        {
+            if(!TalentTreeManager.Instance.CanBuy(currentTalentConfig.coin))
+            {
+                //TODO:弹出没钱购买
+            }
+            else
+            {
+                TalentTreeManager.Instance.Buy(currentTalentConfig.coin);
+                currentTalentConfig.getTalentConfig.GetTalent();
+            }
 
-            isCanLockedText.text = isCanActive ? "可解锁" : "未解锁";
         }
     }
+
 }

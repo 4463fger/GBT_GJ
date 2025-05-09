@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "TalentDataConfig", menuName = "Config/TalentDataConfig")]
 public class TalentDataConfig:ScriptableObject
 {
+    public int coin;//购买需要的值
     public Vector2 talentPos;//x：在天赋树的第几层 y：在x层的第几列
     public string talentName;//天赋名称
     public string talentDescription;//天赋描述

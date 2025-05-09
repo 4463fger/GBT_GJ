@@ -44,6 +44,15 @@ namespace TalentTree
             return curreLevelTalentPoints;
         }
         
+        public bool CanBuy(int value)
+        {
+            return curreLevelTalentPoints >= value;
+        }
+        public void Buy(int value) 
+        {
+            curreLevelTalentPoints-=value;
+        }
+
         //TODO : 解锁天赋
         private void UnLockedTalent()
         {
@@ -85,6 +94,14 @@ namespace TalentTree
                 JKLog.Succeed("天赋数据加载成功");
 #endif
             }
+        }
+        public bool IsUnLock(string TalentName)
+        {
+            return m_Talent2SaveDict[TalentName] == true;
+        }
+        public void UnLock(string TalentName)
+        {
+            m_Talent2SaveDict[TalentName] = true;
         }
     }
 }
