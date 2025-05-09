@@ -58,6 +58,7 @@ namespace Enemy
 
         public void UnInit()
         {
+            StartFight(false);
             JKFrame.MonoSystem.RemoveUpdateListener(OnUpdate);
         }
 
@@ -75,6 +76,7 @@ namespace Enemy
                     WaveCount++;
                     // 更新UI ： 
                     EventSystem.EventTrigger<float,float>(Defines.WaveCountChange,WaveCount,m_TotalCount);
+                    //TODO:触发BUFF选项界面,选择加成
                     m_currentWave = m_EnemyWavesQueue.Dequeue();
                     m_CurrentGenerateSeconds = 0;
                     m_CurrentWaveSeconds = 0;
@@ -99,7 +101,6 @@ namespace Enemy
                 {
                     m_CurrentGenerateSeconds = 0;
 
-                    //TODO:生成怪物的一个小bug未修复
                     switch (m_currentWave.EnemyType)
                     {
                         case EnemyType.Goblin:

@@ -1,10 +1,9 @@
 ﻿using Enemy;
-using Managers;
+using ManagerScene;
 using UnityEngine;
 
 namespace Factory
 {
-    //TODO:没有跟对象池关联
     public class EnemyFactory : IFactory
     {
         public EnemyFactory()

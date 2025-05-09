@@ -2,7 +2,7 @@ using System.Collections;
 using Game;
 using UnityEngine;
 using JKFrame;
-using Managers;
+using ManagerScene;
 using TMPro;
 using UI.Main;
 using UnityEngine.UI;
@@ -34,7 +34,6 @@ namespace UI.Fight
 
         private void OnReturnHomeClick()
         {
-            FightManager.Instance.UnInitFightManager();
             UISystem.Close<FightUI>();
             UISystem.Show<UIGameStartPanel>();
             SceneSystem.LoadScene("GameStart");

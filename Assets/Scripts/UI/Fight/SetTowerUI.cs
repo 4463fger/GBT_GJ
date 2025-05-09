@@ -1,7 +1,7 @@
 ﻿using Config;
 using Item;
 using JKFrame;
-using Managers;
+using ManagerScene;
 using TMPro;
 using UnityEngine;
 

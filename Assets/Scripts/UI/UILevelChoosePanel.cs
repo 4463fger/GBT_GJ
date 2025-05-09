@@ -1,5 +1,5 @@
 ﻿using JKFrame;
-using Managers;
+using ManagerScene;
 using UnityEngine.UI;
 using UnityEngine;
 using UI.Fight;
@@ -35,7 +35,6 @@ namespace UI.Main
             {
                 if (op == 1.0f)
                 {
-                    UISystem.Show<FightUI>();
                     int level = int.Parse(sceneName.Replace("Level",""));
                     FightManager.Instance.InitFightManager(level);
                 }

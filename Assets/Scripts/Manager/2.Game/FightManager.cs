@@ -6,7 +6,7 @@ using Game;
 using Managers.Map;
 using UnityEngine;
 
-namespace Managers
+namespace ManagerScene
 {
     public class FightManager : SingletonMono<FightManager>
     {
@@ -71,9 +71,10 @@ namespace Managers
             _waveConfig = null;
             EnemySpawnRoot.position = Vector3.zero;
             MapManager.Clear();
-            EnemyGenerate.StartFight(false);
+            EnemyGenerate.UnInit();
             
-            // TODO:清空现有的怪物、道具
+            // TODO:清空防御塔道具
+            PoolSystem.ClearAll();
         }
 
         #endregion

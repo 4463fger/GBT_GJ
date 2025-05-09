@@ -1,6 +1,6 @@
 ﻿using DG.Tweening;
 using System.Collections.Generic;
-using Managers;
+using ManagerScene;
 using UnityEngine;
 
 namespace Enemy
