@@ -170,13 +170,17 @@ namespace UI.TalentTree
                     isCanLockedText.text = "已解锁";
                 }
                 else
-                isCanLockedText.text = "可解锁";
+                {
+                    isCanLockedText.text = "可解锁";
+                    buyButton.interactable = true;
+                }
+                
             }
             else 
             {
                 isCanLockedText.text = "不可解锁";
             }
-            buyButton.enabled = isCanActive&&isUnLocked;
+
             buyButton.image.color=isCanActive&&isUnLocked?new Color(1,1,1,1):new Color(1,1,1,0.5f);
         }
         public void onBuyButtonClick()
