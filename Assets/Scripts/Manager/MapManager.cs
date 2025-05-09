@@ -2,7 +2,6 @@
 using Config;
 using Game;
 using Item.Map;
-using ManagerScene;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 

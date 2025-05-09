@@ -1,8 +1,9 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using JKFrame;
+using Managers;
 using Config;
-using ManagerScene;
-
 [UIWindowData(typeof(UI_SetTower), true, "UI_SetTower", 4)]
 public class UI_SetTower : UI_WindowBase
 {
