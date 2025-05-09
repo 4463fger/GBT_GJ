@@ -28,8 +28,8 @@ namespace UI.TalentTree
 
         public override void Init()
         {
-            TalentDataConfigList = TalentTreeManager.Instance.talentConfig.talantDatas;
-            content.sizeDelta = new Vector2(TalentTreeManager.Instance.talentConfig.talantDatas.Count * 500, 0);
+            TalentDataConfigList = TalentTreeManager.Instance.TalentConfig.talantDatas;
+            content.sizeDelta = new Vector2(TalentTreeManager.Instance.TalentConfig.talantDatas.Count * 500, 0);
             EventSystem.AddEventListener<TalentDataConfig>(Defines.SetDescription, SetDescription);
             ShowTree();
         }
@@ -150,7 +150,7 @@ namespace UI.TalentTree
             bool isCanActive = true;
             for (int i = 0; i < talentDataConfig.preData.Count; i++)
             {
-                if (!TalentTreeManager.Instance.talentDataConfigs.Contains(talentDataConfig.preData[i]))
+                if (!TalentTreeManager.Instance.TalentConfig.talantDatas.Contains(talentDataConfig.preData[i]))
                 {
                     isCanActive = false;
                     return;

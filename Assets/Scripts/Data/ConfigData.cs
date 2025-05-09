@@ -1,7 +1,5 @@
-﻿
-using Achievement;
+﻿using Achievement;
 using Config;
-using UnityEngine;
 
 namespace GameData
 {

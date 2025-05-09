@@ -269,6 +269,7 @@ GameObject:
   m_Component:
   - component: {fileID: 517938698}
   - component: {fileID: 517938699}
+  - component: {fileID: 517938700}
   m_Layer: 0
   m_Name: GameRoot
   m_TagString: Untagged
@@ -304,6 +305,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0953ff300f0847f3a5fbbf25686e7a0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &517938700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517938697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8fea5e74f7887c44a4312dcfa822543, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  talentConfig: {fileID: 11400000, guid: 97d11fe88f1e96745a456eaa9c5ef657, type: 2}
+  talentsPointIcon: {fileID: 218885942, guid: d7e30bd5abe00894094c860cfb07946b, type: 3}
 --- !u!1001 &530255825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -361,57 +376,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92a72c9a3d3131f498a24198d7029305, type: 3}
---- !u!1 &704378421
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 704378422}
-  - component: {fileID: 704378423}
-  m_Layer: 0
-  m_Name: TalentTreeManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &704378422
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 704378421}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &704378423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 704378421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8fea5e74f7887c44a4312dcfa822543, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  talentConfig: {fileID: 11400000, guid: 97d11fe88f1e96745a456eaa9c5ef657, type: 2}
-  talentDataConfigs:
-  - {fileID: 11400000, guid: ae6e31e45d6c47c4d93c2da0f4c0fceb, type: 2}
-  - {fileID: 11400000, guid: 128c47316064c454b9d24eb4eb8cd330, type: 2}
-  - {fileID: 11400000, guid: 9be6d710830ca74409b818433ff07190, type: 2}
-  - {fileID: 11400000, guid: 1ca8055493fb25f4c80bb3605c5fe513, type: 2}
-  talentsPointIcon: {fileID: 218885942, guid: d7e30bd5abe00894094c860cfb07946b, type: 3}
 --- !u!1 &1746886915
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,6 +425,5 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1746886916}
-  - {fileID: 704378422}
   - {fileID: 530255825}
   - {fileID: 517938698}
