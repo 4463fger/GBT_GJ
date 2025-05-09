@@ -23,17 +23,16 @@ MonoBehaviour:
     m_SerializedLabels:
     - Enemy
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3771264214efdfd4791b26370398092d
-    m_Address: "\u54E5\u5E03\u6797"
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Enemy
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f81c61ba05d6dab41aa8325db39518a1
     m_Address: "\u53F2\u83B1\u59C6"
     m_ReadOnly: 0
     m_SerializedLabels:
     - Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe3fbebdb28283e47a34c7b6036f9516
+    m_Address: "\u54E5\u5E03\u6797"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 5f4281ac54c74754eb71e4d6c568bbed, type: 2}

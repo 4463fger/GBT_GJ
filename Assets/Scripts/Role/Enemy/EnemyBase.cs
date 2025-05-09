@@ -36,9 +36,10 @@ namespace Enemy
         /// 敌人的初始化
         /// </summary>
         /// <param name="LoadList">路径点</param>
-        public void Init(List<Vector2> LoadList)
+        public void Init(List<Vector2> LoadList,Transform spawnPos)
         {
-            Debug.Log("怪物创建时的初始化");
+            gameObject.transform.position = spawnPos.position;
+            
             if (isInit == false)
             {
                 isDie = false;
@@ -79,14 +80,32 @@ namespace Enemy
                 Vector2 targetPos = pathQueue[0];
                 pathQueue.RemoveAt(0);
                 
-                transform.DOMove(targetPos, 0.5f)
+                SerDir(targetPos);
+
+                float animationTime = 1f / (Speed * 0.1f);
+                transform.DOMove(targetPos, animationTime)
                     .SetEase(Ease.Linear)
                     .OnComplete(() => {
                         isMoving = false;
                     });
             }
         }
-        
+
+        protected virtual void SerDir(Vector2 targetPos)
+        {
+            // 转向
+            Vector2 direction = (targetPos - (Vector2)transform.position).normalized;
+            if (direction.x > 0)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+            else 
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+        }
+
+
         public virtual void Hurt(float damage)
         {
             curHp -= damage;

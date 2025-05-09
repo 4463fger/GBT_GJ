@@ -105,17 +105,17 @@ namespace Enemy
                         case EnemyType.Goblin:
                             Goblin goblin = GameApp.Instance.FactoryManager.CreateEnemy<Goblin>(m_currentWave.EnemyType);
                             goblin.transform.position = spawnPos.position;
-                            goblin.Init(_blockMessage.Road[m_currentWave.road]);
+                            goblin.Init(_blockMessage.Road[m_currentWave.road],spawnPos);
                             break;
                         case EnemyType.Boar:
                             Boar boar = GameApp.Instance.FactoryManager.CreateEnemy<Boar>(m_currentWave.EnemyType);
                             boar.transform.position = spawnPos.position;
-                            boar.Init(_blockMessage.Road[m_currentWave.road]);
+                            boar.Init(_blockMessage.Road[m_currentWave.road],spawnPos);
                             break;
                         case EnemyType.Slime:
                             Slime slime = GameApp.Instance.FactoryManager.CreateEnemy<Slime>(m_currentWave.EnemyType);
                             slime.transform.position = spawnPos.position;
-                            slime.Init(_blockMessage.Road[m_currentWave.road]);
+                            slime.Init(_blockMessage.Road[m_currentWave.road],spawnPos);
                             break;
                     }
                     

@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 0
   curHp: 0
-  Speed: 0
+  Speed: 10
   Attack: 0
 --- !u!61 &1848134911146876176
 BoxCollider2D:

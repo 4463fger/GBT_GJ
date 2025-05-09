@@ -12,8 +12,6 @@ namespace Game
         // 不需要跨场景的管理器在每个场景中手动添加即可
         public DataManager DataManager;
         public FactoryManager FactoryManager;
-
-        public AchievementSystem AchievementSystem;
         
         protected override void Awake()
         {
@@ -33,9 +31,6 @@ namespace Game
         {
             DataManager = new();
             FactoryManager = new();
-            AchievementSystem = new();
-            
-            AchievementSystem.Init();
         }
     }
 }
