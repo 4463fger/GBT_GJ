@@ -40,7 +40,6 @@ namespace Achievement
             if (File.Exists(SavePath))
             {
                 string json = File.ReadAllText(SavePath);
-                var wrapper = JsonUtility.FromJson<>()
             }
         }
     }
