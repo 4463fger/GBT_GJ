@@ -47,8 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 100
   curHp: 0
-  Speed: 10
-  Attack: 10
+  Speed: 8
+  Attack: 20
 --- !u!1 &6201990441330597602
 GameObject:
   m_ObjectHideFlags: 0

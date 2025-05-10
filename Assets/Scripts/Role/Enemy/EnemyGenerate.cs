@@ -107,6 +107,26 @@ namespace Enemy
                             goblin.transform.position = spawnPos.position;
                             goblin.Init(_blockMessage.Road[m_currentWave.road],spawnPos);
                             break;
+                        case EnemyType.RollGlobin:
+                            RollGoblin rollGoblin = GameApp.Instance.FactoryManager.CreateEnemy<RollGoblin>(m_currentWave.EnemyType);
+                            rollGoblin.transform.position = spawnPos.position;
+                            rollGoblin.Init(_blockMessage.Road[m_currentWave.road],spawnPos);
+                            break;
+                        case EnemyType.WaterGlobin:
+                            WaterGlobin waterGlobin = GameApp.Instance.FactoryManager.CreateEnemy<WaterGlobin>(m_currentWave.EnemyType);
+                            waterGlobin.transform.position = spawnPos.position;
+                            waterGlobin.Init(_blockMessage.Road[m_currentWave.road],spawnPos);
+                            break;
+                        case EnemyType.BoxGlobin:
+                            BoxGlobin boxGlobin = GameApp.Instance.FactoryManager.CreateEnemy<BoxGlobin>(m_currentWave.EnemyType);
+                            boxGlobin.transform.position = spawnPos.position;
+                            boxGlobin.Init(_blockMessage.Road[m_currentWave.road],spawnPos);
+                            break;
+                        case EnemyType.Skeleton:
+                            Skeleton skeleton = GameApp.Instance.FactoryManager.CreateEnemy<Skeleton>(m_currentWave.EnemyType);
+                            skeleton.transform.position = spawnPos.position;
+                            skeleton.Init(_blockMessage.Road[m_currentWave.road],spawnPos);
+                            break;
                         case EnemyType.Boar:
                             Boar boar = GameApp.Instance.FactoryManager.CreateEnemy<Boar>(m_currentWave.EnemyType);
                             boar.transform.position = spawnPos.position;

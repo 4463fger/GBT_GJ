@@ -53,7 +53,7 @@ MonoBehaviour:
     - TowerConfig
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 97d11fe88f1e96745a456eaa9c5ef657
-    m_Address: Assets/Resources_moved/Config/TalentConfig.asset
+    m_Address: TalentConfig
     m_ReadOnly: 0
     m_SerializedLabels:
     - TalentConfig

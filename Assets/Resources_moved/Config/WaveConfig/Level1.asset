@@ -23,29 +23,47 @@ MonoBehaviour:
     SerializationNodes: []
   EnemyWaveGroups:
   - Name: "\u7B2C\u4E00\u6CE2"
-    Description: "5\u4E2A\u53F2\u83B1\u59C6\uFF0C10\u4E2A\u54E5\u5E03\u6797\uFF0C5\u4E2A\u91CE\u732A"
+    Description: "5\u4E2A\u53F2\u83B1\u59C6\uFF0C10\u4E2A\u54E5\u5E03\u6797\uFF0C5\u4E2A\u9AB7\u9AC5"
     Waves:
     - PreWaveDelay: 0.1
       Name: "\u53F2\u83B1\u59C6"
       road: 1
-      GenerateDuration: 0.75
+      GenerateDuration: 1
       EnemyType: 0
       seconds: 10
-    - PreWaveDelay: 0.1
+    - PreWaveDelay: 1
       Name: "\u54E5\u5E03\u6797"
       road: 1
       GenerateDuration: 1
       EnemyType: 1
       seconds: 10
-    - PreWaveDelay: 0.1
-      Name: "\u91CE\u732A"
+    - PreWaveDelay: 1
+      Name: "\u5C0F\u9AB7\u9AC5"
       road: 1
       GenerateDuration: 1.5
-      EnemyType: 2
+      EnemyType: 3
       seconds: 10
   - Name: "\u7B2C\u4E8C\u6CE2"
-    Description: 
-    Waves: []
+    Description: "10\u6EDA\u52A8\u54E5\u5E03\u6797"
+    Waves:
+    - PreWaveDelay: 5
+      Name: "\u6EDA\u52A8\u54E5\u5E03\u6797"
+      road: 1
+      GenerateDuration: 1
+      EnemyType: 4
+      seconds: 10
+    - PreWaveDelay: 1
+      Name: "\u6C34\u54E5\u5E03\u6797"
+      road: 1
+      GenerateDuration: 1
+      EnemyType: 5
+      seconds: 10
+    - PreWaveDelay: 1
+      Name: "\u7BB1\u5B50\u54E5\u5E03\u6797"
+      road: 1
+      GenerateDuration: 1
+      EnemyType: 6
+      seconds: 10
   towerConfigs:
   - {fileID: 11400000, guid: 44600fa2fcca2ba44bb0932092ad8575, type: 2}
   - {fileID: 11400000, guid: 750638cfee58356468ab9704bbded779, type: 2}

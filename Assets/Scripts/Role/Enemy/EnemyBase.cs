@@ -10,6 +10,10 @@ namespace Enemy
         Slime,
         Goblin,
         Boar,
+        Skeleton,
+        RollGlobin,
+        WaterGlobin,
+        BoxGlobin,
     }
     // 怪物基类
     public abstract class EnemyBase<T> : MonoBehaviour,IHurt where T : EnemyBase<T>
@@ -24,6 +28,8 @@ namespace Enemy
         protected bool isMoving; // 是否正在移动
 
         protected bool isInit;
+
+        protected bool isRight = true;
 
         public bool isDie { get; protected set; }
 
@@ -93,16 +99,32 @@ namespace Enemy
 
         protected virtual void SerDir(Vector2 targetPos)
         {
-            // 转向
-            Vector2 direction = (targetPos - (Vector2)transform.position).normalized;
-            if (direction.x > 0)
-            {
-                transform.localScale = new Vector3(1, 1, 1);
-            }
-            else 
-            {
-                transform.localScale = new Vector3(-1, 1, 1);
-            }
+            
+                // 转向
+                Vector2 direction = (targetPos - (Vector2)transform.position).normalized;
+                if (direction.x > 0)
+                {
+                    if (isRight == true)
+                    {
+                        transform.localScale = new Vector3(-1, 1, 1);
+                    }
+                    else
+                    {
+                        transform.localScale = new Vector3(1, 1, 1);
+                    }
+                }
+                else 
+                {
+                    if (isRight == false)
+                    {
+                        transform.localScale = new Vector3(1, 1, 1);
+                    }
+                    else
+                    {
+                        transform.localScale = new Vector3(-1, 1, 1);
+                    }
+                }
+
         }
 
 

@@ -12,6 +12,11 @@ namespace Enemy
 {
     public class Slime : EnemyBase<Slime>
     {
+        protected override void Awake()
+        {
+            base.Awake();
+            isRight = false;
+        }
         protected override void Die()
         {
             isDie = true;
