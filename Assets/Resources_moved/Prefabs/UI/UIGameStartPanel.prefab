@@ -384,8 +384,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: RogeLuoBo
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e81ce108e59b84044a88d957fd315110, type: 2}
-  m_sharedMaterial: {fileID: 1146299948903257305, guid: e81ce108e59b84044a88d957fd315110, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -518,8 +518,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e81ce108e59b84044a88d957fd315110, type: 2}
-  m_sharedMaterial: {fileID: 1146299948903257305, guid: e81ce108e59b84044a88d957fd315110, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1279,7 +1279,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 74b1b66ac971fc648979fc659fc53377, type: 3}
+    m_Font: {fileID: 12800000, guid: abf08cdb50555be4fae32950283f3bf0, type: 3}
     m_FontSize: 42
     m_FontStyle: 1
     m_BestFit: 1
@@ -1872,8 +1872,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Load Game
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e81ce108e59b84044a88d957fd315110, type: 2}
-  m_sharedMaterial: {fileID: 1146299948903257305, guid: e81ce108e59b84044a88d957fd315110, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
