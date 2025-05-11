@@ -92,6 +92,7 @@ namespace UI.Main
         {
             //TODO:打开成就面板
             AudioSystem.PlayOneShot(confirmClip);
+            UISystem.Show<UI_AchievementPanel>();
         }
 
         #endregion
