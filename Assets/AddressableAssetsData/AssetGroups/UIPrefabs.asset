@@ -83,6 +83,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - UI
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db761bcf2d5dbdb41b85a35dac138b31
+    m_Address: AchievementPopup
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 5f4281ac54c74754eb71e4d6c568bbed, type: 2}
   m_SchemaSet:

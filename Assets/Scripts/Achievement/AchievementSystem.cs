@@ -65,6 +65,32 @@ namespace Achievement
             }
         }
 
+        /// <summary>
+        /// 解锁成就
+        /// </summary>
+        /// <param name="displayName">成就名字</param>
+        public void UnLocked(string displayName)
+        {
+            AchievementData achievementData = _config.achievements.Find(data => data.displayName == displayName);
+            if (m_Achievement2SaveDict.TryGetValue(achievementData.id , out bool isLocked))
+            {
+                if (isLocked == true)
+                {
+                    return;
+                }
+                AchievementPopup item = UISystem.GetWindow<AchievementPopup>();
+                item.Initialize(achievementData.displayName, achievementData.icon);
+                //TODO:成就音效
+                item.ShowAnimation();
+                item._onComplete += () =>
+                {
+                    ResSystem.UnloadInstance(item.gameObject);
+                };
+                m_Achievement2SaveDict[achievementData.id] = true;
+                SaveData();
+            }
+        }
+
         public bool IsUnLocked(AchievementData achievementData)
         {
             return m_Achievement2SaveDict[achievementData.id];

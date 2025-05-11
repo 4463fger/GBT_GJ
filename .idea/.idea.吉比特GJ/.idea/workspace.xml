@@ -8,7 +8,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5de7a06-7497-4cdd-98d4-c2ba087fc6cb" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/GameStart/UIHelpPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/GameStart/UIHelpPanel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Achievement/AchievementPopup.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Achievement/AchievementPopup.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.吉比特GJ/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.吉比特GJ/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/UIPrefabs.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/UIPrefabs.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/Sprout Lands - UI Pack - Basic pack/fonts/fusion-pixel SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Arts/UI/Sprout Lands - UI Pack - Basic pack/fonts/fusion-pixel SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Infinity Code/Ultimate Editor Enhancer Settings/References.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Infinity Code/Ultimate Editor Enhancer Settings/References.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Prefabs/UI/AchievementItem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources_moved/Prefabs/UI/AchievementItem.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test/UI/TestGameStartUIScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test/UI/TestGameStartUIScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Achievement/AchievementSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Achievement/AchievementSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameApp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameApp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/GameStart/UI_AchievementItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/GameStart/UI_AchievementItem.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,7 +228,8 @@
       <workItem from="1746792874913" duration="931000" />
       <workItem from="1746860158325" duration="5688000" />
       <workItem from="1746874935043" duration="3470000" />
-      <workItem from="1746965798245" duration="2847000" />
+      <workItem from="1746965798245" duration="3232000" />
+      <workItem from="1746978543284" duration="2467000" />
     </task>
     <task id="LOCAL-00001" summary="导入Dowteen和基本素材">
       <option name="closed" value="true" />

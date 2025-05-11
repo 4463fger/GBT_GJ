@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +14,6 @@ namespace UI.GameStart
         [SerializeField] private Image Mask;
 
         public string Id { get; private set; }
-
         public void InitAchievementItemData(string id ,string name, string des , Sprite icon , bool unLocked)
         {
             this.Id = id;

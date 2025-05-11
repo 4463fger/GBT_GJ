@@ -44,6 +44,9 @@ namespace Game
         {
             UISystem.Show<UIBackGroundPanel>();
             UISystem.Show<UIGameStartPanel>();
+            UISystem.Show<AchievementPopup>();
+            
+            AchievementSystem.UnLocked("窥探乐园");
         }
     }
 }
