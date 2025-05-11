@@ -1,7 +1,9 @@
-﻿using Achievement;
+﻿using System;
+using Achievement;
 using Factory;
 using Game.Data;
 using JKFrame;
+using UI.Main;
 
 // 游戏的主入口,需要跨场景的管理器在这里进行初始化
 namespace Game
@@ -36,6 +38,12 @@ namespace Game
             AchievementSystem = new();
             
             AchievementSystem.Init();
+        }
+
+        private void Start()
+        {
+            UISystem.Show<UIBackGroundPanel>();
+            UISystem.Show<UIGameStartPanel>();
         }
     }
 }

@@ -103,7 +103,9 @@ namespace UI.Main
         private void OnStartGameClick()
         {
             AudioSystem.PlayOneShot(confirmClip);
+            UISystem.Close<UIGameStartPanel>();
             SceneSystem.LoadScene("LevelChoose");
+            UISystem.Show<UILevelChoosePanel>();
         }
         
         private void OnLoadClick()

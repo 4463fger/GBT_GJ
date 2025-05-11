@@ -49,15 +49,6 @@ namespace UI.Main
                         gameObject.SetActive(false);
                     }
                 );
-            
-            m_CanvansGroup
-                .DOFade(0f, 0.5f)
-                .SetEase(Ease.InQuad)
-                .OnComplete(() =>
-                    {
-                        gameObject.SetActive(false);
-                    }
-                );
         }
     }
 }
