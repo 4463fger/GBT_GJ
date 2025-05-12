@@ -1,6 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using Common;
 using Game;
+using JKFrame;
+using Newtonsoft.Json;
+using UI.GameStart;
 using UnityEngine;
 
 namespace Achievement
@@ -8,39 +12,93 @@ namespace Achievement
     /// <summary>
     /// 成就系统
     /// </summary>
-    public class AchievementSystem
+    public class AchievementSystem : ISavable
     {
         private AchievementConfig _config;
-        private Dictionary<string, AchievementData> _achievementDict = new();
-        private List<AchievementRuntimeData> _runtimeData = new();
+        /// <summary>
+        /// 存储天赋的容器
+        /// Key :   天赋Id
+        /// Value : 是否解锁
+        /// </summary>
+        private Dictionary<string, bool> m_Achievement2SaveDict;
         
         private string SavePath => Path.Combine(Application.persistentDataPath, "achievement_save.json");
         
         public void Init()
         {
-            _achievementDict = new();
-            LoadAchievement();
-            // 加载成就进度
-            LoadProgress();
+            _config = GameApp.Instance.DataManager.ConfigData.LoadAchievementConfig();
+
+            LoadData();
         }
 
-        private void LoadAchievement()
+        public void SaveData()
         {
-            // 加载成就配置
-            _config = GameApp.Instance.DataManager.ConfigData.LoadAchievementConfig();
-            // config映射到AchievementData中
-            foreach (var data in _config.achievements)
+            string dataJson = JsonConvert.SerializeObject(m_Achievement2SaveDict,Formatting.Indented);
+            IOTool.SaveJson(dataJson,SavePath);
+        }
+
+        public void LoadData() 
+        {
+            // 没有成就存档，就写入默认数据
+            if (!File.Exists(SavePath))
             {
-                _achievementDict.Add(data.id,data);
+#if UNITY_EDITOR
+                JKLog.Warning("成就文件不存在，初始化");
+#endif
+                m_Achievement2SaveDict = new();
+                foreach (var t in _config.achievements)
+                {
+                    // 默认false 未解锁
+                    m_Achievement2SaveDict.Add(t.id,false);
+                }
+                // 序列化存储字典
+                SaveData();
+            }
+            else // 如果有,就读取
+            {
+                string loadJson = File.ReadAllText(SavePath);
+
+                m_Achievement2SaveDict = JsonConvert.DeserializeObject<Dictionary<string, bool>>(loadJson);
+#if UNITY_EDITOR
+                JKLog.Succeed("成就数据加载成功");
+#endif
             }
         }
-        
-        private void LoadProgress()
+
+        /// <summary>
+        /// 解锁成就
+        /// </summary>
+        /// <param name="displayName">成就名字</param>
+        public void UnLocked(string displayName)
         {
-            if (File.Exists(SavePath))
+            AchievementData achievementData = _config.achievements.Find(data => data.displayName == displayName);
+            if (m_Achievement2SaveDict.TryGetValue(achievementData.id , out bool isLocked))
             {
-                string json = File.ReadAllText(SavePath);
+                if (isLocked == true)
+                {
+                    return;
+                }
+                AchievementPopup item = UISystem.GetWindow<AchievementPopup>();
+                item.Initialize(achievementData.displayName, achievementData.icon);
+                //TODO:成就音效
+                item.ShowAnimation();
+                item._onComplete += () =>
+                {
+                    ResSystem.UnloadInstance(item.gameObject);
+                };
+                m_Achievement2SaveDict[achievementData.id] = true;
+                SaveData();
             }
+        }
+
+        public bool IsUnLocked(AchievementData achievementData)
+        {
+            return m_Achievement2SaveDict[achievementData.id];
+        }
+        
+        public bool IsUnLocked(UI_AchievementItem item)
+        {
+            return m_Achievement2SaveDict[item.Id];
         }
     }
 }

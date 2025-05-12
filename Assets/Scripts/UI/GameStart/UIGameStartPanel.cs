@@ -93,6 +93,7 @@ namespace UI.Main
         {
             //TODO:打开成就面板
             AudioSystem.PlayOneShot(confirmClip);
+            UISystem.Show<UI_AchievementPanel>();
         }
 
         #endregion
@@ -103,7 +104,9 @@ namespace UI.Main
         private void OnStartGameClick()
         {
             AudioSystem.PlayOneShot(confirmClip);
+            UISystem.Close<UIGameStartPanel>();
             SceneSystem.LoadScene("LevelChoose");
+            UISystem.Show<UILevelChoosePanel>();
         }
         
         private void OnLoadClick()

@@ -18,5 +18,8 @@ namespace Game
         public const string WaveCountChange = "WaveCountChange";
         public const string CoinTextChange = "CoinTextChange";
         public const string SetDescription = "SetDescription";
+        
+        // 成就相关
+        public const string Achievement2UIShow = "Achievement2UIShow";
     }
 }

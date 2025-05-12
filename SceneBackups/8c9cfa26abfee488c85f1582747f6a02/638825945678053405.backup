@@ -301,7 +301,6 @@ GameObject:
   - component: {fileID: 517938698}
   - component: {fileID: 517938699}
   - component: {fileID: 517938700}
-  - component: {fileID: 517938701}
   m_Layer: 0
   m_Name: GameRoot
   m_TagString: Untagged
@@ -351,19 +350,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   talentConfig: {fileID: 11400000, guid: 97d11fe88f1e96745a456eaa9c5ef657, type: 2}
   talentsPointIcon: {fileID: 218885942, guid: d7e30bd5abe00894094c860cfb07946b, type: 3}
---- !u!114 &517938701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 517938697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95e757d4a8f607d46b22d8a02a30f289, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  allTowerConfig: []
 --- !u!1001 &530255825
 PrefabInstance:
   m_ObjectHideFlags: 0

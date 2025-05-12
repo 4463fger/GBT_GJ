@@ -35,6 +35,8 @@ namespace UI.Main
             {
                 if (op == 1.0f)
                 {
+                    UISystem.Close<UIBackGroundPanel>();
+                    UISystem.Close<UILevelChoosePanel>();
                     UISystem.Show<FightUI>();
                     int level = int.Parse(sceneName.Replace("Level",""));
                     FightManager.Instance.InitFightManager(level);
@@ -45,7 +47,9 @@ namespace UI.Main
         private void OnReturnHomePageClick()
         {
             AudioSystem.PlayOneShot(confirmClip);
+            UISystem.Close<UILevelChoosePanel>();
             SceneSystem.LoadScene("GameStart");
+            UISystem.Show<UIGameStartPanel>();
         }
     }
 }

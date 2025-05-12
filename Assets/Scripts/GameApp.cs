@@ -1,7 +1,9 @@
-﻿using Achievement;
+﻿using System;
+using Achievement;
 using Factory;
 using Game.Data;
 using JKFrame;
+using UI.Main;
 
 // 游戏的主入口,需要跨场景的管理器在这里进行初始化
 namespace Game
@@ -12,6 +14,8 @@ namespace Game
         // 不需要跨场景的管理器在每个场景中手动添加即可
         public DataManager DataManager;
         public FactoryManager FactoryManager;
+
+        public AchievementSystem AchievementSystem;
         
         protected override void Awake()
         {
@@ -31,6 +35,18 @@ namespace Game
         {
             DataManager = new();
             FactoryManager = new();
+            AchievementSystem = new();
+            
+            AchievementSystem.Init();
+        }
+
+        private void Start()
+        {
+            UISystem.Show<UIBackGroundPanel>();
+            UISystem.Show<UIGameStartPanel>();
+            UISystem.Show<AchievementPopup>();
+            
+            AchievementSystem.UnLocked("窥探乐园");
         }
     }
 }

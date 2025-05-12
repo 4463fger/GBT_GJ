@@ -23,8 +23,20 @@ MonoBehaviour:
     m_SerializedLabels:
     - UI
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2624942bc5520b047b76a1c8ffca1d56
+    m_Address: AchievementItem
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2661dc388dd64214ba966ced3b8e40be
     m_Address: UIGameStartPanel
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2d3f0f85e1a5d8946858b652c9a1aba1
+    m_Address: UI_AchievementPanel
     m_ReadOnly: 0
     m_SerializedLabels:
     - UI
@@ -67,6 +79,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c85915d04d98b374ab5d48dce30555ad
     m_Address: UI_TalentTree
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db761bcf2d5dbdb41b85a35dac138b31
+    m_Address: AchievementPopup
     m_ReadOnly: 0
     m_SerializedLabels:
     - UI
