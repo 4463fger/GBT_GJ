@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Config;
 using Game;
 using JKFrame;
+using Managers;
+using UI;
 using UnityEngine;
 
 namespace Enemy
@@ -17,11 +20,13 @@ namespace Enemy
 
         private float m_WaitTime;
 
-        // 怪物总数
+        // 怪物总波数
         private int m_TotalCount = 0;
 
         // 波次总数
         private int WaveCount = 0;
+
+        public int EnemyCount { get; set;}
 
         // 怪物队列
         private Queue<EnemyWave> m_EnemyWavesQueue = new();
@@ -65,7 +70,7 @@ namespace Enemy
         {
             if (isFight == false)
                 return;
-            
+
             // 波次为null，并且还有怪,就切换到下一波
             if (m_currentWave == null)
             {
@@ -75,10 +80,23 @@ namespace Enemy
                     WaveCount++;
                     // 更新UI ： 
                     EventSystem.EventTrigger<float,float>(Defines.WaveCountChange,WaveCount,m_TotalCount);
+                    
                     m_currentWave = m_EnemyWavesQueue.Dequeue();
                     m_CurrentGenerateSeconds = 0;
                     m_CurrentWaveSeconds = 0;
                     m_WaitTime = 0;
+                }
+                else
+                {
+                    Debug.Log($"当前波次:{WaveCount} + 总波次波次:{m_TotalCount} + 怪物数量{EnemyCount}");
+                    if (WaveCount == m_TotalCount)
+                    {
+                        if (FightManager.Instance.EnemySpawnRoot.childCount == 0)
+                        {
+                            isFight = false;
+                            UISystem.Show<UI_SettlementPanel>();
+                        }
+                    }
                 }
             }
 
@@ -131,8 +149,12 @@ namespace Enemy
                             slime.transform.position = spawnPos.position;
                             slime.Init(_blockMessage.Road[m_currentWave.road],spawnPos);
                             break;
+                        default:
+                            // 没有类型了，游戏结束
+                            m_currentWave = null;
+                            return;
                     }
-                    
+
                     // 判断波次是否结束
                     if (m_CurrentWaveSeconds >= m_currentWave.seconds)
                     {

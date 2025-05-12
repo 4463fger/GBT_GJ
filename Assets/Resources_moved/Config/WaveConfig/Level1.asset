@@ -43,27 +43,6 @@ MonoBehaviour:
       GenerateDuration: 1.5
       EnemyType: 3
       seconds: 10
-  - Name: "\u7B2C\u4E8C\u6CE2"
-    Description: "10\u6EDA\u52A8\u54E5\u5E03\u6797"
-    Waves:
-    - PreWaveDelay: 5
-      Name: "\u6EDA\u52A8\u54E5\u5E03\u6797"
-      road: 1
-      GenerateDuration: 1
-      EnemyType: 4
-      seconds: 10
-    - PreWaveDelay: 1
-      Name: "\u6C34\u54E5\u5E03\u6797"
-      road: 1
-      GenerateDuration: 1
-      EnemyType: 5
-      seconds: 10
-    - PreWaveDelay: 1
-      Name: "\u7BB1\u5B50\u54E5\u5E03\u6797"
-      road: 1
-      GenerateDuration: 1
-      EnemyType: 6
-      seconds: 10
   towerConfigs:
   - {fileID: 11400000, guid: 44600fa2fcca2ba44bb0932092ad8575, type: 2}
   - {fileID: 11400000, guid: 750638cfee58356468ab9704bbded779, type: 2}

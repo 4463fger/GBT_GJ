@@ -9,30 +9,16 @@
   <component name="ChangeListManager">
     <list default="true" id="a5de7a06-7497-4cdd-98d4-c2ba087fc6cb" name="更改" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.吉比特GJ/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.吉比特GJ/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/UIPrefabs.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/UIPrefabs.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Arts/UI/Sprout Lands - UI Pack - Basic pack/fonts/fusion-pixel SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Arts/UI/Sprout Lands - UI Pack - Basic pack/fonts/fusion-pixel SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Config/TowerConfig/子弹塔.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources_moved/Config/TowerConfig/子弹塔.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Infinity Code/Ultimate Editor Enhancer Settings/References.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Infinity Code/Ultimate Editor Enhancer Settings/References.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Config/WaveConfig/Level1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources_moved/Config/WaveConfig/Level1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Prefabs/Enemy/史莱姆.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources_moved/Prefabs/Enemy/史莱姆.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Prefabs/Enemy/哥布林.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources_moved/Prefabs/Enemy/哥布林.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Prefabs/Enemy/小骷髅.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources_moved/Prefabs/Enemy/小骷髅.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Prefabs/Enemy/水哥布林.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources_moved/Prefabs/Enemy/水哥布林.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Prefabs/Enemy/滚动哥布林.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources_moved/Prefabs/Enemy/滚动哥布林.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Prefabs/Enemy/箱子哥布林.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources_moved/Prefabs/Enemy/箱子哥布林.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Prefabs/Tower/Bullet/Bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources_moved/Prefabs/Tower/Bullet/Bullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameStart.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameStart.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bullet/BulletBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bullet/BulletBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bullet/NormalBullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bullet/NormalBullet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factory/EnemyFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factory/EnemyFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Role/Enemy/Enemy/Boar.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Role/Enemy/Enemy/Boar.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Role/Enemy/Enemy/BoxGlobin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Role/Enemy/Enemy/BoxGlobin.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Role/Enemy/Enemy/Goblin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Role/Enemy/Enemy/Goblin.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Role/Enemy/Enemy/RollGoblin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Role/Enemy/Enemy/RollGoblin.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Role/Enemy/Enemy/Skeleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Role/Enemy/Enemy/Skeleton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Role/Enemy/Enemy/Slime.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Role/Enemy/Enemy/Slime.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Role/Enemy/Enemy/WaterGlobin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Role/Enemy/Enemy/WaterGlobin.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Prefabs/UI/UI_SettlementPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources_moved/Prefabs/UI/UI_SettlementPanel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Config/WaveConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Config/WaveConfig.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Role/Enemy/EnemyBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Role/Enemy/EnemyBase.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Role/Enemy/EnemyGenerate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Role/Enemy/EnemyGenerate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UI_SettlementPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UI_SettlementPanel.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,7 +231,7 @@
       <workItem from="1746874935043" duration="3470000" />
       <workItem from="1746965798245" duration="3232000" />
       <workItem from="1746978543284" duration="2467000" />
-      <workItem from="1747055596698" duration="4550000" />
+      <workItem from="1747055596698" duration="9403000" />
     </task>
     <task id="LOCAL-00001" summary="导入Dowteen和基本素材">
       <option name="closed" value="true" />

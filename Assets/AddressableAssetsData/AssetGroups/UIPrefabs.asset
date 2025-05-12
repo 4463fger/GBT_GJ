@@ -77,6 +77,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - UI
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf74a07d71c1b914da4c323a38e3bdaa
+    m_Address: UI_SettlementPanel
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c85915d04d98b374ab5d48dce30555ad
     m_Address: UI_TalentTree
     m_ReadOnly: 0

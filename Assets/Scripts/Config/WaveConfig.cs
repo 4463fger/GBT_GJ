@@ -26,13 +26,13 @@ namespace Config
     public class EnemyWave
     {
         [Tooltip("波次开始前等待时间（秒）")]
-        [Range(0, 60)]public float PreWaveDelay = 5f;
+        [Range(0, 60)]public float PreWaveDelay = 1f;
         
         public string Name;
         [Tooltip("走哪条路")]public int road = 1;
         public float GenerateDuration = 1;
         public EnemyType EnemyType;
-        public int seconds = 10; // 默认一波持续10s
+        public int seconds = 1; // 默认一波持续1s
     }
 #endregion
     

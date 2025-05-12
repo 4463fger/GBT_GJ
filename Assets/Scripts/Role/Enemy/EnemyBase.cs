@@ -91,7 +91,6 @@ namespace Enemy
                         position.y = startPos.y;
                         transform.position = position;
                     }
-                    Debug.Log("起始点坐标:"+startPos + "怪物坐标:" + transform.position);
                     isOnFirstPoint = false;
                 }
                 
