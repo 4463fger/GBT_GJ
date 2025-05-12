@@ -7,19 +7,15 @@ namespace Item.Bullet
     {
         protected float bulletSpeed=10f;
         private float rotateSpeed=200f;
+        private Vector3 direction;
         protected override void Shoot()
         {
-            // ���㳯��Ŀ��ķ���
-            Vector2 direction = (Vector2)enemyTarget.transform.position - (Vector2)gameObject.transform.position;
-            direction.Normalize();
-
-            // ƽ����ת����Ŀ��
-            float rotateStep = rotateSpeed * Time.deltaTime;
-            Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, direction);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotateStep);
-
-            // ��ǰ�ƶ������ڵ�ǰ����
-            transform.Translate(Vector3.up * (bulletSpeed * Time.deltaTime), Space.Self);
+            // 如果有目标敌人，则计算方向
+            if (enemyTarget != null)
+            {
+                direction = (enemyTarget.transform.position - transform.position).normalized;
+            }
+            transform.position += direction * bulletSpeed * Time.deltaTime;
 
         }
         protected override void Update() 
@@ -36,7 +32,7 @@ namespace Item.Bullet
                 damage.Hurt(bulletDamage);
                 enemyDamages.Add(damage);
                 //TODO:把子弹放入对象池
-                Destroy(this.gameObject);
+                DestroyBullet();
             }
         }
     }

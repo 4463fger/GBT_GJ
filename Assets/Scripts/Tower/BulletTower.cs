@@ -10,7 +10,11 @@ namespace Tower
     {
         protected override void Attack()
         {
+            animator.Play("Shoot");
             GameObject bullet = Instantiate(Bullet,transform.position,Quaternion.identity);
+            Vector3 targetPosition = getEnemyCollider()[collider2Ds.Length - 1].gameObject.transform.position;
+            Vector3 direction = (targetPosition - bullet.transform.position).normalized;
+            gameObject.transform.up = direction;
             bullet.GetComponent<BulletBase>().SetTarget(getEnemyCollider()[collider2Ds.Length - 1].gameObject);
             Vector3 dir= getEnemyCollider()[collider2Ds.Length - 1].gameObject.transform.position-bullet.transform.position;
             dir.Normalize();

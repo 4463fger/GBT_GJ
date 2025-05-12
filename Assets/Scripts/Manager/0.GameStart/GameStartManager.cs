@@ -1,5 +1,6 @@
 ﻿using System;
 using Achievement;
+using DG.Tweening;
 using Game;
 using JKFrame;
 using UI.Main;
@@ -23,7 +24,7 @@ namespace ManagerScene
         private void OnDestroy()
         {
             UISystem.Close<UIBackGroundPanel>();
-            UISystem.Close<UIGameStartPanel>();
+            //UISystem.Close<UIGameStartPanel>();
         }
     }
 }

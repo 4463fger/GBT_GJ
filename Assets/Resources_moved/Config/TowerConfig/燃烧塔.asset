@@ -15,6 +15,9 @@ MonoBehaviour:
   Coin: 4
   towerName: "\u71C3\u70E7\u5854"
   towerDescrption: "\u70E7\uFF0C\u592A\u70E7\u4E86"
-  towerSprite: {fileID: 0}
-  towerPreviewPrefab: {fileID: 0}
-  towerPrefab: {fileID: 0}
+  towerSprite: {fileID: 21300000, guid: 2698da8b00e692945a25899563adb830, type: 3}
+  towerPreviewPrefab: {fileID: 7674869488346330220, guid: 60b56722d0419a848bc9ad63c81aaa35, type: 3}
+  towerPrefab: {fileID: 4633641314257535209, guid: 0bbf05fe404e8724d9aee1a90b11c58e, type: 3}
+  attackRadius: 3
+  attackInterval: 1
+  attackDamage: 10

@@ -20,16 +20,16 @@ namespace Tower
         protected float gridLength=1; //砖块的大小，用于计算攻击距离
 
         [SerializeField] protected LayerMask enemyLayer; //敌人层
-
+        [SerializeField] protected Animator animator;
         [Header("塔的数据")] 
         
-        protected float attackRadius; //攻击半径
+        [SerializeField]protected float attackRadius; //攻击半径
 
-        protected float attackInterval; //攻击间隔
+        [SerializeField] protected float attackInterval; //攻击间隔
 
-        protected float attackDamage; //攻击伤害
+        [SerializeField]protected float attackDamage; //攻击伤害
 
-        protected float attackTimer; //攻击计时器
+         protected float attackTimer; //攻击计时器
 
         [SerializeField]protected GameObject Bullet; //塔的子弹
 

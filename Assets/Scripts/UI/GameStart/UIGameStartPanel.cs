@@ -1,4 +1,5 @@
-﻿using Game;
+﻿using DG.Tweening;
+using Game;
 using JKFrame;
 using UI.TalentTree;
 using UnityEngine;
@@ -139,7 +140,12 @@ namespace UI.Main
 #endif
             Application.Quit();
         }
-        
+
         #endregion
+
+        private void OnDestroy()
+        {
+            DOTween.KillAll();
+        }
     }
 }
