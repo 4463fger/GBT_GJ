@@ -10,7 +10,7 @@ namespace Item.Bullet
     /// </summary>
     public abstract class BulletBase : MonoBehaviour
     {
-        protected float bulletDamage;
+        [SerializeField]protected float bulletDamage;
         [SerializeField] protected float destroyTime;
         protected float destroyTimer;
         protected AudioClip hitClip;
@@ -32,7 +32,7 @@ namespace Item.Bullet
             destroyTimer -= Time.deltaTime;
             Shoot();
             if (destroyTimer <= 0||enemyTarget==null) DestroyBullet();
-            if (!enemyTarget.activeSelf)
+            if (!enemyTarget)
             {
                 DestroyBullet();
             }

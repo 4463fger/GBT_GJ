@@ -17,11 +17,5 @@ namespace Enemy
             base.Awake();
             isRight = false;
         }
-        protected override void Die()
-        {
-            isDie = true;
-            isInit = false;
-            this.GameObjectPushPool();
-        }
     }
 }

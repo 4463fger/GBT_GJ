@@ -20,4 +20,4 @@ MonoBehaviour:
   towerPrefab: {fileID: 2333287596738769074, guid: 921e79d98e69cfe44a7c186f69760ef2, type: 3}
   attackRadius: 3
   attackInterval: 1
-  attackDamage: 10
+  attackDamage: 100

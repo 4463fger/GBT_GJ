@@ -28,7 +28,7 @@ MonoBehaviour:
     - PreWaveDelay: 0.1
       Name: "\u53F2\u83B1\u59C6"
       road: 1
-      GenerateDuration: 1
+      GenerateDuration: 0.75
       EnemyType: 0
       seconds: 10
     - PreWaveDelay: 1

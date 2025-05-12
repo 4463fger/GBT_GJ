@@ -99,7 +99,6 @@ namespace Enemy
                 {
                     m_CurrentGenerateSeconds = 0;
 
-                    //TODO:生成怪物的一个小bug未修复
                     switch (m_currentWave.EnemyType)
                     {
                         case EnemyType.Goblin:
@@ -126,11 +125,6 @@ namespace Enemy
                             Skeleton skeleton = GameApp.Instance.FactoryManager.CreateEnemy<Skeleton>(m_currentWave.EnemyType);
                             skeleton.transform.position = spawnPos.position;
                             skeleton.Init(_blockMessage.Road[m_currentWave.road],spawnPos);
-                            break;
-                        case EnemyType.Boar:
-                            Boar boar = GameApp.Instance.FactoryManager.CreateEnemy<Boar>(m_currentWave.EnemyType);
-                            boar.transform.position = spawnPos.position;
-                            boar.Init(_blockMessage.Road[m_currentWave.road],spawnPos);
                             break;
                         case EnemyType.Slime:
                             Slime slime = GameApp.Instance.FactoryManager.CreateEnemy<Slime>(m_currentWave.EnemyType);

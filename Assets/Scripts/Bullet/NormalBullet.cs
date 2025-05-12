@@ -15,7 +15,7 @@ namespace Item.Bullet
             {
                 direction = (enemyTarget.transform.position - transform.position).normalized;
             }
-            transform.position += direction * bulletSpeed * Time.deltaTime;
+            transform.position += direction * (bulletSpeed * Time.deltaTime);
 
         }
         protected override void Update() 
@@ -28,7 +28,7 @@ namespace Item.Bullet
             if (collision.CompareTag("Enemy")) 
             {
                 // Hit();
-                IHurt damage = collision.gameObject.GetComponentInParent<IHurt>();
+                IHurt damage = collision.gameObject.GetComponent<IHurt>();
                 damage.Hurt(bulletDamage);
                 enemyDamages.Add(damage);
                 //TODO:把子弹放入对象池

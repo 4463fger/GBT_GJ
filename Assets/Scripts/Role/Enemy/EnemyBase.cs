@@ -1,7 +1,9 @@
 ﻿using DG.Tweening;
 using System.Collections.Generic;
+using JKFrame;
 using Managers;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace Enemy
 {
@@ -9,7 +11,6 @@ namespace Enemy
     {
         Slime,
         Goblin,
-        Boar,
         Skeleton,
         RollGlobin,
         WaterGlobin,
@@ -19,7 +20,7 @@ namespace Enemy
     public abstract class EnemyBase<T> : MonoBehaviour,IHurt where T : EnemyBase<T>
     {
         [SerializeField] protected float maxHp;
-        [SerializeField] protected float curHp;
+        protected float curHp;
         [SerializeField] protected float Speed;
         [SerializeField] protected float Attack;
 
@@ -27,15 +28,15 @@ namespace Enemy
         protected List<Vector2> pathQueue;
         protected bool isMoving; // 是否正在移动
 
-        protected bool isInit;
-
         protected bool isRight = true;
+        private bool isOnFirstPoint = true;
 
         public bool isDie { get; protected set; }
 
         protected virtual void Awake()
         {
             pathQueue = new();
+            curHp = maxHp;
         }
         
         /// <summary>
@@ -44,15 +45,10 @@ namespace Enemy
         /// <param name="LoadList">路径点</param>
         public void Init(List<Vector2> LoadList,Transform spawnPos)
         {
-            gameObject.transform.position = spawnPos.position;
-            
-            if (isInit == false)
-            {
-                isDie = false;
-                isInit = true;
-                transform.position = FightManager.Instance.EnemySpawnRoot.position;
-            }
+            isDie = false;
             pathQueue.Clear();
+            isOnFirstPoint = true;
+            
             // 将配置中的格子坐标转化为世界坐标并存为路径
             for (int i = 0; i < LoadList.Count; i++)
             {
@@ -81,8 +77,24 @@ namespace Enemy
                     isMoving = false;
                     return;
                 }
-                
                 isMoving = true;
+
+                if (isOnFirstPoint == true)
+                {
+                    Vector2 startPos = pathQueue[0];
+                    pathQueue.RemoveAt(0);
+
+                    if ((Vector2)transform.position != startPos)
+                    {
+                        var position = transform.position;
+                        position.x = startPos.x;
+                        position.y = startPos.y;
+                        transform.position = position;
+                    }
+                    Debug.Log("起始点坐标:"+startPos + "怪物坐标:" + transform.position);
+                    isOnFirstPoint = false;
+                }
+                
                 Vector2 targetPos = pathQueue[0];
                 pathQueue.RemoveAt(0);
                 
@@ -139,6 +151,13 @@ namespace Enemy
         }
         
         // 死亡
-        protected abstract void Die();
+        protected virtual void Die()
+        {
+            isDie = true;
+            transform.position = FightManager.Instance.EnemySpawnRoot.position;
+
+            Destroy(gameObject);
+            Addressables.ReleaseInstance(this.gameObject);
+        }
     }
 }
