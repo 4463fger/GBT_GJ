@@ -1,7 +1,10 @@
-﻿using DG.Tweening;
+﻿using System.Collections;
+using System.Linq;
+using DG.Tweening;
 using Game;
 using GameData;
 using JKFrame;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,6 +24,14 @@ namespace UI.Main
         [SerializeField] private Image[] MusicAudioIcons;
         [SerializeField] private Image[] EffectAudioIcons;
         
+        [Header("分辨率")]
+        [SerializeField] private TMP_Dropdown resolutionDropdown; // 分辨率下拉框
+        [SerializeField] private Toggle isFullScreen; // 是否全屏
+        private Resolution[] m_Resolutions;  // 可用分辨率列表
+        // 用户选择的分辨率索引
+        private int m_CurrentResolutionIndex  = 0;
+        private CanvasScaler m_CanvasScaler; // Canvas Scaler 组件（用于适配不同分辨率）
+        
         // 音量级别（0 - 10）
         private int _globalVolumeLevel = 5; // 初始值50%
         private int _musicVolumeLevel = 5;
@@ -29,6 +40,8 @@ namespace UI.Main
         private AudioClip cancelAudioClip;
         public void Init()
         {
+            m_CanvasScaler = JKFrameRoot.RootTransform.GetComponentInChildren<UISystem>().GetComponent<CanvasScaler>();
+            
             _settingDataCenter = GameApp.Instance.DataManager.SettingDataCenter;
             m_CanvansGroup = GetComponent<CanvasGroup>();
             m_CanvansGroup.alpha = 0;
@@ -67,7 +80,14 @@ namespace UI.Main
             
             // 返回按钮
             transform.Find("Btn_ExitSetting").GetComponent<Button>().onClick.AddListener(OnHide);
+            
+            resolutionDropdown.onValueChanged.AddListener(OnResolutionSelected);
+            isFullScreen.onValueChanged.AddListener(OnFullScreenToggleValueChanged);
+            
+            // 初始化分辨率
+            SetupResolutionDropdown();
         }
+
         public void OnShow()
         {
             m_CanvansGroup
@@ -203,6 +223,89 @@ namespace UI.Main
             _settingDataCenter.SaveSettingDataWithEffectVolume(value);
         }
 
+        #endregion
+
+        #region 分辨率设置
+
+        private void OnResolutionSelected(int value)
+        {
+            m_CurrentResolutionIndex = value;
+            ApplyResolution();
+        }
+
+        private void OnFullScreenToggleValueChanged(bool value)
+        {
+            Screen.fullScreen = value;
+            ApplyResolution(); // 重新应用分辨率
+        }
+        
+        private void SetupResolutionDropdown()
+        {
+            m_Resolutions = Screen.resolutions
+                .Where(r => r.width >= 1024 && r.height >= 768) // 过滤最小分辨率
+                .GroupBy(r => new { r.width, r.height }) // 按宽高分组
+                .Select(g => g.First()) // 取每组第一个
+                .ToArray();
+            
+            // 清空旧选项
+            resolutionDropdown.ClearOptions();
+            
+            // 生成选项列表
+            var options = m_Resolutions
+                .Select(r => $"{r.width}x{r.height}")
+                .ToList();
+            
+            resolutionDropdown.AddOptions(options);
+            
+            // 设置当前分辨率
+            // 读取分辨率
+
+            Resolution currentResolution = new Resolution {
+                width = _settingDataCenter._settingData.screenWidth,
+                height = _settingDataCenter._settingData.screenHeight};
+            SetCurrentResolution(currentResolution);
+        }
+
+        private void SetCurrentResolution(Resolution currentResolution)
+        {
+            m_CurrentResolutionIndex = m_Resolutions
+                .ToList()
+                .FindIndex(r =>
+                    r.width == currentResolution.width &&
+                    r.height == currentResolution.height);
+
+            if (m_CurrentResolutionIndex >= 0)
+            {
+                resolutionDropdown.value = m_CurrentResolutionIndex;
+                resolutionDropdown.RefreshShownValue();
+            }
+            
+            Screen.SetResolution(currentResolution.width,currentResolution.height,_settingDataCenter._settingData.isFullscreen);
+        }
+        
+        private void ApplyResolution()
+        {
+            
+            if (m_Resolutions.Length == 0) return;
+            
+            // 获取用户选择的分辨率
+            Resolution selectedRes = m_Resolutions[m_CurrentResolutionIndex];
+            // 应用分辨率
+            Screen.SetResolution(selectedRes.width,selectedRes.height,isFullScreen.isOn);
+            
+            _settingDataCenter.SaveResolutionSettings(
+                m_Resolutions[m_CurrentResolutionIndex], 
+                isFullScreen.isOn
+            );
+            
+            // 添加延迟刷新保证UI系统完成更新
+            Canvas.ForceUpdateCanvases();
+            
+            // 等待帧结束
+            m_CanvasScaler.enabled = false;
+            m_CanvasScaler.enabled = true;
+        }
+        
         #endregion
     }
 }

@@ -22,35 +22,21 @@ namespace GameData
         public float SFXVolume = 1f;
         
         // 分辨率
-        public int resolutionIndex = 0;        // 默认选第一个分辨率
-        public bool isFullscreen = true;       // 默认全屏
+        public int screenWidth = 1920;
+        public int screenHeight = 1080;    
+        public bool isFullscreen = true;
     }
     /// <summary>
     /// 游戏的全局设置: 音量音效
     /// </summary>
     public class SettingDataCenter
     {
-        public SettingData _settingData { get; private set; }
-
-        // 游戏支持的分辨率(这里给写死)
-        public readonly Resolution[] PresetResolutions = 
-        {
-            new Resolution { width = 1920, height = 1080 },
-            new Resolution { width = 1600, height = 900 },
-            new Resolution { width = 1366, height = 768 },
-            new Resolution { width = 1280, height = 720 }
-        };
+        public SettingData _settingData { get; private set; } = new();
 
         public SettingDataCenter()
         {
             LoadSettingData();
         }
-        
-        // 获取当前分辨率
-        // public Resolution LoadResolution()
-        // {
-        //     return PresetResolutions[resolutionIndex];
-        // }
         
         private void LoadSettingData()
         {
@@ -58,11 +44,9 @@ namespace GameData
             if (data == null)
             {
                 // 设置数据不存在 ，那就初始化一个然后存起来
-                _settingData = new(); 
                 JKFrame.SaveSystem.SaveSetting(_settingData);
             }
             _settingData = data;
-            
         }
 
         public void SaveSettingDataWithGlobalVolume(float GlobalVolume)
@@ -86,12 +70,13 @@ namespace GameData
             JKFrame.SaveSystem.SaveSetting(_settingData);
         }
         
-        // // 保存分辨率设置
-        // public void SaveResolutionSettings(int index, bool fullscreen)
-        // {
-        //     _settingData.resolutionIndex = Mathf.Clamp(index, 0, PresetResolutions.Length - 1);
-        //     isFullscreen = fullscreen;
-        //     JKFrame.SaveSystem.SaveSetting(this);
-        // }
+        // 保存分辨率设置
+        public void SaveResolutionSettings(Resolution resolution, bool fullscreen)
+        {
+            _settingData.screenWidth = resolution.width;
+            _settingData.screenHeight = resolution.height;
+            _settingData.isFullscreen = fullscreen;
+            JKFrame.SaveSystem.SaveSetting(_settingData);
+        }
     }
 }
